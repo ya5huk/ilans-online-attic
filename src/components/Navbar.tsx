@@ -30,37 +30,21 @@ const Navbar: React.FC = () => {
             style={{ filter: "invert(100%)" }}
           ></Image>
           <div className="flex items-center text-3xl gap-1">
-            <Link
-              style={{ color: "white", fontWeight: "normal" }}
-              className={linkClassname}
-              href="/about"
-            >
+            <Link className={linkClassname} href="/about">
               about
             </Link>
             <p className={interpunctClassname}>·</p>
-            <Link
-              style={{ color: "white", fontWeight: "normal" }}
-              className={linkClassname}
-              href="/pics"
-            >
+            <Link className={linkClassname} href="/pics">
               pic​tures
             </Link>
             <p className={interpunctClassname}>·</p>
 
-            <Link
-              style={{ color: "white", fontWeight: "normal" }}
-              className={linkClassname}
-              href="/projects"
-            >
+            <Link className={linkClassname} href="/projects">
               projects
             </Link>
             <p className={interpunctClassname}>·</p>
 
-            <Link
-              style={{ color: "white", fontWeight: "normal" }}
-              className={linkClassname}
-              href="/yap"
-            >
+            <Link className={linkClassname} href="/yap">
               yap
             </Link>
           </div>

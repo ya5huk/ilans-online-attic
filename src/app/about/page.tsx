@@ -8,6 +8,8 @@ const AboutPage: React.FC = () => {
   const diffTime = currDate.getTime() - birthDate.getTime();
   const myAge = Math.floor(diffTime / (1000 * 60 * 60 * 24 * 365.25));
 
+  const linkClassname = "text-[var(--secondary)] font-bold underline";
+
   return (
     <div>
       <HeaderText>A·bout</HeaderText>
@@ -41,7 +43,11 @@ const AboutPage: React.FC = () => {
       <SubheaderText>Projects</SubheaderText>
       <p>
         I've done a lot in the past years. Vids, websites, apps & mode. You can
-        read about it in <Link href="/projects">here</Link>.
+        read about it in{" "}
+        <Link href="/projects" className={linkClassname}>
+          here
+        </Link>
+        .
       </p>
       <SubheaderText>Education</SubheaderText>
       <p>
@@ -85,7 +91,10 @@ const AboutPage: React.FC = () => {
         To summarize, I gave sports my all while I was in middle to high school.
         I was a good student and well socialized so balancing everything was my
         biggest life lesson. I also gave Israel's track & field the site{" "}
-        <Link href="https://visuathlete.com">visuathlete.com</Link>.
+        <Link href="https://visuathlete.com" className={linkClassname}>
+          visuathlete.com
+        </Link>
+        .
       </p>
       <p>
         My dreams and aspirations were bigger than what I've accomplished. I was

@@ -54,10 +54,6 @@ p {
   @apply text-xl/8 py-2;
 }
 
-a {
-  @apply text-[var(--secondary)] font-bold;
-}
-
 ul {
   @apply list-disc list-inside pl-4;
 }
