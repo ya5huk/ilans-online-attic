@@ -1,0 +1,49 @@
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap");
+@import "tailwindcss";
+
+:root {
+  --bg: #fefded;
+  --secondary: #3e0703;
+  --third: #660b05;
+}
+
+.font-eb-garamond {
+  font-family: "EB Garamond", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.font-dm-serif {
+  font-family: "DM Serif Text", serif;
+  font-style: normal;
+}
+
+.font-rubik {
+  font-family: "Rubik", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.font-roboto {
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+html {
+  background-color: var(--bg);
+}
+
+p {
+  @apply text-xl/8 py-2;
+}
+
+a {
+  @apply text-[var(--secondary)] font-bold;
+}
+
+ul {
+  @apply list-disc list-inside pl-4;
+}
