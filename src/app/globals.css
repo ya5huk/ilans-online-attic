@@ -57,3 +57,69 @@ p {
 ul {
   @apply list-disc list-inside pl-4;
 }
+
+/* Prose styling for blog content */
+.prose {
+  color: #374151;
+  line-height: 1.75;
+}
+
+.prose h1 {
+  @apply text-4xl font-bold mb-6 mt-8;
+}
+
+.prose h2 {
+  @apply text-3xl font-bold mb-4 mt-6;
+}
+
+.prose h3 {
+  @apply text-2xl font-bold mb-3 mt-5;
+}
+
+.prose p {
+  @apply mb-4 text-lg leading-relaxed;
+}
+
+.prose ul,
+.prose ol {
+  @apply mb-4 ml-6;
+}
+
+.prose li {
+  @apply mb-2;
+}
+
+.prose a {
+  @apply text-blue-600 hover:underline;
+}
+
+.prose img {
+  @apply rounded-lg shadow-sm my-6 mx-auto;
+}
+
+.prose blockquote {
+  @apply border-l-4 border-gray-300 pl-4 italic my-6;
+}
+
+.prose code {
+  @apply bg-gray-100 px-2 py-1 rounded text-sm;
+}
+
+.prose pre {
+  @apply bg-gray-100 p-4 rounded-lg overflow-x-auto my-6;
+}
+
+/* RTL support for Hebrew content */
+.prose-right {
+  direction: rtl;
+  text-align: right;
+}
+
+.prose-right ul,
+.prose-right ol {
+  @apply mr-6 ml-0;
+}
+
+.prose-right blockquote {
+  @apply border-r-4 border-l-0 pr-4 pl-0;
+}
