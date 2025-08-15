@@ -16,6 +16,7 @@ const Footer: React.FC = () => {
             alt="Mail"
             width={45}
             height={45}
+            style={{ filter: "invert(100%)" }}
           />
         </Link>
         <Link href="https://www.instagram.com/ilan_yashuk/">
@@ -25,6 +26,7 @@ const Footer: React.FC = () => {
             alt="Instagram"
             width={35}
             height={35}
+            style={{ filter: "invert(100%)" }}
           />
         </Link>
         <Link href="https://www.linkedin.com/in/ilan-yashuk/">
@@ -34,6 +36,7 @@ const Footer: React.FC = () => {
             alt="LinkedIn"
             width={35}
             height={35}
+            style={{ filter: "invert(100%)" }}
           />
         </Link>
       </div>

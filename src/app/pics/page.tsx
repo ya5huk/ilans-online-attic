@@ -1,4 +1,5 @@
 import PicCard from "@/components/card/PicCard";
+import HeaderText from "@/components/text/HeaderText";
 
 const PicsPage: React.FC = () => {
   interface PicInfo {
@@ -112,16 +113,19 @@ const PicsPage: React.FC = () => {
   ];
 
   return (
-    <div className="font-dm-serif">
-      {picsInfo.map((p, index) => (
-        <PicCard
-          title={p.title}
-          imagesrc={p.image}
-          desc={p.description}
-          date={p.date}
-          key={index}
-        />
-      ))}
+    <div>
+      <HeaderText>Pic·​tures</HeaderText>
+      <div className="font-dm-serif">
+        {picsInfo.map((p, index) => (
+          <PicCard
+            title={p.title}
+            imagesrc={p.image}
+            desc={p.description}
+            date={p.date}
+            key={index}
+          />
+        ))}
+      </div>
     </div>
   );
 };
