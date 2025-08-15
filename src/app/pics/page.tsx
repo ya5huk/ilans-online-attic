@@ -10,6 +10,36 @@ const PicsPage: React.FC = () => {
 
   const picsInfo: PicInfo[] = [
     {
+      title: "Longest ride I've done thus far",
+      description: `From Beersheba to around Beit Shaan. That was a stretch! (around 3hrs) Seeing people live so far from the center, (aka in sort of a bubble) is an interesting experience. At the end, as a Beersheba citizen, I thought I live far away from the center - But those guys... Lemme tell you.`,
+      image: "/me/gilboa-views.jpg",
+      date: "Aug 9th, 2025",
+    },
+    {
+      title: "Highest drop I can remember",
+      description: `First time that jumping to the other side felt so... high. We climbed on a fence to get to Palmachim Beach. There was a free enterance but you know... For the lore. And the fence was prettttyy high! Just had to send it and hope for the best! (it was aight)`,
+      image: "/me/climbing-on-a-fence-palmahim.jpg",
+      date: "June 28th, 2025",
+    },
+    {
+      title: "Riding to a party. With a bicycle. Via highway.",
+      description: `Not Oded's and mine smartest decision, but a time worth remembering. Amazing experience. Right before the blazing Israel summer came.`,
+      image: "/me/bicycle-to-the-party.jpg",
+      date: "May 16th, 2025",
+    },
+    {
+      title: "Kinneret, a season later",
+      description: `If you'll scroll a bit more you'll see a photo of me with the Kinneret in the bg taken in the WINTER. Now it is SPRING. Different place, same water that everyone is afraid to swim in.`,
+      image: "/me/taking-a-look-on-a-pole.jpg",
+      date: "Apr 16th, 2025",
+    },
+    {
+      title: "Out in Megido Forest",
+      description: `In times when you're home only for the weekend, the weekend is sacred. There are times when you are home for the weekend, but you don't spend it at home. You spend it at Megido Forest looking at views you didn't know existed in Israel. We started the trip at night, searching for a place to sleep in the dark forest. Amazing journey. Good timing (season-wise)`,
+      image: "/me/high-grass-me.jpg",
+      date: "Mar 28th, 2025",
+    },
+    {
       title: "Grass in Beersheba!",
       description: `You see, a normal person would think I am pointing to the sunset. Well, it is just a sunset isn't it? The grass though...`,
       image: "/me/grass-in-bs.JPG",

@@ -32,6 +32,20 @@
   font-style: normal;
 }
 
+/* Default font */
+.font-default {
+  font-family: var(
+    --default-font-family,
+    ui-sans-serif,
+    system-ui,
+    sans-serif,
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol",
+    "Noto Color Emoji"
+  );
+}
+
 html {
   background-color: var(--bg);
 }
