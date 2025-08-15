@@ -9,7 +9,7 @@ const PicCard: React.FC<{
 }> = ({ title, imagesrc, desc, date }) => {
   return (
     <div className="flex flex-col justify-center border-b-4 border-[var(--third)]">
-      <h3 className="text-3xl">{title}</h3>
+      <h3 className="text-3xl mt-2">{title}</h3>
       <p className="font-default" style={{}}>
         {desc}
       </p>
