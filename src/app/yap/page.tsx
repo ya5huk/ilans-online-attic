@@ -9,6 +9,7 @@ const YapPage: React.FC = async () => {
   return (
     <div className="max-w-4xl mx-auto p-6">
       <HeaderText>Web·log</HeaderText>
+      <p>English & Hebrew</p>
       <BlogList posts={posts} />
     </div>
   );

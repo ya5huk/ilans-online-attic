@@ -4,7 +4,9 @@ import Image from "next/image";
 
 const Navbar: React.FC = () => {
   const linkClassname =
-    "px-2 py-1 transition-colors duration-100 hover:bg-[var(--third)] hover:underline rounded";
+    "md:text-3xl px-2 py-1 transition-colors duration-100 hover:bg-[var(--third)] hover:underline rounded";
+  const imageClassname =
+    "md:hidden invert mx-2 hover:scale-110 transition-transform duration-200";
   const interpunctClassname = "select-none";
 
   return (
@@ -24,29 +26,63 @@ const Navbar: React.FC = () => {
           <Image
             src="/signature/2.png"
             alt="My Signature"
-            width={150}
-            height={60}
-            className="invert"
+            width={1000}
+            height={1000}
+            className="invert h-18 w-24 md:h-24 md:w-32"
             style={{ filter: "invert(100%)" }}
           ></Image>
-          <div className="flex items-center text-3xl gap-1">
-            <Link className={linkClassname} href="/about">
-              about
+          <div className="flex items-center  gap-1">
+            <Link href="/about">
+              {/* For large screens - show text */}
+              <span className={`hidden md:block ${linkClassname}`}>about</span>
+              {/* For mobile - show icon */}
+              <Image
+                className={imageClassname}
+                src="/ui/user.png"
+                alt="About"
+                width={20}
+                height={20}
+              />
             </Link>
             <p className={interpunctClassname}>·</p>
-            <Link className={linkClassname} href="/pics">
-              pic​tures
+            <Link href="/pics">
+              <span className={`hidden md:block ${linkClassname}`}>
+                pic​tures
+              </span>
+              <Image
+                className={imageClassname}
+                src="/ui/picture-icon.png"
+                alt="Pictures"
+                width={20}
+                height={20}
+              />
             </Link>
             <p className={interpunctClassname}>·</p>
 
-            <Link className={linkClassname} href="/projects">
-              projects
+            <Link href="/projects">
+              <span className={`hidden md:block ${linkClassname}`}>
+                projects
+              </span>
+              <Image
+                className={imageClassname}
+                src="/ui/hammer.png"
+                alt="Projects"
+                width={20}
+                height={20}
+              />
             </Link>
             <p className={interpunctClassname}>·</p>
 
-            <Link className={linkClassname} href="/yap">
-              yap
+            <Link href="/yap">
+              <span className={`hidden md:block ${linkClassname}`}>yap</span>
             </Link>
+            <Image
+              className={imageClassname}
+              src="/ui/newspaper.png"
+              alt="Blog"
+              width={20}
+              height={20}
+            />
           </div>
         </div>
       </div>

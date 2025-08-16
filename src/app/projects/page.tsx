@@ -49,17 +49,17 @@ const ProjectsPage: React.FC = () => {
   ];
 
   return (
-    <div className="max-w-4xl mx-auto p-6">
+    <div className="mx-auto">
       <HeaderText>Proj·ects</HeaderText>
 
       <div className="relative mt-8">
         {/* Timeline line */}
-        <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gray-300"></div>
+        <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-[var(--third)]"></div>
 
         {projects.map((project, index) => (
-          <div key={index} className="relative mb-12 ml-16">
+          <div key={index} className="relative mb-12 ml-4">
             {/* Timeline dot */}
-            <div className="absolute -left-[44px] top-1 w-3 h-3 bg-gray-600 rounded-full border-2 border-white shadow"></div>
+            <div className="absolute -left-[21px] top-1 w-3 h-3 bg-[var(--secondary)] rounded-full border-2 border-white shadow"></div>
 
             {/* Project card */}
             <div>
@@ -70,7 +70,7 @@ const ProjectsPage: React.FC = () => {
                 </h3>
               </div>
               <img
-                className="w-full rounded-lg border-4 border-[var(--third)]"
+                className="w-full image-shadow"
                 src={project.image}
                 alt={project.title}
               />
@@ -85,7 +85,7 @@ const ProjectsPage: React.FC = () => {
               {project.link && (
                 <Link
                   href={`https://${project.link}` || ""}
-                  className="px-4 py-2 border-2 border-[var(--third)] font-medium rounded hover:bg-[var(--secondary)] hover:text-white transition-colors"
+                  className="link-button"
                 >
                   {project.link}
                 </Link>

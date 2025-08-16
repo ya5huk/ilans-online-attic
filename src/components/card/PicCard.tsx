@@ -13,7 +13,7 @@ const PicCard: React.FC<{
       <p className="font-default" style={{}}>
         {desc}
       </p>
-      <img src={imagesrc} alt={desc} className="w-full h-auto" />
+      <img src={imagesrc} alt={desc} className="w-full h-auto image-shadow" />
       <p className="text-right">{date}</p>
     </div>
   );

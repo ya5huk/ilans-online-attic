@@ -36,9 +36,10 @@ export async function getAllPosts(): Promise<BlogPost[]> {
 
         const contentHtml = processedContent.toString();
 
-        // Create excerpt (first 200 characters of content without HTML)
+        // Create excerpt 
+        const maxCharAmount = 150
         const plainContent = matterResult.content.replace(/[#*`\[\]]/g, '').trim();
-        const excerpt = plainContent.slice(0, 200) + (plainContent.length > 200 ? '...' : '');
+        const excerpt = plainContent.slice(0, maxCharAmount) + (plainContent.length > maxCharAmount ? '...' : '');
 
         return {
           slug,
@@ -65,7 +66,7 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
     // Process markdown to HTML
     const processedContent = await remark()
       .use(remarkGfm)
-      .use(html)
+      .use(html, { sanitize: false })
       .process(matterResult.content);
 
     const contentHtml = processedContent.toString();
