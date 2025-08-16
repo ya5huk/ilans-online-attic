@@ -50,10 +50,6 @@ html {
   background-color: var(--bg);
 }
 
-p {
-  @apply text-xl/8 py-2;
-}
-
 ul {
   @apply list-disc list-inside pl-4;
 }
@@ -90,11 +86,16 @@ ul {
 
 .prose ul,
 .prose ol {
-  @apply mb-4 ml-6;
+  @apply list-disc list-inside pl-4 py-2;
 }
 
 .prose li {
-  @apply text-lg mb-2;
+  @apply text-lg;
+}
+
+.prose li > p {
+  display: inline;
+  @apply pt-2;
 }
 
 .prose a {
@@ -121,11 +122,6 @@ ul {
 .prose-right {
   direction: rtl;
   text-align: right;
-}
-
-.prose-right ul,
-.prose-right ol {
-  @apply mr-6 ml-0;
 }
 
 .prose-right blockquote {

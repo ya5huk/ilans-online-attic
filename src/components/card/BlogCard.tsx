@@ -8,7 +8,10 @@ interface BlogCardProps {
 const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
   return (
     <Link href={`/yap/${post.slug}`}>
-      <div className={`py-4 cursor-pointer`} dir="auto">
+      <div
+        className="md:px-1 md:py-4 py-2 cursor-pointer hover:bg-[var(--third)] hover:text-white"
+        dir="auto"
+      >
         <div className="flex flex-col sm:flex-row gap-4">
           <div className="flex-1">
             <h2 className={`text-2xl font-bold`}>{post.title}</h2>
