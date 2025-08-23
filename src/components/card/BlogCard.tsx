@@ -9,7 +9,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
   return (
     <Link href={`/yap/${post.slug}`}>
       <div
-        className="md:px-2 md:py-4 py-2 rounded cursor-pointer hover:bg-[var(--third)] hover:text-white"
+        className="md:px-2 md:py-4 py-2 md:rounded cursor-pointer md:hover:bg-[var(--third)] md:hover:text-white"
         dir="auto"
       >
         <div className="flex flex-col sm:flex-row gap-4">

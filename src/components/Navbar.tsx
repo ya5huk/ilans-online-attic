@@ -1,16 +1,34 @@
+"use client";
+
 import Link from "next/link";
 import HeaderText from "./text/HeaderText";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 const Navbar: React.FC = () => {
-  const linkClassname =
-    "md:text-3xl px-2 py-1 transition-colors duration-100 hover:bg-[var(--third)] hover:underline rounded";
+  const pathname = usePathname();
+  // > / | about | pics | projects | yap
+
+  const getLinkClassname = (path: string): string => {
+    const isActive = pathname === path;
+
+    let classname =
+      "md:text-3xl px-2 py-1 transition-colors duration-100 rounded text-lg";
+    classname += " ";
+    classname += !isActive
+      ? "text-[var(--third)] hover:underline hover:bg-[var(--bg)]"
+      : "text-[var(--bg)]";
+
+    return classname;
+  };
+
   const imageClassname =
     "md:hidden invert mx-2 hover:scale-110 transition-transform duration-200";
-  const interpunctClassname = "select-none";
+  const seperatorClassname =
+    "hidden md:block select-none font-bold text-[var(--third)]";
 
   return (
-    <div className="text-white w-full bg-[var(--secondary)] p-4 border-b-8 border-[var(--third)] font-dm-serif">
+    <div className="w-full bg-[var(--secondary)] p-4 border-b-8 border-[var(--third)] font-dm-serif">
       <div className="max-w-3xl mx-auto flex items-center gap-2 justify-between py-2">
         <div className="flex items-center gap-4">
           {/* <Image
@@ -28,61 +46,30 @@ const Navbar: React.FC = () => {
             alt="My Signature"
             width={1000}
             height={1000}
-            className="invert h-18 w-24 md:h-24 md:w-32"
+            className="invert h-18 w-24 "
             style={{ filter: "invert(100%)" }}
           ></Image>
-          <div className="flex items-center  gap-1">
-            <Link href="/about">
+          <div className="flex flex-col md:flex-row items-center md:gap-1">
+            <Link href="/">
               {/* For large screens - show text */}
-              <span className={`hidden md:block ${linkClassname}`}>about</span>
-              {/* For mobile - show icon */}
-              <Image
-                className={imageClassname}
-                src="/ui/user.png"
-                alt="About"
-                width={20}
-                height={20}
-              />
+              <span className={`${getLinkClassname("/")}`}>about</span>
             </Link>
-            <p className={interpunctClassname}>·</p>
+            <p className={seperatorClassname}>|</p>
             <Link href="/pics">
-              <span className={`hidden md:block ${linkClassname}`}>
-                pic​tures
-              </span>
-              <Image
-                className={imageClassname}
-                src="/ui/picture-icon.png"
-                alt="Pictures"
-                width={20}
-                height={20}
-              />
+              <span className={`${getLinkClassname("/pics")}`}>pic​tures</span>
             </Link>
-            <p className={interpunctClassname}>·</p>
+            <p className={seperatorClassname}>|</p>
 
             <Link href="/projects">
-              <span className={`hidden md:block ${linkClassname}`}>
+              <span className={`${getLinkClassname("/projects")}`}>
                 projects
               </span>
-              <Image
-                className={imageClassname}
-                src="/ui/hammer.png"
-                alt="Projects"
-                width={20}
-                height={20}
-              />
             </Link>
-            <p className={interpunctClassname}>·</p>
+            <p className={seperatorClassname}>|</p>
 
             <Link href="/yap">
-              <span className={`hidden md:block ${linkClassname}`}>yap</span>
+              <span className={`${getLinkClassname("/yap")}`}>yap</span>
             </Link>
-            <Image
-              className={imageClassname}
-              src="/ui/newspaper.png"
-              alt="Blog"
-              width={20}
-              height={20}
-            />
           </div>
         </div>
       </div>
