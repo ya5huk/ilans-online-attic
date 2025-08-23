@@ -103,7 +103,7 @@ ul {
 }
 
 .prose img {
-  @apply h-96 shadow-[4px_4px_0px_var(--third)] my-6 mx-auto;
+  @apply md:max-h-[480px] shadow-[4px_4px_0px_var(--third)] my-6 mx-auto;
 }
 
 .prose blockquote {

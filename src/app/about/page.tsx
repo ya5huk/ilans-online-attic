@@ -40,15 +40,7 @@ const AboutPage: React.FC = () => {
           through a written goal with a pencil. Happines is the list.
         </p>
       </div>
-      <SubheaderText>Projects</SubheaderText>
-      <p>
-        I've done a lot in the past years. Vids, websites, apps & mode. You can
-        read about it in{" "}
-        <Link href="/projects" className={linkClassname}>
-          here
-        </Link>
-        .
-      </p>
+
       <SubheaderText>Education</SubheaderText>
       <p>
         <span className="font-bold">Highschool</span>: Very high grades on
@@ -112,6 +104,15 @@ const AboutPage: React.FC = () => {
       <p>
         I still hope to be on the biggest of stages. Sports, Startups,
         Innovation. Something will bring me there.
+      </p>
+      <SubheaderText>Projects</SubheaderText>
+      <p>
+        I've done a lot in the past years. Vids, websites, apps & mode. You can
+        read about it in{" "}
+        <Link href="/projects" className={linkClassname}>
+          here
+        </Link>
+        .
       </p>
     </div>
   );

@@ -8,13 +8,11 @@ const PicCard: React.FC<{
   date: string;
 }> = ({ title, imagesrc, desc, date }) => {
   return (
-    <div className="flex flex-col justify-center border-b-4 border-[var(--third)]">
-      <h3 className="text-3xl mt-2">{title}</h3>
-      <p className="font-default" style={{}}>
-        {desc}
-      </p>
+    <div className="flex flex-col justify-center border-b-4 border-[var(--third)] space-y-3">
+      <h3 className="font-dm-serif text-3xl mt-2">{title}</h3>
+      <p>{desc}</p>
       <img src={imagesrc} alt={desc} className="w-full h-auto image-shadow" />
-      <p className="text-right">{date}</p>
+      <p className="italic text-right mb-2">{date}</p>
     </div>
   );
 };

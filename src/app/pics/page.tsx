@@ -20,10 +20,10 @@ const PicsPage: React.FC = () => {
       title: "Highest drop I can remember",
       description: `First time that jumping to the other side felt so... high. We climbed on a fence to get to Palmachim Beach. There was a free enterance but you know... For the lore. And the fence was prettttyy high! Just had to send it and hope for the best! (it was aight)`,
       image: "/me/climbing-on-a-fence-palmahim.jpg",
-      date: "June 28th, 2025",
+      date: "Jun 28th, 2025",
     },
     {
-      title: "Riding to a party. With a bicycle. Via highway.",
+      title: "Riding to a party. With a bicycle. Onna highway.",
       description: `Not Oded's and mine smartest decision, but a time worth remembering. Amazing experience. Right before the blazing Israel summer came.`,
       image: "/me/bicycle-to-the-party.jpg",
       date: "May 16th, 2025",
@@ -90,7 +90,7 @@ const PicsPage: React.FC = () => {
       description:
         "I said that to my brother walking near the Russian embassy in London on Oct 4th, 2023. What a cruel, ironic thing to say.",
       image: "/me/russian-embassy-london.JPG",
-      date: "October 4th, 2023",
+      date: "Oct 4th, 2023",
     },
     {
       title: "The start of my first big project - Visuathlete.",
@@ -108,14 +108,14 @@ const PicsPage: React.FC = () => {
       title: "ITS THE PROM BABYYY!",
       description: `I was not a school fan. Starting from around 11th grade I felt like it was way too potential limiting and that I could learn and do so much more than just sit most of my day. I was happy school ended.`,
       image: "/me/prom.webp",
-      date: "July 6th, 2022",
+      date: "Jul 6th, 2022",
     },
   ];
 
   return (
     <div>
       <HeaderText>Pic·​tures</HeaderText>
-      <div className="font-dm-serif">
+      <div>
         {picsInfo.map((p, index) => (
           <PicCard
             title={p.title}

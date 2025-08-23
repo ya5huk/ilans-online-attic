@@ -75,7 +75,7 @@ const ProjectsPage: React.FC = () => {
                 alt={project.title}
               />
 
-              <p className=" leading-relaxed">{project.description}</p>
+              <p className="mt-4 leading-relaxed">{project.description}</p>
 
               <div className="mb-4">
                 <span className="font-semibold">Tools used: </span>

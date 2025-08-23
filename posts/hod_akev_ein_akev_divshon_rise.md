@@ -7,6 +7,7 @@ date: "09/20/2024"
 
 [If you don’t want to read the whole thing, and want just the pictures, you can see this instagram post.](https://www.instagram.com/p/C_3WIGyIXxA/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA%3D%3D)
 
+<br/>
 After a 45-minute car ride from Beersheba, my friend & I arrived to Midreshet Ben-Gurion, the place where Israel’s primary national founder, David Ben-Gurion and his wife are buried. It was 7:30 AM. The earlier we would start walking, the better (That day the temperature peaked at 33°C, 91.4°F). About 16–20 kilometers awaited us (which are about 7:30 hours of walking including breaks).
 
 Right at the start there is a pretty big decline. You could choose to walk on road or off-road. Off-road was faster and we wanted to start the trail ASAP.

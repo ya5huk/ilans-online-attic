@@ -1,5 +1,5 @@
 ---
-title: פרספקטיבות על זמן.
+title: פרספקטיבות על זמן
 image: "/blog-images/lost-in-movement.jpg"
 lang: "he_IL"
 date: "01/08/2025"

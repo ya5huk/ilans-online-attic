@@ -1,12 +1,13 @@
 ---
-title: 'Firestore Database: Cheat Sheet (Python)'
-image: '/blog-images/firestore-cheatsheet.webp'
-lang: 'en_US'
-date: '06/30/2024'
+title: "Firestore Database: Cheat Sheet (Python)"
+image: "/blog-images/firestore-cheatsheet.webp"
+lang: "en_US"
+date: "06/30/2024"
 ---
+
 The quickest way to get started with Google’s Firestore Database using Python.
 
-First, authentication. At the top-left, click on the settings icon (Gear wheel) near “Project Overview”. Click on the top option -> “Project Settings”. Click on “Service accounts”, select python and click on “Generate new private key”. This will trigger a json file to be downloaded. In my example, I call it *“secret.json”*.
+First, authentication. At the top-left, click on the settings icon (Gear wheel) near “Project Overview”. Click on the top option -> “Project Settings”. Click on “Service accounts”, select python and click on “Generate new private key”. This will trigger a json file to be downloaded. In my example, I call it _“secret.json”_.
 
 **SAVE** the file and remember its path, it’s essential in order to authenticate with Firestore.
 
@@ -81,13 +82,13 @@ query = col.where(filter=FieldFilter("family_members","array_contains","Josh"))
 docs = query.stream()
 for doc in docs:
   print(doc.id, '->', doc.to_dict())
-  ```
+```
 
 ## Reading: Query Operators
 
 As written in [firebase docs](https://firebase.google.com/docs/firestore/query-data/queries#query_operators):
 
-*The where() method takes three parameters: a field to filter on, a comparison operator, and a value.*
+_The where() method takes three parameters: a field to filter on, a comparison operator, and a value._
 
 - < less than
 
@@ -95,9 +96,9 @@ As written in [firebase docs](https://firebase.google.com/docs/firestore/query-d
 
 - == equal to
 
-- > greater than
- 
-- >= greater than or equal to
+- \> greater than
+
+- \>= greater than or equal to
 
 - != not equal to
 
@@ -126,7 +127,7 @@ doc = query.get()[0] # get is another way of reading, just like stream()
 col.document(doc.id).update({
   "name": "Daniel",
   "age": 20,
-   
+
 })
 
 # Delete a field
@@ -171,4 +172,3 @@ col.document("some_id").set{
   # ...
 })
 ```
-
