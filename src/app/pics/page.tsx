@@ -13,37 +13,37 @@ const PicsPage: React.FC = () => {
     {
       title: "Longest ride I've done thus far",
       description: `From Beersheba to around Beit Shaan. That was a stretch! (around 3hrs) Seeing people live so far from the center, (aka in sort of a bubble) is an interesting experience. At the end, as a Beersheba citizen, I thought I live far away from the center - But those guys... Lemme tell you.`,
-      image: "/me/gilboa-views.jpg",
+      image: "/me/gilboa-views.webp",
       date: "Aug 9th, 2025",
     },
     {
       title: "Highest drop I can remember",
       description: `First time that jumping to the other side felt so... high. We climbed on a fence to get to Palmachim Beach. There was a free enterance but you know... For the lore. And the fence was prettttyy high! Just had to send it and hope for the best! (it was aight)`,
-      image: "/me/climbing-on-a-fence-palmahim.jpg",
+      image: "/me/climbing-on-a-fence-palmahim.webp",
       date: "Jun 28th, 2025",
     },
     {
       title: "Riding to a party. With a bicycle. Onna highway.",
       description: `Not Oded's and mine smartest decision, but a time worth remembering. Amazing experience. Right before the blazing Israel summer came.`,
-      image: "/me/bicycle-to-the-party.jpg",
+      image: "/me/bicycle-to-the-party.webp",
       date: "May 16th, 2025",
     },
     {
       title: "Kinneret, a season later",
       description: `If you'll scroll a bit more you'll see a photo of me with the Kinneret in the bg taken in the WINTER. Now it is SPRING. Different place, same water that everyone is afraid to swim in.`,
-      image: "/me/taking-a-look-on-a-pole.jpg",
+      image: "/me/taking-a-look-on-a-pole.webp",
       date: "Apr 16th, 2025",
     },
     {
       title: "Out in Megido Forest",
       description: `In times when you're home only for the weekend, the weekend is sacred. There are times when you are home for the weekend, but you don't spend it at home. You spend it at Megido Forest looking at views you didn't know existed in Israel. We started the trip at night, searching for a place to sleep in the dark forest. Amazing journey. Good timing (season-wise)`,
-      image: "/me/high-grass-me.jpg",
+      image: "/me/high-grass-me.webp",
       date: "Mar 28th, 2025",
     },
     {
       title: "Grass in Beersheba!",
       description: `You see, a normal person would think I am pointing to the sunset. Well, it is just a sunset isn't it? The grass though...`,
-      image: "/me/grass-in-bs.JPG",
+      image: "/me/grass-in-bs.webp",
       date: "Feb 27th, 2025",
     },
     {
@@ -58,13 +58,13 @@ const PicsPage: React.FC = () => {
     {
       title: "Homeboys.",
       description: `Growing up in Beersheba we struggled to find a variaty of experiences on Friday night. At rare times the squad gathered up. At even rarer times there were pictures to look back to. This is one such moment. Shot on iphone with WEST app.`,
-      image: "/me/hashnaz-homeboys.jpg",
+      image: "/me/hashnaz-homeboys.webp",
       date: "Nov 30th, 2024",
     },
     {
       title: "Last day in my teens.",
       description: `The first time I seriously went out to the nature. Ron & I went on a hot September day to explore the desert located a 50-minute-ride from us. The route was circular and started at Midreshet Ben-Gurion. We went through, Hod Akev, Ein Akev and Ma'ale Divshon. It peaked at 37°C that day (98.6°F). Btw I didn't intentionally point at anything, but I did return to the place I was pointing at, Mount Tzror, 3 months later, on a cloudy short December day.`,
-      image: "/me/hod-akev-first.jpg",
+      image: "/me/hod-akev-first.webp",
       date: "Sep 13th, 2024",
     },
     {
@@ -76,7 +76,7 @@ const PicsPage: React.FC = () => {
     {
       title: "A random track competition.",
       description: `I was, after all, a competitive track runner and long jumper for 7 years. The lessons from professional sports are deep inrooted in my personality. Some of those lessons were: grind mentaility, consistensy, responsibility-taking, self-belief, the importance of professional mentors and much much more. My P.Bs were 6.75m in long jump (6.80w) and 11.21s in the 100m. In U16, I even broke the national record 5 times running 13.01 in the 100mH (height - 84cm). None of those records counted as all of them were made in too windy competitions (sometimes only 0.1 m/s more than the allowed wind speed). `,
-      image: "/me/random-track-comp.jpg",
+      image: "/me/random-track-comp.webp",
       date: "May 9th, 2024",
     },
     {
@@ -89,19 +89,19 @@ const PicsPage: React.FC = () => {
       title: '"Can you believe Russia is in war for almost 2 years?"',
       description:
         "I said that to my brother walking near the Russian embassy in London on Oct 4th, 2023. What a cruel, ironic thing to say.",
-      image: "/me/russian-embassy-london.JPG",
+      image: "/me/russian-embassy-london.webp",
       date: "Oct 4th, 2023",
     },
     {
       title: "The start of my first big project - Visuathlete.",
       description: `My first project, now hosted on visuathlete.com, was picturing and visualizing the results of all Israel's track and field athletes. Previous to this site, all you could see in Israel's National Athletics site was plain results table. I wanted to give a way to athletes to analyze and look at their results in a more organized, beautiful way. I actually achieved that goal and now it is a huge site with lots of content and more than 1400 athlete profiles.`,
-      image: "/me/visuathlete-beggining.jpg",
+      image: "/me/visuathlete-beggining.webp",
       date: "Feb 1st, 2023",
     },
     {
       title: "My best ever track result points wise",
       description: `I ran the 60mH (99cm) in 8.28s. This was a HUGE run for me. That was the first time I ran something significantly fast after my injury. The face you see there is me in total shock. Winning the heat with a time like that was an amazing experience.`,
-      image: "/me/FB_IMG_1674168968786_Original.jpeg",
+      image: "/me/FB_IMG_1674168968786_Original.webp",
       date: "Jan 20th, 2023",
     },
     {

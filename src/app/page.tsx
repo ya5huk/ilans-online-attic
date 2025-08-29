@@ -39,7 +39,7 @@ const AboutPage: React.FC = () => {
       <div className="space-y-3">
         <HeaderText>A·bout</HeaderText>
         <img
-          src="/me/rise-from-makhtesth-ramon.jpg"
+          src="/me/rise-from-makhtesth-ramon.webp"
           alt="On the rise to Makhtesh Ramon to Rd 171"
           className="w-full image-shadow"
         />

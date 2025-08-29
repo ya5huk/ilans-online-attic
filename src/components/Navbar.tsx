@@ -46,9 +46,9 @@ const Navbar: React.FC = () => {
           <Image
             src="/signature/2.png"
             alt="My Signature"
-            width={1000}
-            height={1000}
-            className="invert h-18 w-24 "
+            width={120}
+            height={72}
+            className="invert"
             style={{ filter: "invert(100%)" }}
           ></Image>
           <div className="flex flex-col md:flex-row items-center md:gap-1">
