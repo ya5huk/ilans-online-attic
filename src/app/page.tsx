@@ -38,6 +38,11 @@ const AboutPage: React.FC = () => {
 
       <div className="space-y-3">
         <HeaderText>A·bout</HeaderText>
+        <img
+          src="/me/rise-from-makhtesth-ramon.jpg"
+          alt="On the rise to Makhtesh Ramon to Rd 171"
+          className="w-full image-shadow"
+        />
         <div className="space-y-2">
           <p>
             Name's Ilan Yashuk, {myAge}. I was born in South Israel, Beersheba.

@@ -15,7 +15,7 @@ const Navbar: React.FC = () => {
     const isActive = path === "/" ? pathname === path : pathname.includes(path);
 
     let classname =
-      "md:text-3xl px-2 py-1 transition-colors duration-100 rounded text-lg";
+      "md:text-3xl px-2 transition-colors duration-200 rounded text-lg tracking-[0.3em] md:tracking-normal";
     classname += " ";
     classname += !isActive
       ? "text-[var(--third)] hover:underline hover:bg-[var(--bg)]"
@@ -53,7 +53,6 @@ const Navbar: React.FC = () => {
           ></Image>
           <div className="flex flex-col md:flex-row items-center md:gap-1">
             <Link href="/">
-              {/* For large screens - show text */}
               <span className={`${getLinkClassname("/")}`}>about</span>
             </Link>
             <p className={seperatorClassname}>|</p>
