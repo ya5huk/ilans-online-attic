@@ -1,5 +1,4 @@
 import Image from "next/image";
-import SubheaderText from "../text/SubheaderText";
 
 const PicCard: React.FC<{
   title: string;

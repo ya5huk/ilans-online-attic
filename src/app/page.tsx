@@ -7,9 +7,10 @@ import {
   genMetadata,
   MetadataGenParams,
 } from "@/lib/metadata-related";
+import Image from "next/image";
 
 const pageMetadata = {
-  title: "About Ilan",
+  title: "About",
   desc: "Born in 2004, my name is Ilan Yashuk. I love to create. More on me in this page.",
   img: "https://ilansonlineattic.com/me/kineret-bg.png",
   imgalt: "A photo of me",
@@ -38,10 +39,12 @@ const AboutPage: React.FC = () => {
 
       <div className="space-y-3">
         <HeaderText>A·bout</HeaderText>
-        <img
+        <Image
           src="/me/rise-from-makhtesth-ramon.webp"
           alt="On the rise to Makhtesh Ramon to Rd 171"
-          className="w-full image-shadow"
+          width={3024}
+          height={2058}
+          className="image-shadow"
         />
         <div className="space-y-2">
           <p>
@@ -51,31 +54,32 @@ const AboutPage: React.FC = () => {
           <p>
             I always loved to <span className="font-bold">create</span>. I
             iterated through Minecraft redstone, photography, filmmaking and
-            even beginner level carpentry. Finally, at 7th class I got into{" "}
-            <span className="font-bold">programming</span>. It felt like
-            unlimited power in my hands and the potential seemed limitless. I
-            still think programming & software might be the easiest way to
-            influence people en masse and drive a good change.
+            even beginner level carpentry. Finally, at 7th class{" "}
+            <span className="font-bold">programming</span> got to me. It felt
+            like unlimited power in my hands and the potential seemed limitless.
+            I still think programming & software might be the{" "}
+            <span className="font-bold">easiest</span> way to influence people
+            en masse and drive a good change.
           </p>
           <p>
             I like stories. I like complicated subjects and interacting with
-            people. I think a man can talk his way out to the biggest of leagues
-            only because stories' power. That's why I try to take every
+            people. I think a man can talk his way out to the biggest league
+            only because of the power of stories. That's why I try to take every
             opportunity I have to meet with people, talk with those who think
-            differently than me, go on hiking & travelling adventures.
+            different, go on hiking & travelling adventures.
           </p>
           <p>
-            My schedule's always full and even though it gets rough, happines
-            comes from having a full todo list and not from striking a line
-            through a written goal with a pencil. Happines is the list.
+            My schedule's always full and even though it gets rough, my
+            happiness comes from having a full todo list rather than completing
+            a task. The mission is always to do most.
           </p>
         </div>
 
         <SubheaderText>Education</SubheaderText>
         <p>
           <span className="font-bold">Highschool</span>: Very high grades on
-          5-unit level tests on (Israel's way of dividing high school subject
-          complexity) Math, Physics, English and 10-unit Computer Science.
+          5-unit level tests (Israel's way of dividing high school subject
+          complexity) on Math, Physics, English and 10-unit Computer Science.
         </p>
         <p>
           <span className="font-bold">Bonus</span>: I was part of a 3-year
@@ -87,9 +91,9 @@ const AboutPage: React.FC = () => {
         <p>
           Sports is a huge part of my life. My mom sent me to sport circles
           since I can remember. Thanks to that, I grew to be good at a huge
-          variaty of things. Also, it made sports become a part of my daily
-          routine, without any link to motivation or mood. Going on a run for me
-          is exactly like brushing my teeth twice a day.
+          variety of things. Also, it made sports become a part of my daily
+          routine regardless of motivation levels or mood. Going for a run for
+          me is exactly like brushing my teeth twice a day.
         </p>
         <p>
           Throughout the years I went through swimming, basketball, some soccer,
@@ -107,11 +111,11 @@ const AboutPage: React.FC = () => {
           recovery is my biggest accomplishment. Picking yourself up after such
           a long time of being injured and just turning the wheel: that felt
           awesome! I went on and broke most of my personal records in the '23
-          season. I ran 11.21 in Nationals and jumped 6.75m (6.80w) finishing
-          7th.
+          season. I ran 11.21s (100m) in Nationals and jumped 6.75m (6.80w, LJ)
+          finishing 7th.
         </p>
         <p>
-          To summarize, I gave sports my all while I was in middle to high
+          To summarize, I gave sports my all while being in middle to high
           school. I was a good student and well socialized so balancing
           everything was my biggest life lesson. I also gave Israel's track &
           field the site{" "}
@@ -120,11 +124,12 @@ const AboutPage: React.FC = () => {
           </Link>
           .
         </p>
+        <hr className="border-[var(--third)] opacity-50" />
         <p>
           My dreams and aspirations were bigger than what I've accomplished. I
           was on age-group national podiums lots of times but I always dreamt of
           being on big stages such as the European or World's Championships. I
-          dreamt of flying abroad regularly doing the thing I love so much:
+          dreamt on flying abroad regularly doing the thing I love so much:
           jumping to a sand pit.
         </p>
         <p>

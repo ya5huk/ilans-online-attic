@@ -46,29 +46,29 @@ const Navbar: React.FC = () => {
           <Image
             src="/signature/2.png"
             alt="My Signature"
-            width={120}
-            height={72}
+            width={96}
+            height={57.6}
             className="invert"
             style={{ filter: "invert(100%)" }}
           ></Image>
           <div className="flex flex-col md:flex-row items-center md:gap-1">
-            <Link href="/">
+            <Link href="/" aria-label="View Ilan Yashuk's about page">
               <span className={`${getLinkClassname("/")}`}>about</span>
             </Link>
             <p className={seperatorClassname}>|</p>
-            <Link href="/pics">
+            <Link href="/pics" aria-label="View Ilan Yashuk's pictures">
               <span className={`${getLinkClassname("/pics")}`}>pic​tures</span>
             </Link>
             <p className={seperatorClassname}>|</p>
 
-            <Link href="/projects">
+            <Link href="/projects" aria-label="View Ilan Yashuk's projects">
               <span className={`${getLinkClassname("/projects")}`}>
                 projects
               </span>
             </Link>
             <p className={seperatorClassname}>|</p>
 
-            <Link href="/yap">
+            <Link href="/yap" aria-label="View Ilan Yashuk's blog">
               <span className={`${getLinkClassname("/yap")}`}>yap</span>
             </Link>
           </div>

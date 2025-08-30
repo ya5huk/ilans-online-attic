@@ -8,6 +8,7 @@ export interface MetadataGenParams {
   imgalt: string;
   path: string;
   sitetype: siteTypes;
+  datepublished?: Date;
 }
 
 export const genMetadata = (
@@ -58,6 +59,6 @@ export const genJsonLd = (metadata: MetadataGenParams) => {
       "@type": "Organization",
       name: "Ilan's Online Attic"
     },
-    datePublished: "2025-08-23T08:00:00Z"
+    datePublished: metadata.datepublished ? metadata.datepublished.toISOString().split('T')[0] : undefined,
   };
 }

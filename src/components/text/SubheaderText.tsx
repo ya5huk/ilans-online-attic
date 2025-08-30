@@ -3,7 +3,7 @@ interface HeaderProps {
 }
 
 const SubheaderText: React.FC<HeaderProps> = ({ children }) => {
-  return <h3 className="text-3xl font-bold my-1">{children}</h3>;
+  return <h2 className="text-2xl font-bold my-1 ">{children}</h2>;
 };
 
 export default SubheaderText;

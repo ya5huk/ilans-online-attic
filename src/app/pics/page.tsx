@@ -1,5 +1,22 @@
 import PicCard from "@/components/card/PicCard";
 import HeaderText from "@/components/text/HeaderText";
+import {
+  genJsonLd,
+  genMetadata,
+  MetadataGenParams,
+} from "@/lib/metadata-related";
+import { Metadata } from "next";
+
+const pageMetadata = {
+  title: "Pictures",
+  desc: "Even though its hard to catch a vibe with a camera, it is worth a try. Click here to see some beautiful moments in my life, through the lens of a camera.",
+  img: "https://ilansonlineattic.com/me/kineret-bg.png",
+  imgalt: "The beautiful Kinneret",
+  path: "/pics",
+  sitetype: "website" as MetadataGenParams["sitetype"],
+};
+
+export const metadata: Metadata = genMetadata(pageMetadata);
 
 const PicsPage: React.FC = () => {
   interface PicInfo {
@@ -113,20 +130,28 @@ const PicsPage: React.FC = () => {
   ];
 
   return (
-    <div>
-      <HeaderText>Pic·​tures</HeaderText>
+    <main>
+      <script
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(genJsonLd(pageMetadata)),
+        }}
+        type="application/ld+json"
+      ></script>
       <div>
-        {picsInfo.map((p, index) => (
-          <PicCard
-            title={p.title}
-            imagesrc={p.image}
-            desc={p.description}
-            date={p.date}
-            key={index}
-          />
-        ))}
+        <HeaderText>Pic·​tures</HeaderText>
+        <div>
+          {picsInfo.map((p, index) => (
+            <PicCard
+              title={p.title}
+              imagesrc={p.image}
+              desc={p.description}
+              date={p.date}
+              key={index}
+            />
+          ))}
+        </div>
       </div>
-    </div>
+    </main>
   );
 };
 

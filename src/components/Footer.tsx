@@ -1,5 +1,4 @@
 import Image from "next/image";
-import SubheaderText from "./text/SubheaderText";
 import Link from "next/link";
 
 const Footer: React.FC = () => {

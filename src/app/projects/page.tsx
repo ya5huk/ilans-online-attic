@@ -1,5 +1,22 @@
 import HeaderText from "@/components/text/HeaderText";
 import Link from "next/link";
+import {
+  genJsonLd,
+  genMetadata,
+  MetadataGenParams,
+} from "@/lib/metadata-related";
+import { Metadata } from "next";
+
+const pageMetadata = {
+  title: "Projects",
+  desc: "Projects I made through the years. Websites, apps, software...",
+  img: "https://ilansonlineattic.com/projects/visuathlete-showcase.png",
+  imgalt: "Biggest project yet - Visuathlete",
+  path: "/projects",
+  sitetype: "website" as MetadataGenParams["sitetype"],
+};
+
+export const metadata: Metadata = genMetadata(pageMetadata);
 
 const ProjectsPage: React.FC = () => {
   interface ProjectInfo {
@@ -49,52 +66,60 @@ const ProjectsPage: React.FC = () => {
   ];
 
   return (
-    <div className="mx-auto">
-      <HeaderText>Proj·ects</HeaderText>
+    <main>
+      <script
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(genJsonLd(pageMetadata)),
+        }}
+        type="application/ld+json"
+      ></script>
+      <div className="mx-auto">
+        <HeaderText>Proj·ects</HeaderText>
 
-      <div className="relative mt-8">
-        {/* Timeline line */}
-        <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-[var(--third)]"></div>
+        <div className="relative mt-8">
+          {/* Timeline line */}
+          <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-[var(--third)]"></div>
 
-        {projects.map((project, index) => (
-          <div key={index} className="relative mb-12 ml-4">
-            {/* Timeline dot */}
-            <div className="absolute -left-[21px] top-1 w-3 h-3 bg-[var(--secondary)] rounded-full border-2 border-white shadow"></div>
+          {projects.map((project, index) => (
+            <div key={index} className="relative mb-12 ml-4">
+              {/* Timeline dot */}
+              <div className="absolute -left-[21px] top-1 w-3 h-3 bg-[var(--secondary)] rounded-full border-2 border-white shadow"></div>
 
-            {/* Project card */}
-            <div>
+              {/* Project card */}
               <div>
-                <div className="text-sm font-medium">{project.period}</div>
-                <h3 className="text-2xl font-bold mt-1 mb-3">
-                  {project.title}
-                </h3>
+                <div>
+                  <div className="text-sm font-medium">{project.period}</div>
+                  <h3 className="text-2xl font-bold mt-1 mb-3">
+                    {project.title}
+                  </h3>
+                </div>
+                <img
+                  className="w-full image-shadow"
+                  src={project.image}
+                  alt={project.title}
+                />
+
+                <p className="mt-4 leading-relaxed">{project.description}</p>
+
+                <div className="mb-4">
+                  <span className="font-semibold">Tools used: </span>
+                  <span className="">{project.tools}</span>
+                </div>
+
+                {project.link && (
+                  <Link
+                    href={`https://${project.link}` || ""}
+                    className="link-button"
+                  >
+                    {project.link}
+                  </Link>
+                )}
               </div>
-              <img
-                className="w-full image-shadow"
-                src={project.image}
-                alt={project.title}
-              />
-
-              <p className="mt-4 leading-relaxed">{project.description}</p>
-
-              <div className="mb-4">
-                <span className="font-semibold">Tools used: </span>
-                <span className="">{project.tools}</span>
-              </div>
-
-              {project.link && (
-                <Link
-                  href={`https://${project.link}` || ""}
-                  className="link-button"
-                >
-                  {project.link}
-                </Link>
-              )}
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
+    </main>
   );
 };
 
