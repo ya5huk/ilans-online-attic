@@ -6,8 +6,9 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 const Navbar: React.FC = () => {
+  const pathname = usePathname();
+
   const getLinkClassname = (path: string): string => {
-    const pathname = usePathname();
     // > / | about | pics | projects | yap
 
     // If its the index page -> activate only when on index

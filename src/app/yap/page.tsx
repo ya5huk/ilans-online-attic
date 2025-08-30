@@ -1,8 +1,6 @@
 import HeaderText from "@/components/text/HeaderText";
-import BlogCard from "@/components/card/BlogCard";
 import { getAllPosts } from "@/lib/blog";
 import BlogList from "@/components/BlogList";
-import Image from "next/image";
 import {
   genJsonLd,
   genMetadata,
