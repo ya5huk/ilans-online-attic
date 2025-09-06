@@ -1,5 +1,5 @@
 ---
-title: 'בבל: דקולוניזציה מחייבת אלימות?'
+title: 'בבל: דה-קולוניזציה מחייבת אלימות?'
 image: '/blog-images/babel-cover.jpg'
 lang: 'he_IL'
 date: '12/12/2024'
