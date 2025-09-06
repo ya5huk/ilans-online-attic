@@ -32,10 +32,10 @@ const ProjectsPage: React.FC = () => {
     {
       title: "CalendarPlusAI",
       period: "October '24",
-      description: `A tool that upon entering couple of details, generates a custom calendar that fits your needs and availability. The calendar can be exported to your calendar app (Google Calendar, Apple Calendar, Outlook, etc.), PDF or you can receive a daily newsletter with your daily tasks and more.`,
+      description: `A tool that upon entering couple of details, generates a custom calendar that fits your needs and availability. The calendar can be exported to your calendar app (Google Calendar, Apple Calendar, Outlook, etc.), PDF or you can receive a daily newsletter with your daily tasks and more. The link is Vercel's because I stopped paying for the calendarplusai.com domain. This project is archived from the publishing perspective.`,
       tools:
         "Nuxt 3 (Vue framework), Google Firebase, ChatGPT API, Tailwindcss, Python Flask. Deployed on Vercel.",
-      link: "calendarplusai.com",
+      link: "motivation-newsletter.vercel.app",
       image: "/projects/calendarplusai.png",
     },
     {
