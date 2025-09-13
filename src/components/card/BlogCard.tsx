@@ -14,7 +14,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
         className="md:px-2 md:py-4 py-2 md:rounded cursor-pointer md:hover:bg-[var(--third)] md:hover:text-white transition-colors duration-200"
         dir="auto"
       >
-        <div className="flex flex-col sm:flex-row gap-4">
+        <div className="flex flex-col sm:flex-row md:gap-4">
           <div className="flex-1">
             <div className="h-full flex flex-col justify-between">
               <div>
@@ -22,7 +22,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
                 <p className={`leading-relaxed`}>{post.excerpt}</p>
               </div>
 
-              <p className="text-sm font-medium ">{`${yyyy}-${mm}-${dd}`}</p>
+              <p className="text-sm font-medium text-end">{`${yyyy}-${mm}-${dd}`}</p>
             </div>
           </div>
 
