@@ -12,7 +12,7 @@ const HeaderText: React.FC<HeaderProps> = ({
   return (
     <div className={`flex ${centertext ? "justify-center" : ""}`}>
       <h1
-        className={`text-5xl border-[var(--third)] font-bold w-fit mb-2 font-dm-serif ${
+        className={`text-5xl border-[var(--secondary)] font-bold w-fit mb-2 font-dm-serif ${
           disableunderline ? "border-b-0" : "border-b-4"
         }`}
       >

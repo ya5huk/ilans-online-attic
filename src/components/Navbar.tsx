@@ -35,13 +35,15 @@ const Navbar: React.FC = () => {
       <div className="max-w-3xl mx-auto flex items-center gap-2 justify-between py-2">
         <div className="md:flex items-center w-full justify-between">
           {/* <h3 className="text-6xl">ilan.</h3> */}
-          <Image
-            src="/signature/2-cream-bold.png"
-            alt="My Signature"
-            width={96}
-            height={57.6}
-            className="mx-auto mb-4 md:m-0"
-          ></Image>
+          <Link href="/" aria-label="View site's home page">
+            <Image
+              src="/signature/2-cream-bold.png"
+              alt="My Signature"
+              width={96}
+              height={57.6}
+              className="mx-auto mb-4 md:m-0"
+            ></Image>
+          </Link>
           <div className="flex flex-col md:flex-row items-center md:gap-1">
             <Link href="/" aria-label="View Ilan Yashuk's about page">
               <span className={`${getLinkClassname("/")}` || ""}>about</span>
