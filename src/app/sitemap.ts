@@ -3,7 +3,7 @@ import fs from 'fs'
 import path from 'path'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://ilansonlineattic.com' // Replace with your actual domain
+  const baseUrl = 'https://www.ilansonlineattic.com' // Replace with your actual domain
 
   // Get all blog posts from /posts directory
   const postsDirectory = path.join(process.cwd(), 'posts')
