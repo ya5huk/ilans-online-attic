@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "@/app/globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/next";
@@ -9,18 +9,17 @@ export const metadata: Metadata = {
   description: "Everything's ilan.",
 };
 
-export default function RootLayout({
+export default function PathsLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>
-        <Navbar />
+    <section>
+      <div className="mx-auto max-w-3xl px-4 py-4 md:px-0 mb-12">
         {children}
-        <Analytics />
-      </body>
-    </html>
+      </div>
+      <Footer />
+    </section>
   );
 }

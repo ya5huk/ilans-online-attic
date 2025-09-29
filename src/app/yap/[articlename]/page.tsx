@@ -77,7 +77,7 @@ const ArticlePage: React.FC<ArticlePageProps> = async ({ params }) => {
         type="application/ld+json"
       ></script>
       <div className="mx-auto space-y-4" dir="auto">
-        <div className="text-[var(--secondary)] border-b border-[var(--third)] space-y-2 pb-2">
+        <div className=" border-b border-[var(--third)] space-y-2 pb-2">
           {/* Header */}
           <h1 className={`text-4xl font-bold`}>{post.title}</h1>
           <div className="flex items-center justify-between">
@@ -88,7 +88,7 @@ const ArticlePage: React.FC<ArticlePageProps> = async ({ params }) => {
               </span>
             </div>
             {/* Back button */}
-            <Link className="text-[var(--secondary)] link-button" href="/yap">
+            <Link className=" link-button" href="/yap">
               {isHebrew ? "חזרה" : "Back"}
             </Link>
           </div>

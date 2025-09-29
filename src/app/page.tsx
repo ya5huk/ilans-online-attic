@@ -39,138 +39,35 @@ const AboutPage: React.FC = () => {
         type="application/ld+json"
       ></script>
 
-      <div className="space-y-3">
+      <div className="mx-auto max-w-3xl p-4 md:px-0 mb-12 space-y-3">
         <HeaderText>A·bout</HeaderText>
-        <Image
-          src="/me/rise-from-makhtesth-ramon.webp"
-          alt="On the rise to Makhtesh Ramon to Rd 171"
-          width={3024}
-          height={2058}
-          className="image-shadow"
-        />
-        <div className="">
-          <SubheaderText>Summary</SubheaderText>
-          <div className="grid grid-cols-[auto_1fr] gap-2 items-center ">
-            <img
-              className={summaryImgClass}
-              src="/ui/id-card.png"
-              alt="My details"
-            />
-            <p>Ilan Yashuk, 2004 ({myAge}), Born: South of 🇮🇱</p>
-            <img
-              className={summaryImgClass}
-              src="/ui/id-card.png"
-              alt="Interests"
-            />
-            <p>Sports,</p>
-          </div>
-        </div>
-        <div className="space-y-2">
-          <p>
-            Name&apos;s Ilan Yashuk, {myAge}. I was born in South Israel,
-            Beersheba. I speak, read &apos;n write in: Hebrew, English and
-            Russian.
-          </p>
-          <p>
-            I always loved to <span className="font-bold">create</span>. I
-            iterated through Minecraft redstone, photography, filmmaking and
-            even beginner level carpentry. Finally, at 7th class{" "}
-            <span className="font-bold">programming</span> got to me. It felt
-            like unlimited power in my hands and the potential seemed limitless.
-            I still think programming & software might be the{" "}
-            <span className="font-bold">easiest</span> way to influence people
-            en masse and drive a good change.
-          </p>
-          <p>
-            I like stories. I like complicated subjects and interacting with
-            people. I think a man can talk his way out to the biggest league
-            only because of the power of stories. That&apos;s why I try to take
-            every opportunity I have to meet with people, talk with those who
-            think different, go on hiking & travelling adventures.
-          </p>
-          <p>
-            My schedule&apos;s always full and even though it gets rough, my
-            happiness comes from having a full todo list rather than completing
-            a task. The mission is always to do most.
-          </p>
-        </div>
 
-        <SubheaderText>Education</SubheaderText>
-        <p>
-          <span className="font-bold">Highschool</span>: Very high grades on
-          5-unit level tests (Israel&apos;s way of dividing high school subject
-          complexity) on Math, Physics, English and 10-unit Computer Science.
-        </p>
-        <p>
-          <span className="font-bold">Bonus</span>: I was part of a 3-year
-          Computer Science Program made for periphary high school teens. I
-          learned and practiced OS systems, C++, Python, Assembly and tackled
-          with a lot of self-learning exercises.
-        </p>
-        <SubheaderText>Sports</SubheaderText>
-        <p>
-          Sports is a huge part of my life. My mom sent me to sport circles
-          since I can remember. Thanks to that, I grew to be good at a huge
-          variety of things. Also, it made sports become a part of my daily
-          routine regardless of motivation levels or mood. Going for a run for
-          me is exactly like brushing my teeth twice a day.
-        </p>
-        <p>
-          Throughout the years I went through swimming, basketball, some soccer,
-          tennis and finally: track & field. In 2017, my brother competed at the
-          20th Maccabiah games and I thought to myself: &quot;why not me?&quot;.
-          So I joined track and field.
-        </p>
-        <p>
-          I trained A LOT for the next 7 years. Sometimes close to 20 hours a
-          week. I had some ups and downs. In 2019, when I was 14, I broke the
-          national record at the 100mH (84cm) 5 times though none of them
-          counted as the wind was blowing too fast (sometimes only 0.1 m/s above
-          the allowed 2.0 m/s speed). In March of &apos;20 I got injured and
-          didn&apos;t fully recover until my &apos;23 season. To be honest I
-          think this full recovery is my biggest accomplishment. Picking
-          yourself up after such a long time of being injured and just turning
-          the wheel: that felt awesome! I went on and broke most of my personal
-          records in the &apos;23 season. I ran 11.21s (100m) in Nationals and
-          jumped 6.75m (6.80w, LJ) finishing 7th.
-        </p>
-        <p>
-          To summarize, I gave sports my all while being in middle to high
-          school. I was a good student and well socialized so balancing
-          everything was my biggest life lesson. I also gave Israel&apos;s track
-          & field the site{" "}
-          <Link href="https://visuathlete.com" className={linkClassname}>
-            visuathlete.com
-          </Link>
-          .
-        </p>
-        <hr className="border-[var(--third)] opacity-50" />
-        <p>
-          My dreams and aspirations were bigger than what I&apos;ve
-          accomplished. I was on age-group national podiums lots of times but I
-          always dreamt of being on big stages such as the European or
-          World&apos;s Championships. I dreamt on flying abroad regularly doing
-          the thing I love so much: jumping to a sand pit.
-        </p>
-        <p>
-          At the end, enlisting to the army made everything harder and I just
-          became too busy and too caught up to advance in a thing that{" "}
-          <span className="font-bold">requires all of you</span> and not some of
-          you.
-        </p>
-        <p>
-          I still hope to be on the biggest of stages. Sports, Startups,
-          Innovation. Something will bring me there.
-        </p>
-        <SubheaderText>Projects</SubheaderText>
-        <p>
-          I&apos;ve done a lot in the past years. Vids, websites, apps & mode.
-          You can read about it in{" "}
-          <Link href="/projects" className={linkClassname}>
-            here
-          </Link>
-          .
-        </p>
+        <div className="space-y-2 text-lg">
+          <p> Je m'appelle Ilan Yashuk.</p>
+          <p>
+            I have 0 link with French and a lot more with south of Israel, where
+            I was born in 2004 (I'm {myAge}). I speak, read 'n write in Hebrew,
+            English & Russian.
+          </p>
+          <p>
+            I love documenting, capturing, creating... through lens or via power
+            of code - I love bringing something new to the world. <br />
+          </p>
+          <p>
+            Other than that, Sports gets a lion share out of my personality.
+            Hiking, travelling, exploring - I like those too.
+          </p>
+          <p>
+            I currently on my 7th year training & competing in Track & Field, my
+            PB's are:{" "}
+          </p>
+          <p>
+            100m -&gt; 11.21s
+            <br />
+            LJ -&gt; 6.75m (6.80w)
+          </p>
+        </div>
+        <div></div>
       </div>
     </main>
   );
