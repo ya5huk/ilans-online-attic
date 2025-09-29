@@ -28,6 +28,8 @@ const AboutPage: React.FC = () => {
 
   const linkClassname = "text-[var(--secondary)] font-bold underline";
 
+  const summaryImgClass = "w-7 h-7";
+
   return (
     <main>
       <script
@@ -46,6 +48,23 @@ const AboutPage: React.FC = () => {
           height={2058}
           className="image-shadow"
         />
+        <div className="">
+          <SubheaderText>Summary</SubheaderText>
+          <div className="grid grid-cols-[auto_1fr] gap-2 items-center ">
+            <img
+              className={summaryImgClass}
+              src="/ui/id-card.png"
+              alt="My details"
+            />
+            <p>Ilan Yashuk, 2004 ({myAge}), Born: South of 🇮🇱</p>
+            <img
+              className={summaryImgClass}
+              src="/ui/id-card.png"
+              alt="Interests"
+            />
+            <p>Sports,</p>
+          </div>
+        </div>
         <div className="space-y-2">
           <p>
             Name&apos;s Ilan Yashuk, {myAge}. I was born in South Israel,
