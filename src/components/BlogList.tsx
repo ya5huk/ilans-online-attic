@@ -53,7 +53,7 @@ const BlogList: React.FC<BlogListProps> = ({ posts }) => {
           className={selectionButtonClass}
           style={{
             backgroundColor:
-              selectedLang === "all" ? "var(--third)" : "transparent",
+              selectedLang === "all" ? "var(--secondary)" : "transparent",
           }}
           onClick={() => setSelectedLang("all")}
         >
@@ -69,7 +69,7 @@ const BlogList: React.FC<BlogListProps> = ({ posts }) => {
           className={selectionButtonClass}
           style={{
             backgroundColor:
-              selectedLang === "he_IL" ? "var(--third)" : "transparent",
+              selectedLang === "he_IL" ? "var(--secondary)" : "transparent",
           }}
           onClick={() => setSelectedLang("he_IL")}
         >
@@ -89,7 +89,7 @@ const BlogList: React.FC<BlogListProps> = ({ posts }) => {
           className={selectionButtonClass}
           style={{
             backgroundColor:
-              selectedLang === "en_US" ? "var(--third)" : "transparent",
+              selectedLang === "en_US" ? "var(--secondary)" : "transparent",
           }}
           onClick={() => setSelectedLang("en_US")}
         >
@@ -110,9 +110,9 @@ const BlogList: React.FC<BlogListProps> = ({ posts }) => {
         {sortedYears.map((year) => (
           <div key={year}>
             <div className="flex items-center gap-4 w-full">
-              <span className="flex-grow h-1 bg-[var(--third)]"></span>
+              <span className="flex-grow h-1 bg-[var(--secondary)]"></span>
               <h3 className="text-3xl font-semibold font-dm-serif">{year}</h3>
-              <span className="flex-grow h-1 bg-[var(--third)]"></span>
+              <span className="flex-grow h-1 bg-[var(--secondary)]"></span>
             </div>
             {yearPosts[year]
               .sort((a, b) =>
@@ -122,7 +122,7 @@ const BlogList: React.FC<BlogListProps> = ({ posts }) => {
                 <div key={post.slug}>
                   <BlogCard key={post.slug} post={post} />
                   {idx !== yearPosts[year].length - 1 && (
-                    <span className="block h-0.5 bg-[var(--third)]"></span>
+                    <span className="block h-0.5 bg-[var(--secondary)]"></span>
                   )}
                 </div>
               ))}

@@ -4,21 +4,9 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #fefded;
-  --secondary: #1c352d;
-  --third: #a6b28b;
-}
-
-[data-theme="leaves"] {
-  --bg: #fefded;
-  --secondary: #1c352d;
-  --third: #a6b28b;
-}
-
-[data-theme="business"] {
-  --bg: #f0f4f8;
-  --secondary: #7d5a50;
-  --third: #e5b299;
+  --bg: white;
+  --secondary: #a97155;
+  --third: #e4d1b9;
 }
 
 .font-eb-garamond {
