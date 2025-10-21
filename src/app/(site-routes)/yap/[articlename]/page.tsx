@@ -76,34 +76,30 @@ const ArticlePage: React.FC<ArticlePageProps> = async ({ params }) => {
         }}
         type="application/ld+json"
       ></script>
-      <div className="mx-auto space-y-4" dir="auto">
-        <div className=" border-b border-[var(--third)] space-y-2 pb-2">
+      <div className="mx-auto space-y-2 " dir="auto">
+        <div className="  space-y-2">
           {/* Header */}
           <h1 className={`text-4xl font-bold`}>{post.title}</h1>
           <div className="flex items-center justify-between">
             {/* Date */}
             <div>
-              <span className="text-lg font-medium">
+              <span className="text-gray-400">
                 {getDateStr(post.date, isHebrew)}
               </span>
             </div>
-            {/* Back button */}
-            <Link className=" link-button" href="/yap">
-              {isHebrew ? "חזרה" : "Back"}
-            </Link>
           </div>
         </div>
 
         {/* Image */}
-        <div className="mb-8">
-          {post.image && (
+        {post.image && (
+          <div className="my-4">
             <img
               src={post.image}
               alt={post.title}
               className="w-full object-cover image-shadow mb-6"
             />
-          )}
-        </div>
+          </div>
+        )}
 
         {/* Content */}
         <article

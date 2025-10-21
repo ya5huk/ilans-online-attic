@@ -69,28 +69,38 @@ ul {
 }
 
 .prose h1 {
-  @apply text-4xl font-bold mb-6 mt-8;
+  @apply text-3xl font-bold mb-6 mt-8;
 }
 
 .prose h2 {
-  @apply text-3xl font-bold mb-4 mt-6;
+  @apply text-2xl font-bold mb-4 mt-6;
 }
 
 .prose h3 {
-  @apply text-2xl font-bold mb-3 mt-5;
+  @apply text-xl font-bold mb-3 mt-5;
 }
 
 .prose p {
-  @apply text-lg leading-relaxed;
+  @apply text-lg md:text-base leading-relaxed pb-1;
+}
+
+.prose table {
+  @apply w-full border-collapse my-6 ;
+}
+.prose th {
+  @apply bg-[var(--third)] text-left p-2 border border-[var(--secondary)];
+}
+.prose td {
+  @apply p-2 border border-gray-500;
 }
 
 .prose ul,
 .prose ol {
-  @apply list-disc list-inside pl-4 py-2;
+  @apply list-disc list-inside pl-4 py-2 space-y-1;
 }
 
 .prose li {
-  @apply text-lg;
+  @apply text-lg md:text-base;
 }
 
 .prose li > p {
@@ -107,7 +117,7 @@ ul {
 }
 
 .prose blockquote {
-  @apply border-l-4 border-gray-300 pl-4 italic my-6;
+  @apply border-l-4 border-gray-300 pl-4 italic my-6 text-gray-500;
 }
 
 .prose code {
