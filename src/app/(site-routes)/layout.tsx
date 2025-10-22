@@ -16,7 +16,7 @@ export default function PathsLayout({
 }>) {
   return (
     <section>
-      <div className="mx-auto max-w-3xl px-4 py-4 md:px-0">{children}</div>
+      <div className="mx-auto max-w-2xl px-4 py-4 md:px-0">{children}</div>
       <Footer />
     </section>
   );

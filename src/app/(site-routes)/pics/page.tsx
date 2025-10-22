@@ -1,4 +1,4 @@
-import PicCard from "@/components/card/PicCard";
+import PicsListController from "@/components/PicsListController";
 import HeaderText from "@/components/text/HeaderText";
 import {
   genJsonLd,
@@ -139,17 +139,7 @@ const PicsPage: React.FC = () => {
       ></script>
       <div>
         <HeaderText>Pic·​tures</HeaderText>
-        <div>
-          {picsInfo.map((p, index) => (
-            <PicCard
-              title={p.title}
-              imagesrc={p.image}
-              desc={p.description}
-              date={p.date}
-              key={index}
-            />
-          ))}
-        </div>
+        <PicsListController picList={picsInfo} />
       </div>
     </main>
   );

@@ -4,6 +4,12 @@ import Link from "next/link";
 import HeaderText from "./text/HeaderText";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { DM_Serif_Text } from "next/font/google";
+
+const dmSerif = DM_Serif_Text({
+  subsets: ["latin"],
+  weight: "400",
+});
 
 const Navbar: React.FC = () => {
   const pathname = usePathname();
@@ -16,7 +22,7 @@ const Navbar: React.FC = () => {
     const isActive = path === "/" ? pathname === path : pathname.includes(path);
 
     let classname =
-      "md:text-3xl px-2 transition-colors duration-200 rounded text-lg tracking-[0.3em] md:tracking-normal";
+      "md:text-2xl px-2 transition-colors duration-200 rounded text-lg tracking-[0.3em] md:tracking-normal";
     classname += " ";
     classname += !isActive
       ? "text-[var(--third)] hover:underline "
@@ -31,8 +37,10 @@ const Navbar: React.FC = () => {
     "hidden md:block select-none font-bold text-[var(--third)]";
 
   return (
-    <div className="w-full bg-[var(--secondary)] p-4 border-b-8 border-[var(--third)] font-dm-serif">
-      <div className="max-w-3xl mx-auto flex items-center gap-2 justify-between py-2">
+    <div
+      className={`w-full bg-[var(--secondary)] p-4 border-b-8 border-[var(--third)] ${dmSerif.className}`}
+    >
+      <div className="max-w-2xl mx-auto flex items-center gap-2 justify-between py-2">
         <div className="md:flex items-center w-full justify-between">
           {/* <h3 className="text-6xl">ilan.</h3> */}
           <Link href="/" aria-label="View site's home page">
