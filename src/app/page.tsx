@@ -37,9 +37,9 @@ const AboutPage: React.FC = () => {
         type="application/ld+json"
       ></script>
 
-      <div className="mx-auto max-w-3xl p-4 md:px-0 mb-12 space-y-3">
+      <div className="mx-auto max-w-2xl p-4 md:px-0 mb-12 space-y-3">
         <HeaderText>A·bout</HeaderText>
-        <div className="grid grid-cols-[45px_auto] text-lg items-center space-y-2">
+        <div className="grid grid-cols-[35px_auto] text-lg md:text-base items-center space-y-2">
           <svg
             className="mb-auto"
             xmlns="http://www.w3.org/2000/svg"
@@ -150,7 +150,7 @@ const AboutPage: React.FC = () => {
               href="mailto:ilan147963@gmail.com"
               aria-label="Send me a mail"
             >
-              Mail me
+              Mail
             </Link>
           </p>
         </div>
