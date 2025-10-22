@@ -9,7 +9,7 @@ import {
 import { Metadata } from "next";
 
 const pageMetadata = {
-  title: "Blog (Yapping)",
+  title: "Blog",
   desc: "I am... thoughtful some say. Bad or good, you decide. Either way, you are more than welcome to read what I've wrote. Books, Sports, Philosophy, Tech, Programming, English, Hebrew. Enjoy!",
   img: "https://ilansonlineattic.com/me/kineret-bg.jpg",
   imgalt: "The Kinneret",
