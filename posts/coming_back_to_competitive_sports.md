@@ -163,13 +163,13 @@ Training wise, this is October:
 Did tests again:
 (I put spikes in jumps this time)
 
-| Exercise      | September       | October       |
-| ------------- | --------------- | ------------- |
-| Standing jump | 2.91m (iPhone)  | 2.88m (tape)  |
-| 3-bounds      | 8.75m (iPhone)  | 8.88m (tape)  |
-| 5-bounds      | 14.40m (iPhone) | 15.10m (tape) |
-| 60m           | 6.84s           | 6.84s         |
-| 100m          | 11.31s          | 11.06s        |
+| Exercise          | September       | October       |
+| ----------------- | --------------- | ------------- |
+| Standing jump     | 2.91m (iPhone)  | 2.88m (tape)  |
+| 3-bounds          | 8.75m (iPhone)  | 8.88m (tape)  |
+| 5-bounds          | 14.40m (iPhone) | 15.10m (tape) |
+| 60m (Hand-timed)  | 6.84s           | 6.84s         |
+| 100m (Hand-timed) | 11.31s          | 11.06s        |
 
 There was an improvement, but I know I need to jump farther if I aim to jump more than 7m this year. I think lifting heavy might help me here. Maybe I focused too much on explosive work in the gym. I'll trade some explosive work for heavy lifts for the next month. Then I'll focus on explosiveness. I am explosive, but I can be stronger.
 
