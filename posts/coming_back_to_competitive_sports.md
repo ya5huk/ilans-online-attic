@@ -43,7 +43,7 @@ That's my background. I learned a lot in those years. Training - what works & wh
 ## Current stats
 
 - Height: ~170cm
-- Weight: ~66kg
+- Weight: ~64kg
 
 - Standing jump to pit: 2.90m
 - 3-bounds jump: 8.88m
