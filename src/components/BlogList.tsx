@@ -4,7 +4,12 @@ import { useState, useEffect } from "react";
 import BlogCard from "@/components/card/BlogCard";
 import { BlogPost } from "@/lib/blog";
 import Image from "next/image";
+import { DM_Serif_Display } from "next/font/google";
 
+const dmSerif = DM_Serif_Display({
+  subsets: ["latin"],
+  weight: "400",
+});
 interface BlogListProps {
   posts: BlogPost[];
 }
@@ -111,7 +116,11 @@ const BlogList: React.FC<BlogListProps> = ({ posts }) => {
           <div key={year}>
             <div className="flex items-center gap-4 w-full">
               <span className="flex-grow h-1 bg-[var(--secondary)]"></span>
-              <h3 className="text-3xl font-semibold font-dm-serif">{year}</h3>
+              <h3
+                className={`${dmSerif.className} text-3xl font-bold tracking-widest`}
+              >
+                {year}
+              </h3>
               <span className="flex-grow h-1 bg-[var(--secondary)]"></span>
             </div>
             {yearPosts[year]

@@ -18,8 +18,8 @@ const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
           <div className="flex-1">
             <div className="h-full flex flex-col justify-between">
               <div>
-                <h2 className={`text-2xl font-bold`}>{post.title}</h2>
-                <p className={`leading-relaxed`}>{post.excerpt}</p>
+                <h2 className={`text-xl font-bold`}>{post.title}</h2>
+                <p className={`mt-1 leading-relaxed`}>{post.excerpt}</p>
               </div>
 
               <p className="text-sm font-medium text-end">{`${yyyy}-${mm}-${dd}`}</p>
