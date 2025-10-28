@@ -46,7 +46,7 @@ const BlogList: React.FC<BlogListProps> = ({ posts }) => {
   const sortedYears = Object.keys(yearPosts).sort(Number).reverse();
 
   const selectionButtonClass =
-    "hover:cursor-pointer transition-colors duration-300 rounded";
+    "hover:cursor-pointer transition-colors duration-300 ";
   const innerButtonClass = "p-1 transition-colors duration-300";
 
   return (
@@ -56,15 +56,14 @@ const BlogList: React.FC<BlogListProps> = ({ posts }) => {
         <button
           type="button"
           className={selectionButtonClass}
-          style={{
-            backgroundColor:
-              selectedLang === "all" ? "var(--secondary)" : "transparent",
-          }}
           onClick={() => setSelectedLang("all")}
         >
           <p
             className={innerButtonClass + " text-2xl"}
-            style={{ color: selectedLang === "all" ? "white" : "black" }}
+            style={{
+              filter:
+                selectedLang === "all" ? "none" : "grayscale(1) opacity(0.2)",
+            }}
           >
             ALL
           </p>
@@ -72,16 +71,13 @@ const BlogList: React.FC<BlogListProps> = ({ posts }) => {
         <button
           type="button"
           className={selectionButtonClass}
-          style={{
-            backgroundColor:
-              selectedLang === "he_IL" ? "var(--secondary)" : "transparent",
-          }}
           onClick={() => setSelectedLang("he_IL")}
         >
           <Image
             className={innerButtonClass}
             style={{
-              filter: selectedLang === "he_IL" ? "invert(1)" : "none",
+              filter:
+                selectedLang === "he_IL" ? "none" : "grayscale(1) opacity(0.2)",
             }}
             width={54}
             height={54}
@@ -92,16 +88,13 @@ const BlogList: React.FC<BlogListProps> = ({ posts }) => {
         <button
           type="button"
           className={selectionButtonClass}
-          style={{
-            backgroundColor:
-              selectedLang === "en_US" ? "var(--secondary)" : "transparent",
-          }}
           onClick={() => setSelectedLang("en_US")}
         >
           <Image
             className={innerButtonClass}
             style={{
-              filter: selectedLang === "en_US" ? "invert(1)" : "none",
+              filter:
+                selectedLang === "en_US" ? "none" : "grayscale(1) opacity(0.2)",
             }}
             width={54}
             height={54}
