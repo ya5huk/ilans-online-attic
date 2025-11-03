@@ -16,7 +16,7 @@ interface BlogListProps {
 
 const BlogList: React.FC<BlogListProps> = ({ posts }) => {
   const [selectedLang, setSelectedLang] = useState<"all" | "he_IL" | "en_US">(
-    "all"
+    "en_US"
   );
   const [selectedPosts, setSelectedPosts] = useState<BlogPost[]>(posts);
 
@@ -53,6 +53,8 @@ const BlogList: React.FC<BlogListProps> = ({ posts }) => {
     <>
       {/* Blog lang selection */}
       <div className="flex justify-center items-center gap-2 mb-2">
+        {/* 
+        // Marked out "All" option for now
         <button
           type="button"
           className={selectionButtonClass}
@@ -67,7 +69,7 @@ const BlogList: React.FC<BlogListProps> = ({ posts }) => {
           >
             ALL
           </p>
-        </button>
+        </button> */}
         <button
           type="button"
           className={selectionButtonClass}
