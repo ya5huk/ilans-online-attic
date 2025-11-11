@@ -71,7 +71,7 @@ ul {
 }
 
 .prose a {
-  @apply text-[var(--secondary)] font-bold hover:underline;
+  @apply text-[var(--third)] font-bold hover:underline;
 }
 
 .prose img {
@@ -91,7 +91,7 @@ ul {
 }
 
 .prose hr {
-  @apply my-2 text-[var(--secondary)] opacity-75;
+  @apply my-2 text-[var(--third)] opacity-75;
 }
 
 /* RTL support for Hebrew content */

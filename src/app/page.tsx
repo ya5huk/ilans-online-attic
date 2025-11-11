@@ -26,7 +26,7 @@ const AboutPage: React.FC = () => {
   const diffTime = currDate.getTime() - birthDate.getTime();
   const myAge = Math.floor(diffTime / (1000 * 60 * 60 * 24 * 365.25));
 
-  const linkClassname = "font-bold text-[var(--secondary)]";
+  const linkClassname = "font-bold text-[var(--third)]";
 
   return (
     <main>
@@ -120,7 +120,7 @@ const AboutPage: React.FC = () => {
             aria-label="Instagram"
           >
             Instagram
-          </Link>{" "}
+          </Link>
           ,{" "}
           <Link
             className={linkClassname}
@@ -128,7 +128,7 @@ const AboutPage: React.FC = () => {
             aria-label="Linkedin"
           >
             LinkedIn
-          </Link>{" "}
+          </Link>
           ,{" "}
           <Link
             className={linkClassname}
