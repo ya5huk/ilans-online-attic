@@ -1,45 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
 @import "tailwindcss";
 
 
 :root {
   --bg: white;
-  --secondary: #a97155;
-  --third: #e4d1b9;
+  --secondary: #132440;
+  --third: #4ab1b1;
 }
 
-.font-eb-garamond {
-  font-family: "EB Garamond", serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-}
-
-.font-rubik {
-  font-family: "Rubik", serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-}
-
-.font-roboto {
-  font-family: "Roboto", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-}
-
-/* Default font */
-.font-default {
-  font-family: var(
-    --default-font-family,
-    ui-sans-serif,
-    system-ui,
-    sans-serif,
-    "Apple Color Emoji",
-    "Segoe UI Emoji",
-    "Segoe UI Symbol",
-    "Noto Color Emoji"
-  );
-}
 
 html {
   background-color: var(--bg);
