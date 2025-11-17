@@ -28,30 +28,39 @@ const ProjectsPage: React.FC = () => {
     link: string;
   }
 
+  // Remove the https:// from link
   const projects: ProjectInfo[] = [
+    {
+      title: "Promreach",
+      period: "Jun - Aug '25",
+      description: `An iOS AI agent chat app that for a user's prompt and from a large bank of APIs - Finds the best APIs for the most relevant answer, authenticates, sets cost-effecient parameters, fetches the data and returns the answer as a chat or graph (line, pie or bar).`,
+      tools: "Expo (React Native), Supabase, Openrouter, Tailwind CSS",
+      link: "youtube.com/shorts/LfloaCrmXs4",
+      image: "/projects/promreach.jpg",
+    },
     {
       title: "CalendarPlusAI",
       period: "October '24",
       description: `A tool that upon entering couple of details, generates a custom calendar that fits your needs and availability. The calendar can be exported to your calendar app (Google Calendar, Apple Calendar, Outlook, etc.), PDF or you can receive a daily newsletter with your daily tasks and more. The link is Vercel's because I stopped paying for the calendarplusai.com domain. This project is archived from the publishing perspective.`,
       tools:
-        "Nuxt 3 (Vue framework), Google Firebase, ChatGPT API, Tailwindcss, Python Flask. Deployed on Vercel.",
+        "Nuxt 3 (Vue framework), Google Firebase, ChatGPT API, Tailwind CSS, Python Flask. Deployed on Vercel.",
       link: "motivation-newsletter.vercel.app",
       image: "/projects/calendarplusai.png",
     },
     {
       title: "Visuathlete",
       period: "Jan '23 - Jul '24",
-      description: `My first and biggest project thus far. A website made to visualize and analyse all of the results of Israel's athletes, retired and active. The website stores data of more than 1400 athletes about their performances. There's a page for each signed user with beautiful graphs and statistics. It gets updated as they compete. There is a home page feed, a leaderboard, articles, instagram profile for the site and much more.`,
+      description: `My first and biggest project thus far. A website made to visualize and analyse all of the results of Israel's athletes, retired and active. The website stores data of more than 1400 athletes about their performances. There's a page for each signed user with beautiful graphs and statistics. It gets updated as they compete. There is a home page feed, a leaderboard, articles, instagram profile for the site and much more. Gets ~400 users monthly.`,
       tools:
-        "Next.js, React, TypeScript, Tailwind CSS, Prisma, PostgreSQL, Vercel",
+        "Nuxt (Vuejs), TypeScript, Tailwind CSS, PostgreSQL, Python, Flask, Vercel, Digital Ocean",
       link: "visuathlete.com",
       image: "/projects/visuathlete-showcase.png",
     },
     {
       title: "EL-ON: Compressed Air Systems",
-      period: "June '24",
+      period: "Jun '24",
       description: `A website I made for a client that sells compressed air systems in Israel.`,
-      tools: "Nuxt 3 (Vue framework) and designed with tailwindcss.",
+      tools: "Nuxt 4 (Vue framework), Tailwind CSS, i18n",
       link: "el-on.co.il",
       image: "/projects/el-on-showcase.png",
     },
