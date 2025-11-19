@@ -103,7 +103,7 @@ const ArticlePage: React.FC<ArticlePageProps> = async ({ params }) => {
 
         {/* Content */}
         <article
-          className={`prose prose-lg max-w-none pt-2 `}
+          className={`prose prose-lg max-w-none pt-2 ${isHebrew ? "prose-right" : ""}`}
           dangerouslySetInnerHTML={{ __html: post.content }}
           style={{
             direction: isHebrew ? "rtl" : "ltr",
