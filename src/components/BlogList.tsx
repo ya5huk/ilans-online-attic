@@ -77,7 +77,7 @@ const BlogList: React.FC<BlogListProps> = ({ posts }) => {
   return (
     <>
       {/* Blog tag selection */}
-      <div className="flex justify-center items-center gap-2 mb-4">
+      <div className="flex justify-center items-center gap-2 mb-2">
         {Object.keys(tagIcons).map((tag) => (
           <button
             key={tag}
