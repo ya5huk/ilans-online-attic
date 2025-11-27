@@ -1,7 +1,7 @@
 ---
 title: "Thoughts on Metamorphosis"
 image: "/blog-images/metamorphosis_franz_kafka.webp"
-tags: "books"
+tags: "books,philosophy"
 lang: "en_US"
 date: "10/28/2025"
 ---

@@ -1,6 +1,7 @@
 ---
 title: "כל הטעויות, ההצלחות והמסע של ה-SaaS הראשון שלי ב-7 נקודות"
 image: "/blog-images/calendarplusai-lessons/calendarplusaibanner.webp"
+tags: "code"
 lang: "he_IL"
 date: "11/20/2025"
 ---

@@ -9,4 +9,4 @@ Blog posts are viewed in route `/yap/[articlename]`. They are saved in `/posts` 
 Blogs are categorized by:
 
 1. Language - English & Hebrew
-2. Tags - linkedin, training, travel, books
+2. Tags - As written in `/lib/tagIcons.ts`

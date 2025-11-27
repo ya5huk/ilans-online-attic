@@ -1,7 +1,7 @@
 ---
 title: "בבל: דה-קולוניזציה מחייבת אלימות?"
 image: "/blog-images/babel-cover.jpg"
-tags: "books"
+tags: "books,philosophy"
 lang: "he_IL"
 date: "12/12/2024"
 ---

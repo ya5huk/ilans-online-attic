@@ -1,5 +1,6 @@
 ---
 title: "How to export a PostgreSQL database to a local file"
+tags: "code"
 image: "https://media.licdn.com/dms/image/v2/D4D12AQEkGoqmiPCYOw/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1692642117989?e=2147483647&v=beta&t=TIPZy2EZpTj5Hs_i9VUroN5xbwnf7-47PrVKdULXeBA"
 lang: "en_US"
 date: "08/21/2023"

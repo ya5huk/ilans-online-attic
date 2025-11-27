@@ -1,5 +1,6 @@
 ---
 title: "Firestore Database: Cheat Sheet (Python)"
+tags: "code"
 image: "/blog-images/firestore-cheatsheet.webp"
 lang: "en_US"
 date: "06/30/2024"

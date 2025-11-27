@@ -1,8 +1,9 @@
 ---
-title: 'The only right way to connect Google’s Firestore to Nuxt 3'
-image: '/blog-images/firestore.png'
-lang: 'en_US'
-date: '11/14/2024'
+title: "The only right way to connect Google’s Firestore to Nuxt 3"
+image: "/blog-images/firestore.png"
+tags: "code"
+lang: "en_US"
+date: "11/14/2024"
 ---
 
 I’ve tried all that’s on the web and wasted so much time on this that I just felt the duty to write this short article. To connect Nuxt 3, a vuejs framework and firestore, google’s cloud database, here is what you need to do.
@@ -19,6 +20,7 @@ with open('your-private-key.json') as f:
     c = f.read()
     print(json.loads(c))
 ```
+
 Encode your string, which is your private key, to base64. I used this [online free tool](https://www.base64encode.org/).
 
 Save the base64 in your environment file ( `.env` )
@@ -90,6 +92,5 @@ That’s it. In summary:
 Create your private key, save it in `.env` file without exposing it as base64 string. Then, in `/server/utils/db.ts`, you decode it from base64 and initialize firestore app, then just make sure you `export default db;` and then you can use it wherever in server you like!
 
 Thank you for reading! I wrote this fast & furiously as I am so disappointed in the amount of time it took me just to connect to Firestore. So sorry if its too straight-forward.
-
 
 This article was firstly uploaded on Medium [here](https://medium.com/@ilanyashuk/the-only-right-way-to-connect-googles-firestore-to-nuxt-3-02119bb1259d).

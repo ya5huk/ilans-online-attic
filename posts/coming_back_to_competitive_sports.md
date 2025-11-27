@@ -1,7 +1,7 @@
 ---
 title: "Back on Track: Coming back to competitive sports"
 # image: "/me/rise-from-makhtesth-ramon.webp"
-tags: "training"
+tags: "training,philosophy"
 lang: "en_US"
 date: "10/21/2025"
 ---

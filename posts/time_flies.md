@@ -1,6 +1,7 @@
 ---
 title: פרספקטיבות על זמן
 image: "/blog-images/lost-in-movement.jpg"
+tags: "philosophy"
 lang: "he_IL"
 date: "01/08/2025"
 ---

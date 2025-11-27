@@ -1,6 +1,7 @@
 ---
 title: "הפרויקט הראשון שלי"
 image: "/projects/va_logo.png"
+tags: "code"
 lang: "he_IL"
 date: "03/23/2024"
 ---

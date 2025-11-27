@@ -1,9 +1,11 @@
 ---
-title: 'Creating a cute hamburger menu with vuejs & tailwindcss'
-image: '/blog-images/hamburger-tailwindcss.webp'
-lang: 'en_US'
-date: '03/23/2024'
+title: "Creating a cute hamburger menu with vuejs & tailwindcss"
+image: "/blog-images/hamburger-tailwindcss.webp"
+tags: "code"
+lang: "en_US"
+date: "03/23/2024"
 ---
+
 Hey! This is another short article that I thought I’ll publish because I know that if I came across an article similar to this one, I would save some important development time.
 
 Here is how the end result will look. Colors and icons are of course left to your choice.
@@ -75,7 +77,7 @@ const toggleMenu = () => {
 </script>
 ```
 
-And for the *crème de la crème* we’ll add an animation that makes them pop up in different speeds. Here’s our `<style>`:
+And for the _crème de la crème_ we’ll add an animation that makes them pop up in different speeds. Here’s our `<style>`:
 
 ```
 <style scoped>
@@ -175,4 +177,3 @@ const toggleMenu = () => {
 This menu bar is super-simple but no one will care as long as it works.
 
 Functionality > Beauty.
-

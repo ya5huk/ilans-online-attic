@@ -1,8 +1,9 @@
 ---
-title: 'Creating a Responsive Navbar with Scroll-Based Visibility (Inspired by Instagram, X, etc.) using Vue.js'
-image: '/blog-images/navbar-examples.webp'
-lang: 'en_US'
-date: '03/23/2024'
+title: "Creating a Responsive Navbar with Scroll-Based Visibility (Inspired by Instagram, X, etc.) using Vue.js"
+image: "/blog-images/navbar-examples.webp"
+tags: "code"
+lang: "en_US"
+date: "03/23/2024"
 ---
 
 Don’t settle on an absolute-positioned `<nav>` element just yet. Creating a responsive navbar is easier than you think. In short, all you have to do is:
@@ -53,7 +54,7 @@ const handleScroll = () => {
         navbarTransform.value = `${scrollStartDown - currentScroll}px`
 
     } else if (currentScroll < lastScroll) {
-        // scrolling up 
+        // scrolling up
         if (scrollStartUp === 0) {
             scrollStartUp = currentScroll
         }
@@ -152,7 +153,7 @@ const handleScroll = () => {
         navbarTransform.value = `${scrollStartDown - currentScroll}px`
 
     } else if (currentScroll < lastScroll) {
-        // scrolling up 
+        // scrolling up
         if (scrollStartUp === 0) {
             scrollStartUp = currentScroll
         }
@@ -205,7 +206,7 @@ If user scrolls up:
 
 ```
 else if (currentScroll < lastScroll) {
-        // scrolling up 
+        // scrolling up
         if (scrollStartUp === 0) {
             scrollStartUp = currentScroll
         }
@@ -229,7 +230,7 @@ Last thing left to do is connect navbarTransform ref to the nav element it self 
 <nav ref="navbarRef" class="w-full bg-slate-950
     z-20 top-0 left-0 fixed
     border-b border-slate-700
-    p-4" :style="{ transform: `translateY(${navbarTransform})` }">  
+    p-4" :style="{ transform: `translateY(${navbarTransform})` }">
 ```
 
 Final code:
@@ -274,7 +275,7 @@ const handleScroll = () => {
         navbarTransform.value = `${scrollStartDown - currentScroll}px`
 
     } else if (currentScroll < lastScroll) {
-        // scrolling up 
+        // scrolling up
         if (scrollStartUp === 0) {
             scrollStartUp = currentScroll
         }
@@ -302,4 +303,3 @@ onUnmounted(() => {
 ```
 
 Thanks for reading :)
-

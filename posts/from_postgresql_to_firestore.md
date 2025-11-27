@@ -1,5 +1,6 @@
 ---
 title: "העברתי פרויקט שלם מפוסטגראס-קיו-אל לפיירסטור (גוגל)"
+tags: "code"
 image: "https://media.licdn.com/dms/image/v2/D4D12AQGB3fpIMNgAZw/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1720017977600?e=2147483647&v=beta&t=HgOJOVbDsZK8P38QCjc2vE9n8ZWORdsqY_TZxmvGYpY"
 lang: "he_IL"
 date: "07/03/2024"
