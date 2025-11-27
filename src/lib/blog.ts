@@ -1,17 +1,18 @@
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
-import { remark } from 'remark';
-import html from 'remark-html';
-import remarkGfm from 'remark-gfm';
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
+import { remark } from "remark";
+import html from "remark-html";
+import remarkGfm from "remark-gfm";
 
-const postsDirectory = path.join(process.cwd(), 'posts');
+const postsDirectory = path.join(process.cwd(), "posts");
 
 export interface BlogPost {
   slug: string;
   title: string;
   date: string;
   image?: string;
+  tags: string; // i.e. "linkedin", "training", etc. Split by comma
   lang: string;
   content: string;
   excerpt: string;
@@ -21,11 +22,11 @@ export async function getAllPosts(): Promise<BlogPost[]> {
   const fileNames = fs.readdirSync(postsDirectory);
   const allPostsData = await Promise.all(
     fileNames
-      .filter((fileName) => fileName.endsWith('.md'))
+      .filter((fileName) => fileName.endsWith(".md"))
       .map(async (fileName) => {
-        const slug = fileName.replace(/\.md$/, '');
+        const slug = fileName.replace(/\.md$/, "");
         const fullPath = path.join(postsDirectory, fileName);
-        const fileContents = fs.readFileSync(fullPath, 'utf8');
+        const fileContents = fs.readFileSync(fullPath, "utf8");
         const matterResult = matter(fileContents);
 
         // Process markdown to HTML
@@ -36,16 +37,21 @@ export async function getAllPosts(): Promise<BlogPost[]> {
 
         const contentHtml = processedContent.toString();
 
-        // Create excerpt 
-        const maxCharAmount = 150
-        const plainContent = matterResult.content.replace(/[#*`\[\]]/g, '').trim();
-        const excerpt = plainContent.slice(0, maxCharAmount) + (plainContent.length > maxCharAmount ? '...' : '');
+        // Create excerpt
+        const maxCharAmount = 150;
+        const plainContent = matterResult.content
+          .replace(/[#*`\[\]]/g, "")
+          .trim();
+        const excerpt =
+          plainContent.slice(0, maxCharAmount) +
+          (plainContent.length > maxCharAmount ? "..." : "");
 
         return {
           slug,
           title: matterResult.data.title,
           date: matterResult.data.date,
           image: matterResult.data.image,
+          tags: matterResult.data.tags,
           lang: matterResult.data.lang,
           content: contentHtml,
           excerpt,
@@ -60,7 +66,7 @@ export async function getAllPosts(): Promise<BlogPost[]> {
 export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
   try {
     const fullPath = path.join(postsDirectory, `${slug}.md`);
-    const fileContents = fs.readFileSync(fullPath, 'utf8');
+    const fileContents = fs.readFileSync(fullPath, "utf8");
     const matterResult = matter(fileContents);
 
     // Process markdown to HTML
@@ -72,14 +78,16 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
     const contentHtml = processedContent.toString();
 
     // Create excerpt
-    const plainContent = matterResult.content.replace(/[#*`\[\]]/g, '').trim();
-    const excerpt = plainContent.slice(0, 200) + (plainContent.length > 200 ? '...' : '');
+    const plainContent = matterResult.content.replace(/[#*`\[\]]/g, "").trim();
+    const excerpt =
+      plainContent.slice(0, 200) + (plainContent.length > 200 ? "..." : "");
 
     return {
       slug,
       title: matterResult.data.title,
       date: matterResult.data.date,
       image: matterResult.data.image,
+      tags: matterResult.data.tags,
       lang: matterResult.data.lang,
       content: contentHtml,
       excerpt,

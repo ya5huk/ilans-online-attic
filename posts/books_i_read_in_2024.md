@@ -1,6 +1,7 @@
 ---
 title: "ספרים שקראתי ב2024"
 image: "/blog-images/reading-book-apr-24.jpg"
+tags: "books"
 lang: "he_IL"
 date: "01/11/2025"
 ---

@@ -1,6 +1,7 @@
 ---
 title: "October Track & Field Training: Battling through injury"
 # image: "/me/rise-from-makhtesth-ramon.webp"
+tags: "training"
 lang: "en_US"
 date: "11/03/2025"
 ---

@@ -1,6 +1,7 @@
 ---
 title: "Walking in Israel’s Negev Desert: Hod Akev, Ein Akev & Divshon Rise"
 image: "/blog-images/negev-trip-sep13.webp"
+tags: "travel"
 lang: "en_US"
 date: "09/20/2024"
 ---
