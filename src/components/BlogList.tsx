@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import BlogCard from "@/components/card/BlogCard";
 import { BlogPost } from "@/lib/blog";
+import { tagIcons } from "@/lib/tagIcons";
 import Image from "next/image";
 import { DM_Serif_Display } from "next/font/google";
 
@@ -18,15 +19,39 @@ const BlogList: React.FC<BlogListProps> = ({ posts }) => {
   const [selectedLang, setSelectedLang] = useState<"all" | "he_IL" | "en_US">(
     "en_US"
   );
+  const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [selectedPosts, setSelectedPosts] = useState<BlogPost[]>(posts);
 
   useEffect(() => {
-    if (selectedLang === "all") {
-      setSelectedPosts(posts);
-    } else {
-      setSelectedPosts(posts.filter((post) => post.lang === selectedLang));
+    let filtered = posts;
+
+    // Filter by language
+    if (selectedLang !== "all") {
+      filtered = filtered.filter((post) => post.lang === selectedLang);
     }
-  }, [selectedLang]);
+
+    // Filter by tags
+    if (selectedTags.length > 0) {
+      filtered = filtered.filter((post) =>
+        selectedTags.some(
+          (tag) =>
+            post.tags &&
+            post.tags
+              .split(",")
+              .map((t) => t.trim())
+              .includes(tag)
+        )
+      );
+    }
+
+    setSelectedPosts(filtered);
+  }, [selectedLang, selectedTags]);
+
+  const toggleTag = (tag: string) => {
+    setSelectedTags((prev) =>
+      prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag]
+    );
+  };
 
   const stringToDate = (datestr: string) => {
     // Convert mm/dd/yyyy to Date
@@ -51,6 +76,31 @@ const BlogList: React.FC<BlogListProps> = ({ posts }) => {
 
   return (
     <>
+      {/* Blog tag selection */}
+      <div className="flex justify-center items-center gap-2 mb-4">
+        {Object.keys(tagIcons).map((tag) => (
+          <button
+            key={tag}
+            type="button"
+            className="hover:cursor-pointer transition-all duration-300"
+            onClick={() => toggleTag(tag)}
+            title={tag}
+          >
+            <Image
+              src={tagIcons[tag as keyof typeof tagIcons]}
+              alt={`${tag} filter`}
+              width={30}
+              height={30}
+              style={{
+                filter: selectedTags.includes(tag)
+                  ? "none"
+                  : "grayscale(1) opacity(0.2)",
+              }}
+            />
+          </button>
+        ))}
+      </div>
+
       {/* Blog lang selection */}
       <div className="flex justify-center items-center gap-2 mb-2">
         {/* 

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { BlogPost } from "@/lib/blog";
+import { tagIcons } from "@/lib/tagIcons";
 import Image from "next/image";
 
 interface BlogCardProps {
@@ -8,12 +9,6 @@ interface BlogCardProps {
 
 const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
   const [mm, dd, yyyy] = post.date.split("/");
-  const tagIcons = {
-    linkedin: "/ui/linkedin-hollow.png",
-    training: "/ui/exercise.svg",
-    books: "/ui/book.svg",
-    travel: "/ui/travel.svg",
-  };
 
   return (
     <Link href={`/yap/${post.slug}`}>

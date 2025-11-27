@@ -1,7 +1,7 @@
 ---
 title: "טיול דו-יומי מבודד במערב מכתש רמון: הר רמון, מצפור ערוד, הר עידו וקניון הפריזמות"
 image: "/blog-images/makhtesh-ramon-trip/נוף%20שקיעה%20מהר%20עידו.webp"
-tags: "travel,books"
+tags: "travel"
 lang: "he_IL"
 date: "11/19/2025"
 ---

@@ -4,6 +4,7 @@ import matter from "gray-matter";
 import { remark } from "remark";
 import html from "remark-html";
 import remarkGfm from "remark-gfm";
+import { tagIcons } from "./tagIcons";
 
 const postsDirectory = path.join(process.cwd(), "posts");
 
@@ -17,6 +18,8 @@ export interface BlogPost {
   content: string;
   excerpt: string;
 }
+
+export { tagIcons };
 
 export async function getAllPosts(): Promise<BlogPost[]> {
   const fileNames = fs.readdirSync(postsDirectory);
