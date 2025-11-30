@@ -77,7 +77,7 @@ I am eating and sleeping well. I sleep now, at age 21, better than ever before. 
 
 ## Key issues:
 
-### Tiredness (not optimal recovery)
+### Tiredness
 
 My job, home and training stadium are very far apart. Usually I do:
 
@@ -94,7 +94,7 @@ This is not optimal and will change surely. In 2026 I'll rent a new apartment an
 
 About December though, which is not a short period, I'll try to optimize what I can. That's what I did with November. Train near home when I can (gym, light sessions...). Try to carry less stuff, drop stuff at home (mid-day) if possible, keep my bags light as possible, sleep well, etc. I already feel like I'm pretty optimized in that area but there is always room for improvement.
 
-### Just "not knowing"
+### Not knowing
 
 A lot of the time this year I am struggling with training without really knowing if it's worth it... If results will come. I keep thinking - If I were a 7.30m jumper, then I know I am a decent long jumper. I know I actually achieved a decent mark in track and field. But I am not, I am a 6.75m long jumper... I get endorsements from time to time, which are great to hear but still - I have no idea how long can I jump. I jumped far on some training sessions. Competitions are couple of weeks away. I keep telling myself to actually enjoy that period of not knowing, because I can find out that:
 
