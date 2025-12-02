@@ -82,13 +82,13 @@ I am eating and sleeping well. I sleep now, at age 21, better than ever before. 
 My job, home and training stadium are very far apart. Usually I do:
 
 - 1hr bus ride to work
-- 2hr 2-buses + train ride to stadium
+- 2.5hr 2-buses + train ride to stadium
 - 1hr 2-buses ride to home
-- +LOTS OF WALKING
+- +LOTS OF WALKING (around 40-60 minutes total)
 
 > Usually leaving home at 9:00 am and returning around 9:30 pm
 
-That means not only are 4 hours of my day are kinda lost (or invested into reading and doing other work. I never just sleep or be idle in those rides. I usually write, read, do calls, work, change clothes, eat...) but that I travel always with lots of bags and items which sum up to a pretty heavy load. A load that I carry with myself for the whole day.
+That means not only are ~5 hours of my day are kinda lost (or invested into reading and doing other work. I never just sleep or be idle in those rides. I usually write, read, do calls, work, change clothes, eat...) but that I travel always with lots of bags and items which sum up to a pretty heavy load. A load that I carry with myself for the whole day.
 
 This is not optimal and will change surely. In 2026 I'll rent a new apartment and start working in a new, more exciting, more flexible job. The job and apartment will be closer to the stadium (around 1hr ride). Both of those should boost my recovery and hopefully fix that tiredness issue.
 
