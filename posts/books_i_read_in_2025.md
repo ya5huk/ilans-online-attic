@@ -1,5 +1,5 @@
 ---
-title: "Books I read in 2025"
+title: "2025 in reading"
 image: "/blog-images/life-as-capsulized-on-public-radio-morning-news-from-encyclopedia-of-an-ordinary-life.webp"
 tags: "books"
 lang: "en_US"
