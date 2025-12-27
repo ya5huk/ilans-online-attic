@@ -61,8 +61,8 @@ const AboutPage: React.FC = () => {
               Firebase)
             </li>
             <li>
-              Workflow: git, Copilot Agent, Automated PRs, currently in Claude
-              Sonnet team
+              Workflow: git, Copilot Agent, Automated PRs, Claude Code, Google
+              AI studio...{" "}
             </li>
           </ul>
           <p>
@@ -95,6 +95,7 @@ const AboutPage: React.FC = () => {
               this was a job interview, I would say this is just me having a
               broad view on life (and myself).
             </li>
+            <li>I love history, cool maps, geography in general.</li>
           </ul>
           <p>
             <strong>A final welcome:</strong>
