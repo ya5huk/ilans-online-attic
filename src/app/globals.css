@@ -1,12 +1,10 @@
 @import "tailwindcss";
 
-
 :root {
   --bg: white;
   --secondary: #132440;
   --third: #4ab1b1;
 }
-
 
 html {
   background-color: var(--bg);
@@ -43,11 +41,11 @@ ul {
 }
 
 .prose p {
-  @apply text-lg md:text-base leading-relaxed pb-1;
+  @apply text-lg md:text-base leading-relaxed pb-2;
 }
 
 .prose table {
-  @apply w-full border-collapse my-6 ;
+  @apply w-full border-collapse my-6;
 }
 .prose th {
   @apply bg-[var(--third)] text-left p-2 border border-[var(--secondary)];
