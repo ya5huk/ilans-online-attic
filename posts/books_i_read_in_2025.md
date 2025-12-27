@@ -38,6 +38,8 @@ Here is my full 2025 list:
 14. Start-up Nation / Dan Senor and Saul Singer
 15. Three Musketeers / Alexandre Dumas
 
+> You can skip to the review, which should be story-like and interesting. The next paragraph is mainly lessons that I implemented from 2024 and a story emphasizing about how books really enrich life.
+
 ## 2025 vs 2024
 
 > [Click here for books I read in 2024 (Hebrew article)](/yap/books_i_read_in_2024)
@@ -83,32 +85,23 @@ For context, here are:
 
 ---
 
-This year, I will make the reviews less bulleted, and more story-like. I think this is the proper way to summarize 2025 in books I read. And not, a bulleted list like I did last year. You will be the judge.
+This year, I will make the reviews less bulleted, and more story-like. I think this is the proper way to summarize 2025 in books I read.
 
 ### Story of the books I read in 2025
 
-## REWRITE FROM HERE
+There's a weird thing about me... I kinda love a good love story. Also, I love normal stories. I feel like living in Israel... Since like... 2020, is so chaotic and so eventful that many times I just want to hear a... normal story. Regular. Usual. Routine story if you'll like.
 
-##
+So I picked up a title suggesting a regular story on a regular guy in the big city. I was wrong. The first book I read was **Nir Menussi's The Morning After**  
+This books covers love in the modern age. How, even though everyone are so free and limitless, and can hook up and be with whoever they want - it seems like real love is impossible to be found. This wasn't a love story, it was a DIY about how you should approach finding love.
 
-##
+Nir Menussi is a non-religious turned religious guy, so at the end there is a lot of talk about how judaism conspets can elevate relationships... Stuff like that. Sometimes, in arguments I will argue that being with many individuals is actually bad. Because, you will have your firsts with different people and when finally you will get to your wife, you will be filled with memories regarding other people. Your first ski was made with X, your first date meal with Y, your first competition with Z. What will be left for your wife? It doesn't mean you need to one-shot marriage but, you shouldn't aim to maximise relationships amount that way. My opinion at least.
 
-##
+Also, he will argue for example, that we didn't only gain from becoming so free in who we date and how we dress, etc. We gained some freedom, but we maybe lost value...
 
-Nir Menussi's book:
-This books covers love in the modern age. How, even though everyone are so free and limitless, and can hook up and be with whoever they want - it seems like real love is impossible to be found.
+Searching for a regular story still, I started reading **Cecilia Ahern's In a thousand different ways**. That was a regular story with a twist. Alice can see feelings. Like, really see them. As colors. if it was Marvel's, maybe her powers were super-sensetiveness. This is a great story involving love, toxic family issues and just... life. I loved that book. It really seems like Cecilia Ahern put some of her's (or someone other's) real life in this book.
 
-I geniunely have no idea why I even picked up this book. Well, actually, I do. I thought it'll be a totally different book. Not a DIY one. But...
+**Nexus by Yuval Noah Harari** was a full of knowledge. I always feel like I come out way smarter (on the other side) after finishing Yuval Noah Harari's books. Sapiens was amazing. This book, emphasizing that history is a set of choice and not just deterministic, talks about the history of information networks from Stone Age to AI. WHAT THE HELL DOES THAT MEAN you ask? Well, for example why did the Soviet Union fail? What was problematic in their information network? The soldier was afraid to pass to its commander all the truths, because he wasn't defended by law and had lot of fear. I say soldier but I mean everybody, were too afraid from their superior, which made the information flow badly from bottom to top. Also, how was the information gathered and where stored? In the Soviet Union - everything was centered at one point. Is it good? What's bad about this? How does it work in the United States? All of that, in Yuval's book.
 
-I'm happy I read this book. It is well written and the author, even though is religious (which I'm not), really doesn't aim to force his opinions on you. He wasn't religious in the beginning. Very opposite of that actually, and so his language is acustomed to us, the non-religious folks. He is super updated with all the current trends and it really seems like he is passionate about helping young people restore their belief in love. For example, he knows many trends in tiktok, he knows what toxic masculinity is, etc. He gives good tips, which are practical too.
+Next one was my second George Orwell book. It was **Animal Farm**. After the previous book, I already learned why totalitarianism is bad. In general, I am not a totaliarnism fan, so I didn't need another reminder why its bad. But... Animal Farm is a good story about how naive people, upon gaining power, become what they hated most. That is why we don't want to leave everything to men and bound them by rules.
 
-We shared some opinions which that book made science-based and better oriented in my mind. Some of those are:
-
-- Who said that sleeping with hell lot of partners before marriage is better than sleeping with 2? I mean, from the prespective of being a happy individual.
-- Who said that ultimate freedom is that much better than older models, like pre-determined marriage (Don't get me wrong, I am not for pre-determined marriage, but we did lose something gaining that unlimited freedom. It is not me that is saying that, world-wide happiness stats and votes are)
-
-Anyways, there is some stuff I didn't like about this book. Some parts were too spiritual for me. Many were referencing judaism and relegious concepts too heavily. I get why he added them but... That's just not my cup of tea.
-
-## In a thousand different ways / Cecilia Ahern
-
-This wasn't a life changing book for me. But I liked it very much. Who knew a regular story can be so... fun. The story is about Alice
+Number 5 was a book I picked up because my grandfather suggested it. My grandpa is from the Soviet Union and I wanted to see what's the hype. Actually, I wanted to let those times, sink into me. I wanted to understand what it's been like. The book's name is **Life and Extraordinary Adventures of Private Ivan Chonkin (1st part)**. Alcohol, Stalin's police, WWII, rural lifestyle, comedy... is what you should expect from this book. Mainly, this is just a writing about times passed in a nation that no longer exist.
