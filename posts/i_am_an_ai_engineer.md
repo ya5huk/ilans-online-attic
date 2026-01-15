@@ -12,7 +12,7 @@ This is a big thing, really.
 
 > SUPER SHORT POST DISCLAIMER!!
 
-## My life's current trio 
+## 3 things regarding this new job
 
 First, velocity. I left the army on Wednesday (2025-12-31). Sunday (2026-01-04), I joined a tech company. Same Sunday, I signed an apartment contract in Tel Aviv. All while trying to balance professional track training 1hr drive from the place I work & live in. (Even though training is in a kinda bad place rn but we'll live that for another post)
 
