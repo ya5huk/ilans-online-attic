@@ -16,6 +16,7 @@ const pageMetadata = {
   imgalt: "A photo of me",
   path: "/about",
   sitetype: "profile" as MetadataGenParams["sitetype"],
+  inLanguage: "en-US",
 };
 
 export const metadata: Metadata = genMetadata(pageMetadata);

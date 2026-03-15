@@ -1,0 +1,31 @@
+# Ilan's Online Attic
+
+> Personal website of Ilan Yashuk — a programmer-athlete from Israel sharing blog posts, photography, and projects.
+
+## Blog
+
+Posts about technology, programming, philosophy, books, travel, and competitive sports training. Written in English and Hebrew.
+
+- [Blog index](https://www.ilansonlineattic.com/yap)
+
+Topics: training, philosophy, books, travel, code
+
+## Projects
+
+Software projects built over the years — web apps, mobile apps, and tools. Includes Promreach (AI agent app), CalendarPlusAI, Visuathlete (athlete analytics), EL-ON, and SafeCloud.
+
+- [Projects page](https://www.ilansonlineattic.com/projects)
+
+## Photography
+
+Personal photo gallery — hiking, cycling, travel, track & field, and daily life.
+
+- [Photos](https://www.ilansonlineattic.com/pics)
+
+## About
+
+Ilan Yashuk, born 2004. Full-stack developer (Next.js, React Native, Nuxt, Python, Flask) and competitive track & field athlete (100m: 11.21s, Long Jump: 6.75m).
+
+- [About](https://www.ilansonlineattic.com)
+- [LinkedIn](https://www.linkedin.com/in/ilan-yashuk/)
+- [Instagram](https://www.instagram.com/ilan_yashuk/)

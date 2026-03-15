@@ -20,6 +20,16 @@ type MetadataProps = {
 
 const getBlogPageMetadata = (articlename: string, post: BlogPost | null) => {
   const [mm, dd, yyyy] = post?.date.split("/").map(Number) || [];
+  const pubDate = post?.date
+    ? new Date(yyyy, mm ? mm - 1 : 0, dd ? dd : 1)
+    : undefined;
+
+  const wordCount = post?.content
+    ? post.content.replace(/<[^>]*>/g, "").trim().split(/\s+/).length
+    : undefined;
+
+  const tags = post?.tags?.split(",").map((t) => t.trim()) || [];
+  const lang = post?.lang === "he_IL" ? "he-IL" : "en-US";
 
   return {
     title: post?.title || "Blog",
@@ -28,9 +38,12 @@ const getBlogPageMetadata = (articlename: string, post: BlogPost | null) => {
     imgalt: post?.title || "The Kinneret",
     path: `/yap/${articlename}`,
     sitetype: "article" as MetadataGenParams["sitetype"],
-    datepublished: post?.date
-      ? new Date(yyyy, mm ? mm - 1 : 0, dd ? dd : 1)
-      : undefined,
+    datepublished: pubDate,
+    dateModified: pubDate,
+    keywords: tags,
+    inLanguage: lang,
+    wordCount,
+    articleSection: tags[0],
   };
 };
 
@@ -41,8 +54,21 @@ export async function generateMetadata(
   const { articlename } = await params;
   const post = await getPostBySlug(articlename);
   const pageMetadata = getBlogPageMetadata(articlename, post);
+  const baseMetadata = genMetadata(pageMetadata);
 
-  return genMetadata(pageMetadata);
+  const lang = post?.lang === "he_IL" ? "he-IL" : "en-US";
+  const canonicalUrl = `https://www.ilansonlineattic.com/yap/${articlename}`;
+
+  return {
+    ...baseMetadata,
+    alternates: {
+      ...baseMetadata.alternates,
+      languages: {
+        [lang]: canonicalUrl,
+        "x-default": canonicalUrl,
+      },
+    },
+  };
 }
 
 const ArticlePage: React.FC<ArticlePageProps> = async ({ params }) => {

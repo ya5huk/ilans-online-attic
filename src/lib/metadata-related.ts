@@ -9,18 +9,27 @@ export interface MetadataGenParams {
   path: string;
   sitetype: siteTypes;
   datepublished?: Date;
+  keywords?: string[];
+  inLanguage?: string;
+  wordCount?: number;
+  articleSection?: string;
+  dateModified?: Date;
 }
 
 export const genMetadata = (
   metadataParams: MetadataGenParams
 ): Metadata => {
+  const canonicalUrl = `https://www.ilansonlineattic.com${metadataParams.path}`;
   return {
     title: metadataParams.title,
     description: metadataParams.desc,
+    alternates: {
+      canonical: canonicalUrl,
+    },
     openGraph: {
       title: metadataParams.title,
       description: metadataParams.desc,
-      url: `https://ilansonlineattic.com${metadataParams.path}`,
+      url: canonicalUrl,
       siteName: "Ilan's Online Attic",
       images: [
         {
@@ -28,7 +37,7 @@ export const genMetadata = (
           alt: metadataParams.imgalt,
         },
       ],
-      locale: "en-US",
+      locale: metadataParams.inLanguage || "en-US",
       type: metadataParams.sitetype,
     },
     twitter: {
@@ -38,27 +47,52 @@ export const genMetadata = (
       images: [metadataParams.img],
       site: '@ilan_yashuk'
     },
-
-
   }
 };
 
+const schemaTypeMap: Record<string, string> = {
+  article: "BlogPosting",
+  profile: "ProfilePage",
+  website: "WebSite",
+  book: "Book",
+};
+
 export const genJsonLd = (metadata: MetadataGenParams) => {
+  const canonicalUrl = `https://www.ilansonlineattic.com${metadata.path}`;
   return {
     "@context": "https://schema.org",
-    "@type": metadata.sitetype,
+    "@type": schemaTypeMap[metadata.sitetype] || metadata.sitetype,
     name: metadata.title,
     description: metadata.desc,
     image: metadata.img,
-    url: `https://ilansonlineattic.com${metadata.path}`,
+    url: canonicalUrl,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": canonicalUrl,
+    },
     author: {
       "@type": "Person",
-      name: "Ilan Yashuk"
+      name: "Ilan Yashuk",
+      sameAs: [
+        "https://www.linkedin.com/in/ilan-yashuk/",
+        "https://www.instagram.com/ilan_yashuk/",
+      ],
     },
     publisher: {
       "@type": "Organization",
-      name: "Ilan's Online Attic"
+      name: "Ilan's Online Attic",
     },
-    datePublished: metadata.datepublished ? metadata.datepublished.toISOString().split('T')[0] : undefined,
+    datePublished: metadata.datepublished
+      ? metadata.datepublished.toISOString().split("T")[0]
+      : undefined,
+    dateModified: metadata.dateModified
+      ? metadata.dateModified.toISOString().split("T")[0]
+      : metadata.datepublished
+        ? metadata.datepublished.toISOString().split("T")[0]
+        : undefined,
+    inLanguage: metadata.inLanguage,
+    keywords: metadata.keywords,
+    wordCount: metadata.wordCount,
+    articleSection: metadata.articleSection,
   };
 }

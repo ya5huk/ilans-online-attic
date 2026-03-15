@@ -15,6 +15,7 @@ const pageMetadata = {
   imgalt: "The Kinneret",
   path: "/yap",
   sitetype: "website" as MetadataGenParams["sitetype"],
+  inLanguage: "en-US",
 };
 
 export const metadata: Metadata = genMetadata(pageMetadata);

@@ -1,6 +1,6 @@
 ---
 title: "I AM AN AI ENGINEER"
-image: "/blog-images/sled-logo.png"
+image: "https://www.sledai.com/opengraph-image?a1d89661a0cb14f5"
 tags: "code"
 lang: "en_US"
 date: "01/15/2026"

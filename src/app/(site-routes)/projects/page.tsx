@@ -14,6 +14,7 @@ const pageMetadata = {
   imgalt: "Biggest project yet - Visuathlete",
   path: "/projects",
   sitetype: "website" as MetadataGenParams["sitetype"],
+  inLanguage: "en-US",
 };
 
 export const metadata: Metadata = genMetadata(pageMetadata);
