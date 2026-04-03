@@ -1,7 +1,7 @@
 ---
 title: "Life catch up and bit of Track & Field talk"
 image: "/blog-images/friday-working-on-the-bus.jpg"
-tags: "training"
+tags: "training,philosophy"
 lang: "en_US"
 date: "04/03/2026"
 ---
