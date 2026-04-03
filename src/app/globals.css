@@ -79,6 +79,18 @@ ul {
   @apply md:max-h-[480px] shadow-[4px_4px_0px_var(--third)] my-6 mx-auto;
 }
 
+.prose figure {
+  @apply my-6 mx-auto text-center;
+}
+
+.prose figure img {
+  @apply my-0 mx-auto;
+}
+
+.prose figcaption {
+  @apply text-sm text-gray-400 mt-2 italic;
+}
+
 .prose blockquote {
   @apply border-l-4 border-gray-300 pl-4 italic my-6 text-gray-500;
 }

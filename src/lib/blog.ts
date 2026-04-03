@@ -8,6 +8,16 @@ import { tagIcons } from "./tagIcons";
 
 const postsDirectory = path.join(process.cwd(), "posts");
 
+function addImageCaptions(htmlStr: string): string {
+  return htmlStr.replace(
+    /<img\s+src="([^"]*)"(?:\s+alt="([^"]*)")?(?:\s*\/)?>/g,
+    (_, src, alt) => {
+      if (!alt) return `<img src="${src}" alt="">`;
+      return `<figure><img src="${src}" alt="${alt}"><figcaption>${alt}</figcaption></figure>`;
+    }
+  );
+}
+
 export interface BlogPost {
   slug: string;
   title: string;
@@ -38,7 +48,7 @@ export async function getAllPosts(): Promise<BlogPost[]> {
           .use(html)
           .process(matterResult.content);
 
-        const contentHtml = processedContent.toString();
+        const contentHtml = addImageCaptions(processedContent.toString());
 
         // Create excerpt
         const maxCharAmount = 150;
@@ -78,7 +88,7 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
       .use(html, { sanitize: false })
       .process(matterResult.content);
 
-    const contentHtml = processedContent.toString();
+    const contentHtml = addImageCaptions(processedContent.toString());
 
     // Create excerpt
     const plainContent = matterResult.content.replace(/[#*`\[\]]/g, "").trim();
