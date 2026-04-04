@@ -10,7 +10,7 @@ I promised to log every month how's training been. I did so for October and Nove
 
 It's April 3rd now. A lot have changed. February I almost arrived at my breaking point. It was so hard, giving up felt as close as ever. But I kept training. 
 
-Moments like these leave a mental scar on you. It's been 2 months now and I still question a lot of life desicions I made. Thoughts that were super intense in February still loom around.
+Moments like these leave a mental scar on you. It's been 2 months now and I still question a lot of life desicions I made. Thoughts that were super intense in February still loom around in my mind.
 
 Anyways, let's deep dive.
 
@@ -28,7 +28,6 @@ Here, I'll describe the overall changes I've been through, just as a background.
 So, here is what changed in my life since December.
 
 ## December
-
 
 I kept living in the new apartment I wrote about in the last blog until the end of December. I deliberately rented it (not a whole apartment. Just a room inside a 2-room apartment) for exactly 2 months. I had a temporary job near Ramat-Gan (at least I thought it's near the job. In reality, it took me at least 1.5 hours on average to get to and fro work). New job. First time living by myself (well, really, with a roomate I didn't know). It was a lot. The training stadium was super far. About 2 hours from my home. and even farther from my job. 
 
@@ -76,11 +75,7 @@ But if you are past 100%, you don't actually feel that drop. I'm just saying "no
 
 ![I was walking-with-an-open-macbook level of busy](/blog-images/computer-outside-type-of-busy.jpg)
 
-Around end of December to January I had a small injury at my left heel. It became kinda big and I missed a lot of competitions in the winter. I actually competed only twice. One time I jumped 6.19m. Terrible. One time I fouled all my jumps. Actually less bad if in that case, the jumps were actually good. But they weren't. On that competition (the 2nd), I started the warmup 20 minutes late after I got stuck in a traffic jam, took a city bike and cycled couple of miles to the stadium. 
-
-Chaos. Just chaos. But that's actually happened in February so lemme start a new header.
-
-![Thy bike ride](/blog-images/the-bike-ride.jpg)
+Around end of December to January I had a small injury in my left heel. It grew bigger and I missed almost the whole winter competitions season. Eventually I figured it out and got out of it, but it deserves it's own post. You can read more about [December](/yap/december_training) and [January](/yap/jan_feb_2026_training) training in those links.
 
 ## February
 
