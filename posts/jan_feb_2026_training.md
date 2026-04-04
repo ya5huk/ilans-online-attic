@@ -3,7 +3,7 @@ title: "Jan-Feb Track & Field: Injuries, breakdown, comeback and the reality of 
 image: "/blog-images/janfeb-training-hero-img.jpg"
 tags: "training"
 lang: "en_US"
-date: "04/04/2026 15:47"
+date: "04/04/2026 17:19"
 ---
 
 New year, same heel injury from last month.
