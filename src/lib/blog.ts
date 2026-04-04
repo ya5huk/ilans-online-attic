@@ -8,10 +8,26 @@ import { tagIcons } from "./tagIcons";
 
 const postsDirectory = path.join(process.cwd(), "posts");
 
+const videoExtensions = /\.(mp4|webm)$/i;
+
+function parseDate(dateStr: string): Date {
+  const [datePart, timePart] = dateStr.split(" ");
+  const [mm, dd, yyyy] = datePart.split("/").map(Number);
+  if (timePart) {
+    const [hh, min] = timePart.split(":").map(Number);
+    return new Date(yyyy, mm - 1, dd, hh, min);
+  }
+  return new Date(yyyy, mm - 1, dd);
+}
+
 function addImageCaptions(htmlStr: string): string {
   return htmlStr.replace(
     /<img\s+src="([^"]*)"(?:\s+alt="([^"]*)")?(?:\s*\/)?>/g,
     (_, src, alt) => {
+      if (videoExtensions.test(src)) {
+        const caption = alt ? `<figcaption>${alt}</figcaption>` : "";
+        return `<figure><video src="${src}" controls playsinline></video>${caption}</figure>`;
+      }
       if (!alt) return `<img src="${src}" alt="">`;
       return `<figure><img src="${src}" alt="${alt}"><figcaption>${alt}</figcaption></figure>`;
     }
@@ -73,7 +89,7 @@ export async function getAllPosts(): Promise<BlogPost[]> {
   );
 
   // Sort posts by date (newest first)
-  return allPostsData.sort((a, b) => (a.date < b.date ? 1 : -1));
+  return allPostsData.sort((a, b) => parseDate(b.date).getTime() - parseDate(a.date).getTime());
 }
 
 export async function getPostBySlug(slug: string): Promise<BlogPost | null> {

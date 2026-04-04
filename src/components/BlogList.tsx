@@ -54,15 +54,19 @@ const BlogList: React.FC<BlogListProps> = ({ posts }) => {
   };
 
   const stringToDate = (datestr: string) => {
-    // Convert mm/dd/yyyy to Date
-    const [month, day, year] = datestr.split("/");
+    // Convert mm/dd/yyyy or mm/dd/yyyy HH:mm to Date
+    const [datePart, timePart] = datestr.split(" ");
+    const [month, day, year] = datePart.split("/");
+    if (timePart) {
+      return new Date(`${year}-${month}-${day}T${timePart}`);
+    }
     return new Date(`${year}-${month}-${day}`);
   };
 
   // Fill posts by year
   const yearPosts: { [key: string]: BlogPost[] } = {};
   selectedPosts.forEach((post) => {
-    const year = post.date.split("/")[2];
+    const year = post.date.split(" ")[0].split("/")[2];
     if (!yearPosts[year]) {
       yearPosts[year] = [];
     }

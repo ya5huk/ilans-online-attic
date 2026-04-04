@@ -18,7 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Parse frontmatter date (mm/dd/yyyy) into a Date object
   const parsePostDate = (dateStr: string): Date => {
-    const [mm, dd, yyyy] = dateStr.split('/').map(Number)
+    const [mm, dd, yyyy] = dateStr.split(' ')[0].split('/').map(Number)
     return new Date(yyyy, (mm || 1) - 1, dd || 1)
   }
 

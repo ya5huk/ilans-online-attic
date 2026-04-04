@@ -3,7 +3,7 @@ title: "December Track & Field: First competition, heel injury and moving to a n
 image: "/blog-images/december-training-hero-image.jpg"
 tags: "training"
 lang: "en_US"
-date: "04/04/2026"
+date: "04/04/2026 13:30"
 ---
 
 Now that I'm 4 months smarter, I can tell that 2 things were horrible training-wise in December:

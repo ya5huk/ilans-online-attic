@@ -19,7 +19,7 @@ type MetadataProps = {
 };
 
 const getBlogPageMetadata = (articlename: string, post: BlogPost | null) => {
-  const [mm, dd, yyyy] = post?.date.split("/").map(Number) || [];
+  const [mm, dd, yyyy] = post?.date.split(" ")[0].split("/").map(Number) || [];
   const pubDate = post?.date
     ? new Date(yyyy, mm ? mm - 1 : 0, dd ? dd : 1)
     : undefined;
@@ -77,7 +77,7 @@ const ArticlePage: React.FC<ArticlePageProps> = async ({ params }) => {
 
   const getDateStr = (date: string, isHeb: boolean) => {
     // date of string mm/dd/yyyy
-    const [month, day, year] = date.split("/");
+    const [month, day, year] = date.split(" ")[0].split("/");
     const d = new Date(`${year}-${month}-${day}`);
     return d.toLocaleDateString(isHeb ? "he-IL" : "en-US", {
       year: "numeric",

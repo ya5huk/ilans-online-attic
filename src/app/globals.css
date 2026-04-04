@@ -83,8 +83,13 @@ ul {
   @apply my-6 mx-auto text-center;
 }
 
-.prose figure img {
+.prose figure img,
+.prose figure video {
   @apply my-0 mx-auto;
+}
+
+.prose video {
+  @apply md:max-h-[480px] shadow-[4px_4px_0px_var(--third)] my-6 mx-auto;
 }
 
 .prose figcaption {

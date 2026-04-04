@@ -8,7 +8,7 @@ interface BlogCardProps {
 }
 
 const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
-  const [mm, dd, yyyy] = post.date.split("/");
+  const [mm, dd, yyyy] = post.date.split(" ")[0].split("/");
 
   return (
     <Link href={`/yap/${post.slug}`}>
