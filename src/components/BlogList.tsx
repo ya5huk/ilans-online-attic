@@ -77,86 +77,83 @@ const BlogList: React.FC<BlogListProps> = ({ posts }) => {
   return (
     <>
       {/* Filters */}
-      <div className="flex flex-col items-center gap-3 mb-6">
+      <div className="flex justify-center items-center gap-5 mt-4 mb-8">
         {/* Tag filters */}
-        <div className="flex justify-center items-center gap-1.5">
-          {Object.keys(tagIcons).map((tag) => {
-            const isActive = selectedTags.includes(tag);
-            return (
-              <button
-                key={tag}
-                type="button"
-                className={`flex items-center gap-1.5 px-3 py-1.5 border-2 transition-all duration-200 hover:cursor-pointer ${
-                  isActive
-                    ? "border-[var(--third)] bg-[var(--third)] bg-opacity-10"
-                    : "border-transparent hover:border-gray-200"
+        {Object.keys(tagIcons).map((tag) => {
+          const isActive = selectedTags.includes(tag);
+          return (
+            <button
+              key={tag}
+              type="button"
+              className="flex flex-col items-center gap-1 transition-all duration-200 hover:cursor-pointer"
+              onClick={() => toggleTag(tag)}
+            >
+              <Image
+                src={tagIcons[tag as keyof typeof tagIcons]}
+                alt={tag}
+                width={28}
+                height={28}
+                className="transition-all duration-200 hover:opacity-80"
+                style={{
+                  filter: isActive ? "none" : "grayscale(1) opacity(0.3)",
+                }}
+              />
+              <span
+                className={`block h-0.5 w-4 rounded-full transition-all duration-200 ${
+                  isActive ? "bg-[var(--third)]" : "bg-transparent"
                 }`}
-                onClick={() => toggleTag(tag)}
-              >
-                <Image
-                  src={tagIcons[tag as keyof typeof tagIcons]}
-                  alt={tag}
-                  width={18}
-                  height={18}
-                  style={{
-                    filter: isActive ? "none" : "grayscale(1) opacity(0.35)",
-                  }}
-                />
-                <span
-                  className={`text-sm capitalize transition-colors duration-200 ${
-                    isActive ? "text-[var(--secondary)]" : "text-gray-400"
-                  }`}
-                >
-                  {tag}
-                </span>
-              </button>
-            );
-          })}
-        </div>
+              />
+            </button>
+          );
+        })}
+
+        {/* Divider */}
+        <span className="self-center h-6 w-px bg-gray-300" />
 
         {/* Language filters */}
-        <div className="flex justify-center items-center gap-1.5">
-          {(
-            [
-              { key: "all", label: "All", img: null },
-              { key: "he_IL", label: "Hebrew", img: "/ui/israel-flag.png" },
-              { key: "en_US", label: "English", img: "/ui/uk-flag.png" },
-            ] as const
-          ).map(({ key, label, img }) => {
-            const isActive = selectedLang === key;
-            return (
-              <button
-                key={key}
-                type="button"
-                className={`flex items-center gap-1.5 px-3 py-1.5 border-2 transition-all duration-200 hover:cursor-pointer ${
-                  isActive
-                    ? "border-[var(--third)] bg-[var(--third)] bg-opacity-10"
-                    : "border-transparent hover:border-gray-200"
-                }`}
-                onClick={() => setSelectedLang(key)}
-              >
-                {img && (
-                  <Image
-                    src={img}
-                    alt={label}
-                    width={20}
-                    height={20}
-                    style={{
-                      filter: isActive ? "none" : "grayscale(1) opacity(0.35)",
-                    }}
-                  />
-                )}
+        {(
+          [
+            { key: "all", label: "All", img: null },
+            { key: "he_IL", label: "Hebrew", img: "/ui/israel-flag.png" },
+            { key: "en_US", label: "English", img: "/ui/uk-flag.png" },
+          ] as const
+        ).map(({ key, label, img }) => {
+          const isActive = selectedLang === key;
+          return (
+            <button
+              key={key}
+              type="button"
+              className="flex flex-col items-center gap-1 transition-all duration-200 hover:cursor-pointer"
+              onClick={() => setSelectedLang(key)}
+            >
+              {img ? (
+                <Image
+                  src={img}
+                  alt={label}
+                  width={32}
+                  height={32}
+                  className="transition-all duration-200 hover:opacity-80"
+                  style={{
+                    filter: isActive ? "none" : "grayscale(1) opacity(0.3)",
+                  }}
+                />
+              ) : (
                 <span
-                  className={`text-sm transition-colors duration-200 ${
-                    isActive ? "text-[var(--secondary)]" : "text-gray-400"
+                  className={`text-sm font-medium transition-all duration-200 ${
+                    isActive ? "text-[var(--secondary)]" : "text-gray-300"
                   }`}
                 >
-                  {label}
+                  All
                 </span>
-              </button>
-            );
-          })}
-        </div>
+              )}
+              <span
+                className={`block h-0.5 w-4 rounded-full transition-all duration-200 ${
+                  isActive ? "bg-[var(--third)]" : "bg-transparent"
+                }`}
+              />
+            </button>
+          );
+        })}
       </div>
       {/* Blog Posts */}
       <div>
