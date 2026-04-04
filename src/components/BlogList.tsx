@@ -17,7 +17,7 @@ interface BlogListProps {
 
 const BlogList: React.FC<BlogListProps> = ({ posts }) => {
   const [selectedLang, setSelectedLang] = useState<"all" | "he_IL" | "en_US">(
-    "en_US"
+    "en_US",
   );
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [selectedPosts, setSelectedPosts] = useState<BlogPost[]>(posts);
@@ -39,8 +39,8 @@ const BlogList: React.FC<BlogListProps> = ({ posts }) => {
             post.tags
               .split(",")
               .map((t) => t.trim())
-              .includes(tag)
-        )
+              .includes(tag),
+        ),
       );
     }
 
@@ -49,7 +49,7 @@ const BlogList: React.FC<BlogListProps> = ({ posts }) => {
 
   const toggleTag = (tag: string) => {
     setSelectedTags((prev) =>
-      prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag]
+      prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag],
     );
   };
 
@@ -77,7 +77,7 @@ const BlogList: React.FC<BlogListProps> = ({ posts }) => {
   return (
     <>
       {/* Filters */}
-      <div className="flex justify-center items-center gap-5 mt-4 mb-8">
+      <div className="flex justify-center items-center gap-3 mt-4 mb-4">
         {/* Tag filters */}
         {Object.keys(tagIcons).map((tag) => {
           const isActive = selectedTags.includes(tag);
@@ -170,7 +170,7 @@ const BlogList: React.FC<BlogListProps> = ({ posts }) => {
             </div>
             {yearPosts[year]
               .sort((a, b) =>
-                stringToDate(a.date) < stringToDate(b.date) ? 1 : -1
+                stringToDate(a.date) < stringToDate(b.date) ? 1 : -1,
               )
               .map((post, idx) => (
                 <div key={post.slug}>
