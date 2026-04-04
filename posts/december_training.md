@@ -8,10 +8,10 @@ date: "04/04/2026"
 
 Now that I'm 4 months smarter, I can tell that 2 things were horrible training-wise in December:
 
-- I forgot how to run. My technique was awful. It led to injuries, bad recovery and being slow. 
-- I trained 6 times a week without any proper recovery day in the middle of the week.
+- I forgot how to run. My technique was awful. It led to injuries, bad recovery and being slow. (fixed in February)
+- I trained 6 times a week without any proper recovery day in the middle of the week. (I asked for a constant midweek rest day in Jan.)
 
-Because I just moved to training with a new coach, I wanted to start a new page. I knew that I may be training too much (for me) but I wanted to give it a chance.
+Because I just started training with a new coach, I wanted to start a new page. I knew that I may be training too much (for me) but I wanted to give it a chance.
 
 > This is written on April 4th, 2026. These are not fresh memories as in real-time I didn't have the time to write this. [I explain this here](/yap/life_catchup_april).
 
@@ -26,17 +26,21 @@ In general, December training usually contained (in a week):
 
 ![100 KG Clean fail](/blog-images/100kg-clean-fail.jpg)
 
-The load was very high, we ran fast a lot and there was even a speed endurance day with 300s. 
-We ran a lot of 20m, 30m push runs, focusing on the first phase of the long jump runup. 
-The only time we ran distances like 60-100m was with small sprint hurdles, working on frequency.
+The load was very high, we sprinted a lot. 
+
+There was one speed endurance day with 300s. 
+
+We ran a lot of 20m, 30m push runs, focusing on the first phase of the long jump run-up. 
+
+The only times we ran distances like 60-100m were with small sprint hurdles, working on frequency.
 
 > I was super tired because of the hours I travelled in buses every day. I wrote about it more in the [previous post](/yap/life_catchup_april).
 
 ## The penultimate step conflict
 
-I remember thinking a lot on the penultimate step. In my head - my foot had to be flat on the penultimate step. And I enforced that in lots of my jumps. What really happened though, was that when I tried to put my whole foot on the ground, my hip would drop, my speed would drop and I jumped either too high, or just poorly. That hip drop made me slow, in a bad position and exposed to injuries.
+I remember thinking a lot on the penultimate step. In my head - my foot HAD to be flat on the penultimate step. I enforced that in all of my jumps. What really happened though, was that when I tried to put my whole foot on the ground, my hip would drop, my speed would drop and I jumped either too high, or just poorly. That hip drop made me slow, in a bad position and exposed to injuries.
 
-And that might be the reason I actually injured my jumping leg (left) heel.
+And that might be the reason I actually injured my jumping leg's (left) heel.
 
 ## First competition
 
@@ -46,11 +50,13 @@ I waited 4 months (no kidding) for this. I wanted to compete so bad. I felt good
 As the days were passing and I was closer and closer to December 25th, my left heel started hurting. 
 At some point - even running a warmup was bad. 
 
-I took a few rest (or weak) days before the competition and competed anyway. 
+I took a few rest (/easy) days before the competition and competed anyway. 
 The heel wasn't a real issue in the competition.
 
 The competition didn't go well. I jumped 6.19m. I felt like I stopped completely on every take off (because of my low-hip-penultimate-step).
-I didn't know then that this was because of the penultimate step, but I did know that my heel was hurt. 
+I didn't know back then that this was because of the penultimate step. I was yet to connect the dots. 
+
+## Recovery week?
 
 This was the last week of December. Which means I had to be out of the apartment that week, and had to find a new apartment for the next week. 
 
@@ -67,8 +73,11 @@ Oh and if that's not enough (leaving an apartment + finding a new one): New Year
 January was a month of many firsts.
 
 First real full-time job.
+
 First tech job.
+
 First apartment in Tel-Aviv.
+
 First apartment with friend roommates.
 
 A new life. 
@@ -76,5 +85,7 @@ A new life.
 The heel injury? Didn't go away.
 
 > At the end I think I did find out what was the problem. 
+>
 > Whether that was the root cause or not, the injury went away thanks to those exercises.
-> I'll write about it more in the next month
+>
+> I'll write about it more in the next month.
