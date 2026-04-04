@@ -16,19 +16,12 @@ Anyways, let's deep dive.
 
 ## What happened after I stopped writing 
 
-We can break the training into:
-
-- injuries
-- weight room
-- track
-- long jumping, technique, etc.
-- competitions
-
-and my overall life to:
+We can break my overall life into:
 
 - high-tech job
 - new second apartment (I moved from Ramat-Gan to Tel-Aviv in Jan.)
-- Family & Job & Training & "whatever left for mental health" balance
+- Training around 20 hours a week for track
+- The balance between them that I try to achieve but never do
 
 Here, I'll describe the overall changes I've been through, just as a background. The training itself - I'll specify in different blogs. One for each month. A lot of time passed - so it may not be written with fresh thoughts, but I'll try to give value in each blog. 
 
