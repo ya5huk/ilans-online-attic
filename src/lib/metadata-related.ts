@@ -59,40 +59,56 @@ const schemaTypeMap: Record<string, string> = {
 
 export const genJsonLd = (metadata: MetadataGenParams) => {
   const canonicalUrl = `https://www.ilansonlineattic.com${metadata.path}`;
+  const schemaType = schemaTypeMap[metadata.sitetype] || metadata.sitetype;
+  const isContentType = schemaType === "BlogPosting" || schemaType === "Book";
+  const isProfilePage = schemaType === "ProfilePage";
+
   return {
     "@context": "https://schema.org",
-    "@type": schemaTypeMap[metadata.sitetype] || metadata.sitetype,
+    "@type": schemaType,
     name: metadata.title,
     description: metadata.desc,
     image: metadata.img,
     url: canonicalUrl,
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": canonicalUrl,
-    },
-    author: {
-      "@type": "Person",
-      name: "Ilan Yashuk",
-      sameAs: [
-        "https://www.linkedin.com/in/ilan-yashuk/",
-        "https://www.instagram.com/ilan_yashuk/",
-      ],
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "Ilan's Online Attic",
-    },
-    datePublished: metadata.datepublished
-      ? metadata.datepublished.toISOString().split("T")[0]
-      : undefined,
-    dateModified: metadata.dateModified
-      ? metadata.dateModified.toISOString().split("T")[0]
-      : metadata.datepublished
+    ...(isContentType && {
+      mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id": canonicalUrl,
+      },
+      author: {
+        "@type": "Person",
+        name: "Ilan Yashuk",
+        sameAs: [
+          "https://www.linkedin.com/in/ilan-yashuk/",
+          "https://www.instagram.com/ilan_yashuk/",
+        ],
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "Ilan's Online Attic",
+      },
+      datePublished: metadata.datepublished
         ? metadata.datepublished.toISOString().split("T")[0]
         : undefined,
+      dateModified: metadata.dateModified
+        ? metadata.dateModified.toISOString().split("T")[0]
+        : metadata.datepublished
+          ? metadata.datepublished.toISOString().split("T")[0]
+          : undefined,
+      wordCount: metadata.wordCount,
+      articleSection: metadata.articleSection,
+    }),
+    ...(isProfilePage && {
+      mainEntity: {
+        "@type": "Person",
+        name: "Ilan Yashuk",
+        sameAs: [
+          "https://www.linkedin.com/in/ilan-yashuk/",
+          "https://www.instagram.com/ilan_yashuk/",
+        ],
+      },
+    }),
     inLanguage: metadata.inLanguage,
     keywords: metadata.keywords,
-    wordCount: metadata.wordCount,
-    articleSection: metadata.articleSection,
   };
 }
