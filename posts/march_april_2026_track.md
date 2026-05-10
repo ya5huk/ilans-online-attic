@@ -16,21 +16,21 @@ And so, March was a dramatic change to my life. Think how it feels to drop from 
 
 That's a training log though, so what happened to my training? 
 
-The first 3 days - I trained on a road or grass nearby and improvised. On the 4th day, I got back to a stadium. But that was because I lived pretty far from my hometown for the first week of that war. Then I got back to my hometown. And then the real change to my training took place. Because, I live in a city, where rules are way more strict than where I normally train - which is near a bunch of small towns ("moshavs"). Because of that, I didn't have proper access to the stadium and when I did, it was without equipment for a large amount of the time... So training got way more complicated. 
+The first 3 days - I trained on a road or grass nearby and improvised. On the 4th day, I got back to a stadium. But that was because I lived pretty far from my hometown for the first week of that war. Then I got back to my hometown. And then the real change to my training took place. Because I live in a city, where rules are way more strict than where I normally train - which is near a bunch of small towns ("moshavs"). Because of that, I didn't have proper access to the stadium and when I did, it was without equipment for a large amount of the time... So training got way more complicated. 
 
 ---
 
 ## physio again
 
-I went to physiotherapy once again. They didn't reallt find what's going on in my hamstring. I insisted that it's probably not in my left hamstring and that the pain there is just a symptom but whatever. I got some nice exercises from them. A few weeks later I returned to doing nordics almost every warmup. Another thing that probably helps - is working inner & outer hips. 
+I went to physiotherapy once again. They didn't really find what's going on in my hamstring. I insisted that it's probably not in my left hamstring and that the pain there is just a symptom but whatever. I got some nice exercises from them. A few weeks later I returned to doing nordics almost every warmup and inner and outer hips strengthening
 
 ## march training
 
 A big note about March. I slept horribly. 
 
-We had sirens almost every night, and I'm just bad at sleeping tbh. It was hard falling asleep again, and no matter how hard I would try to go sleep early. F.e. 9 hours before waking up time. With the sirens + time it took to fall back to sleep I would sleep less than 8. So, that was probably not good for sports.
+We had sirens almost every night, and I'm just bad at sleeping tbh. It was hard falling asleep again, and no matter how hard I would try go to sleep early. E.g. 9 hours before waking up time. With the sirens + time it took to fall back to sleep I would sleep less than 8. So, that was probably not good for sports.
 
-But, other than that. Training was super normal. 
+But, other than that, Training was super normal. 
 
 March may be one of the only months that got absolutely zero competitions. Nothing really happens. You just put your head down and work. Because there was war, we didn't really go out or something. Life got simple very fast. Training -> Work from home -> Training -> Work from home.
 
@@ -54,11 +54,11 @@ Well if you read the last blogs, you saw that the biggest problem of mine is tha
 
 ## competitions!
 
-It's april now! Somewhere along the start of April, a ceasefire started. Which means, I went back to Tel Aviv and my normal life. But it is nowhere near as bad as it was before. This time, I insisted on not being on the roads as much. I figured a way to train more in Tel Aviv's stadium. And overall, it was way better. Life felt much more managable. 
+It's April now! Somewhere along the start of April, a ceasefire started. Which means, I went back to Tel Aviv and my normal life. But it is nowhere near as bad as it was before. This time, I insisted on not being on the roads as much. I figured out a way to train more in Tel Aviv's stadium. And overall, it was way better. Life felt much more manageable. 
 
-> I wrote too many times in these logs about how I'm constantly fighting my own mind about wanting to quit because having so much other stuff going on. And then when a training feels alright - suddenly I don't want to quit. All of that never reall stopped. And probably won't stop until the last day of this season. But that's impacting me greatly, and really I'm just pushing through right now. Probably not healthy, but it's May now, not a lot left, and I'm going to enjoy my-might-be-last-days in track. 
+> I wrote too many times in these logs about how I'm constantly fighting my own mind about wanting to quit because having so much other stuff going on. And then when a training feels alright - suddenly I don't want to quit. All of that never really stopped. And probably won't stop until the last day of this season. But that's impacting me greatly, and really I'm just pushing through right now. Probably not healthy, but it's May now, not a lot left, and I'm going to enjoy my-might-be-last-days in track. 
 
-I had two competitions. The first of April 9th. It was in a brand new stadium. I ran a 24 something in the 200 and 11.99 in the 100. 
+I had two competitions. The first was on April 9th. It was in a brand new stadium. I ran a 24 something in the 200 and 11.99 in the 100. 
 
 Yes.
 
@@ -72,7 +72,7 @@ I came back to that stadium, ran a 12.04.
 
 Horrible.
 
-I will say though, that everyone are running terribly in that stadium. Maybe because the track is still super soft & new. Maybe because we were just out of a war. But I don't wanna make excuses. I really don't know what to say. I wanted to quit right there.
+I will say though, that everyone is running terribly in that stadium. Maybe because the track is still super soft & new. Maybe because we were just out of a war. But I don't wanna make excuses. I really don't know what to say. I wanted to quit right there.
 
 But long jump did look decent at training, no matter how you flip it. So, yea maybe 100m is not like a 30m runup, maybe the track was trash, maybe it was the wind (it was windy). Idk. 
 
@@ -98,16 +98,16 @@ Ofc I did do a little bit of gym, a lot of plyo and a lot of long jump in betwee
 
 Running more gave me the chance to work on my technique more (internally, with myself), on where I position my hips. 
 
-One of my major problems in long jump is that I'm stopping on the board. It might be a major problem of most of the jumpers. I feel like this jump was pretty non-stopping. 
+One of my major problems in long jump is that I'm stopping on the board. It might be a major problem for most of the jumpers. I feel like this jump was pretty non-stopping. 
 
 ![The aforementioned LJ](/blog-images/another-longjump-in-late-april.mp4)
 
-> Though I will say, that I hurt my heel on a jump in the start of April. And it wasn't a small deal. I really hit something hard there. And in this jump that you'll see below, I really try to not put pressure on my heel. For two reasons. First, too much pressure on the heel = you're stopping. Second, it would hurt like hell.
+> Though I will say, that I hurt my heel on a jump at the start of April. And it wasn't a small deal. I really hit something hard there. And in this jump that you'll see below, I really try to not put pressure on my heel. For two reasons. First, too much pressure on the heel = you're stopping. Second, it would hurt like hell.
 
 ----
 
 ## may!
 
-Now the season really starts. **I'll have like 3-4 competitions this month**. And this time, I'll be actually doing long jump. So it'll be interesting and undenayable. We'll see how far I jump. 
+Now the season really starts. **I'll have like 3-4 competitions this month**. And this time, I'll actually be doing long jump. So it'll be interesting and undeniable. We'll see how far I jump. 
 
-I'm going into this month with a little heel injury. If I won't stop on the board - I'll probably won't feel it anymore. Regardless, it gets better with time. I'm stretching my achilles every day. Also - I have an uncomfort / pain in the upper left hamstring. Something I carry since the start of this season. Every training session, and sometimes outside training - I do nordics and inner & outer thighs strengthening. The thing that I think may be the game changer is working on my right outer thigh. It sounds weird I know but it feels like it is wayyy weaker than the left one.
+I'm going into this month with a little heel injury. If I don't stop on the board - I'll probably won't feel it anymore. Regardless, it gets better with time. I'm stretching my Achilles every day. Also - I have an discomfort / pain in the upper left hamstring. Something I've been carrying since the start of this season. Every training session, and sometimes outside training - I do nordics and inner & outer thigh strengthening. The thing that I think may be the game changer is working on my right outer thigh. It sounds weird I know but it feels like it is wayyy weaker than the left one.
