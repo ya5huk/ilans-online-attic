@@ -50,7 +50,7 @@ Long jump kept looking good. In fact, in training long jump was always looking p
 
 Which you would think - how is that connected to training???
 
-Well if you read the last blogs, you saw that the biggest problem of mine is that I'm too much on the roads. So, fast forward month later. I think I drive less. But it's hard to say. Because most of the time I still use public transport because you just can't move inside Tel Aviv with a car. Parking & traffic is a mess. But on the weekends - it sure saved me a lot of running and nerves (to get to the buses. In Israel, there are no buses from Friday eve until Saturday eve, which is the only time you don't work - and actually wanna move around)
+Well if you read the last blogs, you saw that my biggest problem is that I'm too much on the roads. So, fast forward month later. I think I drive less. But it's hard to say. Because most of the time I still use public transport because you just can't move inside Tel Aviv with a car. Parking & traffic is a mess. But on the weekends - it sure saved me a lot of running and nerves (to get to the buses. In Israel, there are no buses from Friday eve until Saturday eve, which is the only time you don't work - and actually wanna move around)
 
 ## competitions!
 
@@ -89,7 +89,7 @@ Since those competitions, I decided that no matter what, I need to run way more.
 So we're talking (April): 
 
 - accel. with sleds. Then, without. Then - 30 in, 40 out, 50 in x3 - did two sessions of that
-- 2 long-rest sets of 200*2 (between the 200s - 3 minutes) + 2*150 - times: 24,26 | 25,27 | 19,18
+- 2 long-rest sets of 200 x 2 (between the 200s - 3 minutes) + 2x150 - times: 24,26 | 25,27 | 19,18
 - 250-200-150-100-50. Not really a fast session but still a run
 - 200x5
 - A lot of sprint hurdles running
@@ -108,6 +108,6 @@ One of my major problems in long jump is that I'm stopping on the board. It migh
 
 ## may!
 
-Now the season really starts. **I'll have like 3-4 competitions this month**. And this time, I'll actually be doing long jump. So it'll be interesting and undeniable. We'll see how far I jump. 
+Now the season really starts. **I'll have like 3-4 competitions this month**. And this time, I'll actually be doing long jump. So it'll be interesting. And undeniable. We'll see how far I jump. 
 
 I'm going into this month with a little heel injury. If I don't stop on the board - I'll probably won't feel it anymore. Regardless, it gets better with time. I'm stretching my Achilles every day. Also - I have an discomfort / pain in the upper left hamstring. Something I've been carrying since the start of this season. Every training session, and sometimes outside training - I do nordics and inner & outer thigh strengthening. The thing that I think may be the game changer is working on my right outer thigh. It sounds weird I know but it feels like it is wayyy weaker than the left one.
