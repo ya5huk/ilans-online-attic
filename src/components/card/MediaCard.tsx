@@ -48,7 +48,7 @@ const MediaCard: React.FC<{ item: ContentItem }> = ({ item }) => {
           <span className="text-xs md:text-sm font-medium text-gray-500 transition-colors md:group-hover:text-white font-ui">
             {item.period || formatDate(item.date)}
           </span>
-          <h3 className="text-lg md:text-2xl leading-tight">
+          <h3 className="text-sm md:text-base leading-tight">
             {item.title}
           </h3>
           <p className="md:hidden mt-1 text-xs leading-relaxed">{oneSentence}</p>

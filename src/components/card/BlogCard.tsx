@@ -48,7 +48,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
   );
 
   const title = (
-    <h2 className="text-lg md:text-2xl leading-tight mt-0.5">{post.title}</h2>
+    <h2 className="text-sm md:text-base leading-tight mt-0.5">{post.title}</h2>
   );
 
   // One sentence on mobile, three on desktop — toggled by breakpoint only.
