@@ -1,7 +1,30 @@
 import type { Metadata } from "next";
+import localFont from "next/font/local";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { Analytics } from "@vercel/analytics/next";
+
+// Headers — Outfit (geometric sans). A single variable font covers the
+// 100–900 weight range, self-hosted via next/font. Exposed as --font-outfit.
+const outfit = localFont({
+  src: "./fonts/Outfit-Variable.woff2",
+  weight: "100 900",
+  variable: "--font-outfit",
+  display: "swap",
+});
+
+// Content + UI — Poppins (geometric sans). Self-hosted by next/font at build
+// time; Poppins isn't a variable font, so the weights used across body copy and
+// UI chrome are listed explicitly (normal + italic). Exposed as --font-poppins.
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-poppins",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "Ilan's Online Attic",
   description: "Everything's ilan.",
@@ -14,7 +37,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body
+        className={`${outfit.variable} ${poppins.variable} flex min-h-screen flex-col`}
+      >
         <Navbar />
         {children}
         <Analytics />

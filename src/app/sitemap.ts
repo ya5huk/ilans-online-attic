@@ -1,70 +1,62 @@
-import { MetadataRoute } from 'next'
-import fs from 'fs'
-import path from 'path'
-import matter from 'gray-matter'
+import { MetadataRoute } from "next";
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
+
+type Entry = { slug: string; date: Date };
+
+const FALLBACK_DATE = new Date(2025, 0, 1);
+
+const parseDate = (dateStr: string): Date => {
+  const [mm, dd, yyyy] = (dateStr || "").split(" ")[0].split("/").map(Number);
+  return new Date(yyyy, (mm || 1) - 1, dd || 1);
+};
+
+// Read a root content dir → entries, skipping non-md and "_"-prefixed templates.
+const readDir = (dir: string): Entry[] => {
+  try {
+    return fs
+      .readdirSync(path.join(process.cwd(), dir))
+      .filter(
+        (f) => (f.endsWith(".md") || f.endsWith(".mdx")) && !f.startsWith("_")
+      )
+      .map((f) => {
+        const slug = f.replace(/\.(md|mdx)$/, "");
+        const { data } = matter(
+          fs.readFileSync(path.join(process.cwd(), dir, f), "utf8")
+        );
+        return { slug, date: data.date ? parseDate(data.date) : FALLBACK_DATE };
+      });
+  } catch {
+    return [];
+  }
+};
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://www.ilansonlineattic.com'
+  const baseUrl = "https://www.ilansonlineattic.com";
 
-  const postsDirectory = path.join(process.cwd(), 'posts')
-  let blogPostFiles: string[] = []
+  const posts = readDir("posts");
+  const images = readDir("images");
+  const projects = readDir("projects");
 
-  try {
-    blogPostFiles = fs.readdirSync(postsDirectory)
-      .filter(file => file.endsWith('.md') || file.endsWith('.mdx'))
-  } catch (error) {
-    console.warn('Posts directory not found or inaccessible')
-  }
+  const latest = (entries: Entry[]) =>
+    entries.reduce((max, e) => (e.date > max ? e.date : max), FALLBACK_DATE);
 
-  // Parse frontmatter date (mm/dd/yyyy) into a Date object
-  const parsePostDate = (dateStr: string): Date => {
-    const [mm, dd, yyyy] = dateStr.split(' ')[0].split('/').map(Number)
-    return new Date(yyyy, (mm || 1) - 1, dd || 1)
-  }
+  const latestPostDate = latest(posts);
 
-  // Find the most recent post date for the blog listing page
-  let latestPostDate = new Date(2025, 0, 1)
+  const route = (
+    urlPath: string,
+    lastModified: Date,
+    changeFrequency: "weekly" | "monthly" = "monthly"
+  ) => ({ url: `${baseUrl}${urlPath}`, lastModified, changeFrequency });
 
-  const blogRoutes = blogPostFiles.map(file => {
-    const slug = file.replace(/\.(md|mdx)$/, '')
-    const fullPath = path.join(postsDirectory, file)
-    const fileContents = fs.readFileSync(fullPath, 'utf8')
-    const { data } = matter(fileContents)
-    const postDate = data.date ? parsePostDate(data.date) : new Date(2025, 0, 1)
-
-    if (postDate > latestPostDate) {
-      latestPostDate = postDate
-    }
-
-    return {
-      url: `${baseUrl}/yap/${slug}`,
-      lastModified: postDate,
-      changeFrequency: 'monthly' as const,
-    }
-  })
-
-  const staticRoutes = [
-    {
-      url: baseUrl,
-      lastModified: new Date(2025, 0, 1),
-      changeFrequency: 'monthly' as const,
-    },
-    {
-      url: `${baseUrl}/pics`,
-      lastModified: new Date(2025, 0, 1),
-      changeFrequency: 'monthly' as const,
-    },
-    {
-      url: `${baseUrl}/yap`,
-      lastModified: latestPostDate,
-      changeFrequency: 'weekly' as const,
-    },
-    {
-      url: `${baseUrl}/projects`,
-      lastModified: new Date(2025, 0, 1),
-      changeFrequency: 'monthly' as const,
-    },
-  ]
-
-  return [...staticRoutes, ...blogRoutes]
+  return [
+    route("/", latestPostDate, "weekly"),
+    route("/writing", latestPostDate, "weekly"),
+    route("/images", latest(images), "weekly"),
+    route("/projects", latest(projects), "weekly"),
+    ...posts.map((p) => route(`/yap/${p.slug}`, p.date)),
+    ...images.map((i) => route(`/pics/${i.slug}`, i.date)),
+    ...projects.map((pr) => route(`/projects/${pr.slug}`, pr.date)),
+  ];
 }

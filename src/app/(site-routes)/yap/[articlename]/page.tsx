@@ -105,7 +105,7 @@ const ArticlePage: React.FC<ArticlePageProps> = async ({ params }) => {
       <div className="mx-auto space-y-2 " dir="auto">
         <div className="  space-y-2">
           {/* Header */}
-          <h1 className={`text-4xl font-bold`}>{post.title}</h1>
+          <h1 className={`text-4xl`}>{post.title}</h1>
           <div className="flex items-center justify-between">
             {/* Date */}
             <div>

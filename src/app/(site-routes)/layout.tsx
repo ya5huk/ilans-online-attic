@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import "@/app/globals.css";
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: "Ilan's Online Attic",
@@ -15,8 +13,10 @@ export default function PathsLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <section>
-      <div className="mx-auto max-w-2xl px-4 py-4 md:px-0">{children}</div>
+    <section className="flex flex-1 flex-col">
+      <div className="mx-auto w-full max-w-3xl flex-1 px-4 py-4 md:px-0">
+        {children}
+      </div>
       <Footer />
     </section>
   );

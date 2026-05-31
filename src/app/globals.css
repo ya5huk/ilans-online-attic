@@ -6,8 +6,70 @@
   --third: #4ab1b1;
 }
 
+/* Font experiment — headers: Outfit · content + UI: Poppins. Variables are
+   injected by next/font in layout.tsx. --font-ui still points at its own var so
+   the UI tier can diverge from body copy later without touching components; for
+   now both resolve to Poppins. */
+@theme inline {
+  --font-sans: var(--font-poppins);
+  --font-heading: var(--font-outfit);
+  --font-ui: var(--font-poppins);
+}
+
+/* Content / body — Poppins (geometric sans) */
+body {
+  font-family: var(--font-poppins), "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Headers — Outfit (geometric sans), bold */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-outfit), "Helvetica Neue", Arial, sans-serif;
+  font-weight: 700;
+}
+
+/* UI chrome — Poppins: form controls, buttons, and anything tagged .font-ui
+   (filter pickers, labels, tags, dates). */
+button,
+input,
+select,
+textarea,
+.link-button,
+.font-ui {
+  font-family: var(--font-poppins), "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
+}
+
+/* Hebrew / RTL text: render in the system default font. Poppins (body) and
+   Outfit (headings) are Latin-only, so Hebrew would otherwise fall back
+   inconsistently. :dir(rtl) targets only text whose resolved direction is RTL —
+   Hebrew posts use dir="rtl" (articles) or dir="auto" (cards) — so the Latin/LTR
+   UI keeps the custom fonts. */
+:dir(rtl) {
+  font-family: system-ui, "Segoe UI", Arial, sans-serif;
+}
+
 html {
   background-color: var(--bg);
+  /* Reserve a symmetric scrollbar gutter so centered (mx-auto) content stays
+     centered instead of being nudged left when the scrollbar appears. */
+  scrollbar-gutter: stable both-edges;
+}
+
+/* Highlighting text uses a strong on-theme color (full teal, white text),
+   solid with no opacity drop. Native selection can't be transitioned, so
+   the swap is instant. */
+::selection {
+  background: var(--third);
+  color: white;
+}
+::-moz-selection {
+  background: var(--third);
+  color: white;
 }
 
 ul {
@@ -29,19 +91,26 @@ ul {
 }
 
 .prose h1 {
-  @apply text-3xl font-bold mb-6 mt-8;
+  @apply text-3xl mb-6 mt-8;
 }
 
 .prose h2 {
-  @apply text-2xl font-bold mb-4 mt-6;
+  @apply text-2xl mb-4 mt-6;
 }
 
 .prose h3 {
-  @apply text-xl font-bold mb-3 mt-5;
+  @apply text-xl mb-3 mt-5;
 }
 
 .prose p {
   @apply text-lg md:text-base leading-relaxed pb-2;
+}
+
+/* 1.5× wider spacing between consecutive paragraphs (pb-2 → pb-3). A paragraph
+   that is the last before a heading/subtitle isn't matched, so the gap before a
+   subtitle stays as-is. */
+.prose p:has(+ p) {
+  @apply pb-3;
 }
 
 .prose table {

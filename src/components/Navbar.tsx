@@ -1,83 +1,111 @@
 "use client";
 
 import Link from "next/link";
-import HeaderText from "./text/HeaderText";
-import Image from "next/image";
-import { usePathname } from "next/navigation";
-import { DM_Serif_Text } from "next/font/google";
+import { usePathname, useRouter } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
 
-const dmSerif = DM_Serif_Text({
-  subsets: ["latin"],
-  weight: "400",
-});
+// Detail ("inner") pages: /yap/<slug>, /pics/<slug>, /projects/<slug>. The feed
+// lists (/, /writing, /images, /projects) are excluded — note /projects (list)
+// does NOT match, but /projects/<slug> (detail) does.
+const DETAIL_PATTERN = /^\/(yap|pics|projects)\/.+/;
 
+// Where "Go Back" lands when there's no in-app history to pop (e.g. a shared
+// link opened cold): the typed feed list for that kind of content.
+const fallbackFor = (pathname: string): string => {
+  if (pathname.startsWith("/yap/")) return "/writing";
+  if (pathname.startsWith("/pics/")) return "/images";
+  if (pathname.startsWith("/projects/")) return "/projects";
+  return "/";
+};
+
+/**
+ * Sticky header: the signature logo, tinted to the brand teal via an alpha mask
+ * of the (transparent) signature PNG. On detail pages a "← Go Back" sits on the
+ * left (the logo stays centred). The bar auto-hides on scroll-down / reveals on
+ * scroll-up, and carries a bottom border in the logo's teal.
+ *
+ * Lives in the root layout, so it persists across client navigations — letting
+ * us count in-app navigations to decide whether "back" is safe.
+ */
 const Navbar: React.FC = () => {
   const pathname = usePathname();
+  const router = useRouter();
+  const [hidden, setHidden] = useState(false);
 
-  const getLinkClassname = (path: string): string => {
-    // > / | about | pics | projects | yap
+  // How many in-app navigations have happened since this header mounted (i.e.
+  // since the current full page load). >0 means there's a same-site entry to
+  // pop. Keyed off actual pathname changes so React StrictMode's double-fired
+  // effects in dev don't inflate the count.
+  const navCount = useRef(0);
+  const lastPath = useRef<string | null>(null);
 
-    // If its the index page -> activate only when on index
-    // If its a blog page or associated with one of the navbar branches - color accordingly
-    const isActive = path === "/" ? pathname === path : pathname.includes(path);
+  useEffect(() => {
+    if (lastPath.current === null) {
+      lastPath.current = pathname; // initial render — not a navigation
+    } else if (lastPath.current !== pathname) {
+      navCount.current += 1;
+      lastPath.current = pathname;
+    }
+  }, [pathname]);
 
-    let classname =
-      "md:text-2xl px-2 transition-colors duration-200 rounded text-lg tracking-[0.3em] md:tracking-normal";
-    classname += " ";
-    classname += !isActive
-      ? "text-[var(--third)] hover:underline "
-      : "text-[var(--bg)]";
+  // Hide when scrolling down, reveal when scrolling up (always shown near top).
+  // setHidden with an unchanged value is a no-op, so this stays cheap.
+  useEffect(() => {
+    let lastY = window.scrollY;
+    const onScroll = () => {
+      const y = window.scrollY;
+      if (y < 10) setHidden(false);
+      else if (y > lastY) setHidden(true);
+      else if (y < lastY) setHidden(false);
+      lastY = y;
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
-    return classname;
+  const goBack = () => {
+    if (navCount.current > 0) router.back();
+    else router.push(fallbackFor(pathname));
   };
 
-  const imageClassname =
-    "md:hidden invert mx-2 hover:scale-110 transition-transform duration-200";
-  const seperatorClassname =
-    "hidden md:block select-none font-bold text-[var(--third)]";
+  const isDetail = DETAIL_PATTERN.test(pathname);
 
   return (
-    <div
-      className={`w-full bg-[var(--secondary)] p-4 border-b-8 border-[var(--third)] ${dmSerif.className}`}
+    <header
+      className={`sticky top-0 z-50 w-full bg-[var(--bg)] border-b border-[var(--third)] transition-transform duration-300 ${
+        hidden ? "-translate-y-full" : "translate-y-0"
+      }`}
     >
-      <div className="max-w-2xl mx-auto flex items-center gap-2 justify-between py-2">
-        <div className="md:flex items-center w-full justify-between">
-          {/* <h3 className="text-6xl">ilan.</h3> */}
-          <Link href="/" aria-label="View site's home page">
-            <Image
-              src="/signature/2-cream-bold.png"
-              alt="My Signature"
-              width={96}
-              height={57.6}
-              className="mx-auto mb-4 md:m-0"
-            ></Image>
-          </Link>
-          <div className="flex flex-col md:flex-row items-center md:gap-1">
-            <Link href="/" aria-label="View Ilan Yashuk's about page">
-              <span className={`${getLinkClassname("/")}` || ""}>about</span>
-            </Link>
-            <p className={seperatorClassname}>|</p>
-            <Link href="/pics" aria-label="View Ilan Yashuk's pictures">
-              <span className={`${getLinkClassname("/pics")}` || ""}>
-                pic​tures
-              </span>
-            </Link>
-            <p className={seperatorClassname}>|</p>
-
-            <Link href="/projects" aria-label="View Ilan Yashuk's projects">
-              <span className={`${getLinkClassname("/projects")}` || ""}>
-                projects
-              </span>
-            </Link>
-            <p className={seperatorClassname}>|</p>
-
-            <Link href="/yap" aria-label="View Ilan Yashuk's blog">
-              <span className={`${getLinkClassname("/yap")}` || ""}>yap</span>
-            </Link>
-          </div>
-        </div>
+      <div className="relative max-w-3xl mx-auto px-4 py-2 flex items-center justify-center">
+        {isDetail && (
+          <button
+            type="button"
+            onClick={goBack}
+            aria-label="Go back"
+            className="absolute left-4 flex items-center gap-1 text-sm text-[var(--secondary)] transition-colors hover:text-[var(--third)] hover:cursor-pointer"
+          >
+            <span aria-hidden>←</span>
+            <span>Go Back</span>
+          </button>
+        )}
+        <Link href="/" aria-label="View site's home page">
+          <div
+            className="h-13 w-28 md:h-15 md:w-36 transition-opacity hover:opacity-80"
+            style={{
+              backgroundColor: "var(--third)",
+              WebkitMaskImage: "url(/signature/2-cream-bold.png)",
+              maskImage: "url(/signature/2-cream-bold.png)",
+              WebkitMaskRepeat: "no-repeat",
+              maskRepeat: "no-repeat",
+              WebkitMaskSize: "contain",
+              maskSize: "contain",
+              WebkitMaskPosition: "center",
+              maskPosition: "center",
+            }}
+          />
+        </Link>
       </div>
-    </div>
+    </header>
   );
 };
 
