@@ -42,3 +42,6 @@ next-env.d.ts
 
 # firebase artifacts
 firebase-debug.log
+
+# claude code (local settings & runtime artifacts)
+.claude/
