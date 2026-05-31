@@ -66,6 +66,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
       <div
         className="group py-2 md:px-2 md:py-4 md:rounded cursor-pointer transition-colors duration-200 md:hover:bg-[var(--secondary)] md:hover:text-white"
         dir="auto"
+        lang={post.lang === "he_IL" ? "he" : undefined}
       >
         {hasImage ? (
           <div className="flex flex-row gap-4 md:gap-5 h-56 md:h-72">

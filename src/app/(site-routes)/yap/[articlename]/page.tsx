@@ -102,7 +102,11 @@ const ArticlePage: React.FC<ArticlePageProps> = async ({ params }) => {
         }}
         type="application/ld+json"
       ></script>
-      <div className="mx-auto space-y-2 " dir="auto">
+      <div
+        className="mx-auto space-y-2 "
+        dir="auto"
+        lang={isHebrew ? "he" : undefined}
+      >
         <div className="  space-y-2">
           {/* Header */}
           <h1 className={`text-4xl`}>{post.title}</h1>

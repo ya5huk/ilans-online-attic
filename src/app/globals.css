@@ -44,12 +44,12 @@ textarea,
     sans-serif;
 }
 
-/* Hebrew / RTL text: render in the system default font. Poppins (body) and
-   Outfit (headings) are Latin-only, so Hebrew would otherwise fall back
-   inconsistently. :dir(rtl) targets only text whose resolved direction is RTL —
-   Hebrew posts use dir="rtl" (articles) or dir="auto" (cards) — so the Latin/LTR
-   UI keeps the custom fonts. */
-:dir(rtl) {
+/* Hebrew text: render in the system default font. Poppins (body) and Outfit
+   (headings) are Latin-only, so Hebrew would otherwise fall back inconsistently.
+   Hebrew content is tagged lang="he" (articles + blog cards); :lang(he) matches
+   those elements and their descendants, leaving the Latin/LTR UI on the custom
+   fonts. */
+:lang(he) {
   font-family: system-ui, "Segoe UI", Arial, sans-serif;
 }
 
