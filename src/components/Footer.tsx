@@ -24,13 +24,15 @@ const Footer: React.FC = () => {
             height={25}
           />
         </Link>
+        {/* Envelope art is 512×359 (wide); match the others' height with a
+            true-ratio box so it isn't stretched into a square. */}
         <Link href="mailto:ilan147963@gmail.com">
           <Image
-            className={imageClassname}
+            className={`${imageClassname} h-[25px] w-auto`}
             src="/social/email.png"
             alt="Mail"
-            width={34}
-            height={34}
+            width={37}
+            height={26}
           />
         </Link>
         <Link href="https://www.linkedin.com/in/ilan-yashuk/">

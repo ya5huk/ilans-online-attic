@@ -7,22 +7,27 @@ const socials = [
     href: "https://www.instagram.com/ilan_yashuk/",
     src: "/social/instagram.png",
     alt: "Instagram",
-    size: 26,
+    w: 26,
+    h: 26,
     cls: "w-5 h-5 sm:w-[26px] sm:h-[26px]",
   },
   {
     href: "https://www.linkedin.com/in/ilan-yashuk/",
     src: "/social/linkedin-hollow.png",
     alt: "LinkedIn",
-    size: 26,
+    w: 26,
+    h: 26,
     cls: "w-5 h-5 sm:w-[26px] sm:h-[26px]",
   },
   {
+    // Envelope art is 512×359 (wide), not square — keep its true ratio and
+    // match the others' height (auto width) so it isn't stretched vertically.
     href: "mailto:ilan147963@gmail.com",
     src: "/social/email.png",
     alt: "Mail",
-    size: 34,
-    cls: "w-[26px] h-[26px] sm:w-[34px] sm:h-[34px]",
+    w: 37,
+    h: 26,
+    cls: "h-5 w-auto sm:h-[26px]",
   },
 ];
 
@@ -55,8 +60,8 @@ const AboutCard: React.FC<{ about: AboutContent | null }> = ({ about }) => {
                 <Image
                   src={s.src}
                   alt={s.alt}
-                  width={s.size}
-                  height={s.size}
+                  width={s.w}
+                  height={s.h}
                   className={`${s.cls} transition-transform duration-200 hover:scale-110`}
                 />
               </Link>
