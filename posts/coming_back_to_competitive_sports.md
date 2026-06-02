@@ -1,6 +1,6 @@
 ---
 title: "Back on Track: Coming back to competitive sports"
-# image: "/me/rise-from-makhtesth-ramon.webp"
+image: "/blog-images/tests-setup-sep-2025.webp"
 tags: "training,philosophy"
 lang: "en_US"
 date: "10/21/2025"
@@ -114,6 +114,8 @@ I am writing this in late October but actually I started training already in Aug
 
 I couldn't train consistently on track until late September. Right as I started sprinting, I started feeling pain in the left hamstring. I decided to try and settle this issue on my own (I had very little access to physiotherapists)
 
+![No stadium access really](/blog-images/august-15-2025-grass-run.mp4)
+
 The targets for August were:
 
 1. Getting back mobility that I lost, stretching
@@ -134,6 +136,10 @@ That month wasn't super clean in terms of pain. Unfortunately, I still felt pain
 > Throughout a lot of training sessions, I feel directionless. Sometimes it eats me up a bit. What I mean by that is - I train a lot. I spend a lot of time on planning what I should do the next week/month and what training is best for me, etc. But honestly, who am I?
 >
 > Currently my routine and life are just too unstable to commit to one place (I am literally moving my place of staying every month or so). I can't commit to a trainer and the whole logistics of that are complex where I live. I am forced to train alone right now, maybe it won't be the case in couple of months.
+
+![September tests](/blog-images/tests-sep10-2025.mp4)
+
+![Park Training](/blog-images/park-training-sep-28-2025.mp4)
 
 ### October: Aiming for training consistency & being healthy while lifting heavier, running and jumping w/resistance
 

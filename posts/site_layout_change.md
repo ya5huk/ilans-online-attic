@@ -1,6 +1,6 @@
 ---
 title: "How the site looked in May 2026"
-image: ""
+image: "/blog-images/site-of-may-26.jpg"
 lang: "en_US"
 date: "05/30/2026"
 ---
@@ -14,3 +14,7 @@ Just for the sake of documentation, here is how the site looked in May 2026, as 
 ![Projects page](/blog-images/site-of-may-26-projects.jpg)
 
 ![Blog page](/blog-images/site-of-may-26-blog.jpg)
+
+Well, it's couple of days later and I'm still not sure how I want it. Current state:
+
+![June 1st site](/blog-images/middle-state-of-the-site.jpg)

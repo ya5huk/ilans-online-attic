@@ -56,7 +56,7 @@ I did the classic calf stretches, classic loop band strengthening. It didn't hel
 
 The only thing that eventually helped me was to stretch the upper part of my foot. So, the one that you don't step on. Every training, I sat on my legs, with my feet pointing upwards (touching my butt). Maybe there was a flexability imbalance between the front and back muscles connecting to my feet. Maybe, because I walked for years with high boots - my upper feet muscles were shortened. Whatever that cause for the injury was - I think that stretch is what got me out of that injury.
 
-### 2nd week of Jan. -> transition from recovery to regular training
+### 2nd week of Jan -> transition from recovery to regular training
 
 I started running on grass.
 
@@ -66,7 +66,7 @@ I got back to technical sprint drills like A/B/C, running with hands on wall and
 
 I did mobility, light gym, etc.
 
-### End of Jan.
+### End of Jan
 
 Started sprinting with resistance. Was back to jumping. Gym got heavier, more hurdle rhythm work. I got back to running and training almost normally.
 
@@ -98,7 +98,7 @@ A competition was just around the corner, in Feb. 9th.
 
 Unfortunately, that was the last competition, meaning I got to compete twice in the winter season. 
 
-### 1st week of Feb. -> Fast sprints, approach runs
+### 1st week of Feb -> Fast sprints, approach runs
 
 At this point, gym was fully back. Two times a week. Just like before.
 
