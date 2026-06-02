@@ -1,14 +1,7 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 
 const Footer: React.FC = () => {
-  // const [theme, setTheme] = useState("leaves");
-
-  // on hover -> Make image larger
-
   const imageClassname =
     "transition-transform duration-250 hover:scale-110 invert";
 
