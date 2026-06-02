@@ -1,70 +1,84 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import { imageSize } from "image-size";
 import { remark } from "remark";
 import html from "remark-html";
 import remarkGfm from "remark-gfm";
 import { tagIcons } from "./tagIcons";
+import imageDimensions from "./imageDimensions.json";
 
 const videoExtensions = /\.(mp4|webm)$/i;
 const remoteRe = /^https?:\/\//i;
 
+type RawImageDimensions = {
+  width: number;
+  height: number;
+  orientation?: number;
+};
+
+// Intrinsic pixel dimensions for every local /public image, precomputed at build
+// time by scripts/gen-image-dimensions.mjs (run via the "prebuild" npm hook).
+// Reading from this static manifest — instead of an fs.readFileSync with a
+// dynamic /public path — keeps Next.js Output File Tracing from bundling the
+// entire ~300MB /public folder into each serverless function. Keyed by
+// public-relative path ("me/foo.webp").
+const IMAGE_DIMENSIONS = imageDimensions as Record<string, RawImageDimensions>;
+
 /**
- * Read intrinsic pixel dimensions for a frontmatter image so the feed can
- * reserve each tile's box and pack the justified wall without layout shift.
- * Only local `/public` paths are probed (header-only, no decode): remote URLs
- * and missing/empty paths return undefined, and the tile falls back to a
- * default aspect ratio. Runs at build/SSR only — never ships to the client.
+ * Resolve a frontmatter/markdown image path to its manifest entry. Frontmatter
+ * paths are root-absolute ("/me/foo.webp") and may be percent-encoded (one Hebrew
+ * filename is), so decode + strip the leading slash to match the manifest's
+ * public-relative keys. Remote URLs and unprobed paths return undefined.
+ */
+function lookupDimensions(src?: string): RawImageDimensions | undefined {
+  if (!src || src.trim() === "" || remoteRe.test(src)) return undefined;
+  let rel: string;
+  try {
+    rel = decodeURIComponent(src).replace(/^\/+/, "");
+  } catch {
+    return undefined; // malformed percent-encoding
+  }
+  return IMAGE_DIMENSIONS[rel];
+}
+
+/**
+ * Apply EXIF orientation to a manifest entry. Orientation 5–8 = rotated 90°/270°:
+ * phone photos store landscape pixels with a rotate flag, and browsers + the
+ * next/image optimizer render the swapped (corrected) aspect. Returning the
+ * corrected dimensions keeps each reserved tile box matching the displayed image
+ * — otherwise a width/height built from the raw pixels squashes the photo.
+ */
+function correctedDimensions(
+  dims: RawImageDimensions | undefined
+): { width: number; height: number } | undefined {
+  if (!dims || !dims.width || !dims.height) return undefined;
+  const rotated = !!dims.orientation && dims.orientation >= 5;
+  return {
+    width: rotated ? dims.height : dims.width,
+    height: rotated ? dims.width : dims.height,
+  };
+}
+
+/**
+ * Orientation-corrected intrinsic dimensions for a LOCAL frontmatter image, so
+ * the feed can reserve each tile's box and pack the justified wall without layout
+ * shift. Remote URLs and missing/unprobed paths return undefined → the tile falls
+ * back to a default aspect ratio. Manifest-backed: never touches the filesystem.
  */
 function probeImageDimensions(
   image?: string
 ): { width: number; height: number } | undefined {
-  if (!image || image.trim() === "") return undefined;
-  if (/^https?:\/\//i.test(image)) return undefined; // remote — not on disk
-  try {
-    // Frontmatter paths are root-absolute ("/me/foo.webp") and may be
-    // percent-encoded (one Hebrew filename is); decode + strip the leading
-    // slash to resolve under /public.
-    const rel = decodeURIComponent(image).replace(/^\/+/, "");
-    const buf = fs.readFileSync(path.join(process.cwd(), "public", rel));
-    const { width, height, orientation } = imageSize(buf);
-    if (!width || !height) return undefined;
-    // EXIF orientation 5–8 = rotated 90°/270°: phone photos store landscape
-    // pixels with a rotate flag, and browsers + the next/image optimizer render
-    // the swapped (corrected) aspect. Return those corrected dimensions so the
-    // reserved box matches the displayed image — otherwise a width/height attr
-    // built from the raw pixels squashes the photo. (Same rule as probeAspect.)
-    const rotated = !!orientation && orientation >= 5;
-    return {
-      width: rotated ? height : width,
-      height: rotated ? width : height,
-    };
-  } catch {
-    return undefined;
-  }
+  return correctedDimensions(lookupDimensions(image));
 }
 
 /**
- * Orientation-corrected aspect ratio (width / height) for a LOCAL image, read
- * header-only at build time. Phone photos carry EXIF orientation (5–8 = rotated
- * 90°/270°), so the displayed aspect swaps the probed dimensions. Remote URLs and
- * unreadable/zero-size files return undefined → <MediaRow> measures them instead.
+ * Orientation-corrected aspect ratio (width / height) for a LOCAL image. Remote
+ * URLs and unprobed files return undefined → <MediaRow> measures them in the
+ * browser instead.
  */
 function probeAspect(src: string): number | undefined {
-  if (!src || remoteRe.test(src)) return undefined;
-  try {
-    const rel = decodeURIComponent(src).replace(/^\/+/, "");
-    const buf = fs.readFileSync(path.join(process.cwd(), "public", rel));
-    const { width, height, orientation } = imageSize(buf);
-    if (!width || !height) return undefined;
-    const rotated = !!orientation && orientation >= 5;
-    const w = rotated ? height : width;
-    const h = rotated ? width : height;
-    return w / h;
-  } catch {
-    return undefined;
-  }
+  const dims = correctedDimensions(lookupDimensions(src));
+  return dims ? dims.width / dims.height : undefined;
 }
 
 /** Parse a "mm/dd/yyyy" or "mm/dd/yyyy HH:mm" frontmatter date into a Date. */

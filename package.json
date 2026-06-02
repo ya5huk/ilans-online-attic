@@ -4,6 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
+    "gen:dimensions": "node scripts/gen-image-dimensions.mjs",
+    "prebuild": "npm run gen:dimensions",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
