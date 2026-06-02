@@ -168,6 +168,39 @@ const MEDIA_PARAGRAPHS = /(?:<p>(?:\s*<img\b[^>]*>)+\s*<\/p>\s*)+/g;
 // src (+ optional alt) of one <img>; remark emits attributes as `src` then `alt`.
 const IMG_IN_RUN = /<img src="([^"]*)"(?: alt="([^"]*)")?[^>]*>/g;
 
+// remark serializes mdast → an HTML string, so alt text arrives with special
+// characters entity-encoded (an apostrophe becomes "&#x27;"). The lone-media path
+// is unaffected — its alt lands back inside HTML that the browser decodes — but
+// grouped media render through <MediaRow>, where alt is a plain React string
+// (text node + attribute). React does NOT decode entities in strings, so "&#x27;"
+// would paint literally. Decode the handful hast-util-to-html emits so the stored
+// MediaItem.alt is true plain text. Single pass (no re-scan) avoids cascade-decoding
+// a literal "&amp;#x27;" down to "'". Non-ASCII (e.g. Hebrew) is never encoded, so
+// it passes through untouched.
+const NAMED_ENTITIES: Record<string, string> = {
+  amp: "&",
+  lt: "<",
+  gt: ">",
+  quot: '"',
+  apos: "'",
+};
+function decodeHtmlEntities(text: string): string {
+  return text.replace(
+    /&(?:#x([0-9a-fA-F]+)|#(\d+)|([a-zA-Z][a-zA-Z0-9]*));/g,
+    (match, hex, dec, name) => {
+      if (hex) {
+        const code = parseInt(hex, 16);
+        return code <= 0x10ffff ? String.fromCodePoint(code) : match;
+      }
+      if (dec) {
+        const code = parseInt(dec, 10);
+        return code <= 0x10ffff ? String.fromCodePoint(code) : match;
+      }
+      return NAMED_ENTITIES[name] ?? match; // unknown named entity: leave verbatim
+    }
+  );
+}
+
 /**
  * Replace each run of 2+ consecutive media (images/videos) with a
  * `<!--MEDIAROW:k-->` marker and collect the run's items into `runs[k]`. Handles
@@ -185,7 +218,7 @@ function groupMediaRuns(htmlStr: string): { html: string; runs: MediaItem[][] } 
       run.push({
         type: videoExtensions.test(src) ? "video" : "image",
         src,
-        alt: m[2] ?? "",
+        alt: decodeHtmlEntities(m[2] ?? ""),
       });
     }
     if (run.length < 2) return block; // lone image → unchanged
