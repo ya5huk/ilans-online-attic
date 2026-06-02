@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import SmartImage from "@/components/SmartImage";
 import type { AboutContent } from "@/lib/blog";
 
 const socials = [
@@ -32,7 +33,7 @@ const socials = [
 ];
 
 /**
- * The top-of-home introduction: a light-teal box with a navy border. Photo on
+ * The top-of-home introduction: a light-teal box with a teal border. Photo on
  * the left (with the signature teal offset shadow), the rendered about.md text
  * on the right, social links underneath. Content is driven by `about.md`.
  */
@@ -40,14 +41,18 @@ const AboutCard: React.FC<{ about: AboutContent | null }> = ({ about }) => {
   if (!about) return null;
 
   return (
-    <section className="border-2 border-[var(--secondary)] bg-[#e4f3f3] p-5 md:p-6 mb-6 sm:mb-10">
+    <section className="border-2 border-[var(--third)] bg-[#e4f3f3] p-5 md:p-6 mb-6 sm:mb-10">
       <div className="flex flex-col sm:flex-row gap-5 md:gap-6 items-stretch">
         {about.image && (
-          <img
-            src={about.image}
-            alt="A photo of Ilan Yashuk"
-            className="hidden sm:block w-44 md:w-52 h-full object-cover image-shadow shrink-0"
-          />
+          <div className="relative hidden w-44 shrink-0 sm:block md:w-52">
+            <SmartImage
+              src={about.image}
+              alt="A photo of Ilan Yashuk"
+              fill
+              sizes="(min-width: 768px) 208px, 176px"
+              className="object-cover image-shadow"
+            />
+          </div>
         )}
         <div className="flex-1 flex flex-col">
           <div

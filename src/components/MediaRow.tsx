@@ -78,6 +78,7 @@ const MediaRow: React.FC<{ items: MediaItem[] }> = ({ items }) => {
                     src={it.src}
                     controls
                     playsInline
+                    preload="metadata"
                     onLoadedMetadata={(e) => {
                       const v = e.currentTarget;
                       if (v.videoWidth && v.videoHeight)
@@ -88,6 +89,8 @@ const MediaRow: React.FC<{ items: MediaItem[] }> = ({ items }) => {
                   // eslint-disable-next-line @next/next/no-img-element
                   <img
                     src={it.src}
+                    srcSet={it.srcSet}
+                    sizes="(max-width: 768px) 100vw, 768px"
                     alt={it.alt}
                     loading="lazy"
                     decoding="async"

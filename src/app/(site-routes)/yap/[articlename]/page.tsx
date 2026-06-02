@@ -1,6 +1,8 @@
 import { getPostBySlug, getAllPosts, BlogPost } from "@/lib/blog";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import ArticleBody from "@/components/ArticleBody";
+import SmartImage from "@/components/SmartImage";
 
 import {
   genJsonLd,
@@ -123,21 +125,24 @@ const ArticlePage: React.FC<ArticlePageProps> = async ({ params }) => {
         {/* Image */}
         {post.image && (
           <div className="my-4">
-            <img
+            <SmartImage
               src={post.image}
               alt={post.title}
+              width={post.width}
+              height={post.height}
+              sizes="(max-width: 768px) 100vw, 768px"
+              priority
               className="w-full object-cover image-shadow mb-6"
             />
           </div>
         )}
 
         {/* Content */}
-        <article
+        <ArticleBody
+          parts={post.bodyParts ?? [{ html: post.content }]}
+          mediaRows={post.mediaRows}
           className={`prose prose-lg max-w-none pt-2 ${isHebrew ? "prose-right" : ""}`}
-          dangerouslySetInnerHTML={{ __html: post.content }}
-          style={{
-            direction: isHebrew ? "rtl" : "ltr",
-          }}
+          style={{ direction: isHebrew ? "rtl" : "ltr" }}
         />
       </div>
     </main>

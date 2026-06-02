@@ -12,6 +12,8 @@
     "@tailwindcss/typography": "^0.5.16",
     "@vercel/analytics": "^1.5.0",
     "gray-matter": "^4.0.3",
+    "image-size": "^2.0.2",
+    "justified-layout": "^4.1.0",
     "next": "15.5.7",
     "react": "19.1.0",
     "react-dom": "19.1.0",
@@ -22,6 +24,7 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
+    "@types/justified-layout": "^4.1.4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

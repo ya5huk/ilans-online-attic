@@ -1,12 +1,71 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
+import { imageSize } from "image-size";
 import { remark } from "remark";
 import html from "remark-html";
 import remarkGfm from "remark-gfm";
 import { tagIcons } from "./tagIcons";
 
 const videoExtensions = /\.(mp4|webm)$/i;
+const remoteRe = /^https?:\/\//i;
+
+/**
+ * Read intrinsic pixel dimensions for a frontmatter image so the feed can
+ * reserve each tile's box and pack the justified wall without layout shift.
+ * Only local `/public` paths are probed (header-only, no decode): remote URLs
+ * and missing/empty paths return undefined, and the tile falls back to a
+ * default aspect ratio. Runs at build/SSR only — never ships to the client.
+ */
+function probeImageDimensions(
+  image?: string
+): { width: number; height: number } | undefined {
+  if (!image || image.trim() === "") return undefined;
+  if (/^https?:\/\//i.test(image)) return undefined; // remote — not on disk
+  try {
+    // Frontmatter paths are root-absolute ("/me/foo.webp") and may be
+    // percent-encoded (one Hebrew filename is); decode + strip the leading
+    // slash to resolve under /public.
+    const rel = decodeURIComponent(image).replace(/^\/+/, "");
+    const buf = fs.readFileSync(path.join(process.cwd(), "public", rel));
+    const { width, height, orientation } = imageSize(buf);
+    if (!width || !height) return undefined;
+    // EXIF orientation 5–8 = rotated 90°/270°: phone photos store landscape
+    // pixels with a rotate flag, and browsers + the next/image optimizer render
+    // the swapped (corrected) aspect. Return those corrected dimensions so the
+    // reserved box matches the displayed image — otherwise a width/height attr
+    // built from the raw pixels squashes the photo. (Same rule as probeAspect.)
+    const rotated = !!orientation && orientation >= 5;
+    return {
+      width: rotated ? height : width,
+      height: rotated ? width : height,
+    };
+  } catch {
+    return undefined;
+  }
+}
+
+/**
+ * Orientation-corrected aspect ratio (width / height) for a LOCAL image, read
+ * header-only at build time. Phone photos carry EXIF orientation (5–8 = rotated
+ * 90°/270°), so the displayed aspect swaps the probed dimensions. Remote URLs and
+ * unreadable/zero-size files return undefined → <MediaRow> measures them instead.
+ */
+function probeAspect(src: string): number | undefined {
+  if (!src || remoteRe.test(src)) return undefined;
+  try {
+    const rel = decodeURIComponent(src).replace(/^\/+/, "");
+    const buf = fs.readFileSync(path.join(process.cwd(), "public", rel));
+    const { width, height, orientation } = imageSize(buf);
+    if (!width || !height) return undefined;
+    const rotated = !!orientation && orientation >= 5;
+    const w = rotated ? height : width;
+    const h = rotated ? width : height;
+    return w / h;
+  } catch {
+    return undefined;
+  }
+}
 
 /** Parse a "mm/dd/yyyy" or "mm/dd/yyyy HH:mm" frontmatter date into a Date. */
 export function parseDate(dateStr: string): Date {
@@ -23,16 +82,62 @@ export function parseDate(dateStr: string): Date {
 export const byDateDesc = (a: ContentItem, b: ContentItem) =>
   parseDate(b.date).getTime() - parseDate(a.date).getTime();
 
+// Local /public path (not a remote or protocol-relative URL).
+const isLocalPath = (src: string) =>
+  src.startsWith("/") && !src.startsWith("//");
+
+// Widths offered to the optimizer for responsive grouped-media (<MediaRow>) srcsets.
+const BODY_IMG_WIDTHS = [640, 828, 1080, 1200];
+
+/**
+ * Route a local image through Next's built-in optimizer (resize + AVIF/WebP).
+ * Decode first so already percent-encoded paths (Hebrew filenames) aren't
+ * double-encoded. Markdown HTML and the client <MediaRow> can't host a React
+ * <Image>, so we emit the same URL the component would have produced.
+ */
+export function optimizerUrl(src: string, width: number): string {
+  let decoded = src;
+  try {
+    decoded = decodeURIComponent(src);
+  } catch {
+    /* malformed escape — fall back to the raw path */
+  }
+  return `/_next/image?url=${encodeURIComponent(decoded)}&w=${width}&q=75`;
+}
+
+/** Responsive srcset across the body image widths, for a local /public path. */
+export function optimizerSrcSet(src: string): string {
+  return BODY_IMG_WIDTHS.map((w) => `${optimizerUrl(src, w)} ${w}w`).join(", ");
+}
+
+/** An optimized <img> for a lone body image. Local files are resized + served as
+ *  AVIF/WebP via the optimizer; remote URLs are left untouched. Deliberately no
+ *  srcset/sizes/width-height: a sizes-defined width fights `.prose img`'s
+ *  max-height cap and squashes portrait photos, so we keep the plain <img> shape
+ *  the browser already sizes correctly and only swap in the optimized source. */
+function buildBodyImg(src: string, alt: string): string {
+  if (!isLocalPath(src)) {
+    return `<img src="${src}" alt="${alt}" loading="lazy" decoding="async">`;
+  }
+  return `<img src="${optimizerUrl(src, 1200)}" alt="${alt}" loading="lazy" decoding="async">`;
+}
+
+/**
+ * Post-process rendered markdown: optimize/lazy-load images, defer video loads,
+ * and wrap captioned media in <figure>. Local images are resized + served as
+ * AVIF/WebP via the optimizer; videos get preload="metadata" so a long post
+ * doesn't auto-download every (multi-MB) clip up front.
+ */
 function addImageCaptions(htmlStr: string): string {
   return htmlStr.replace(
     /<img\s+src="([^"]*)"(?:\s+alt="([^"]*)")?(?:\s*\/)?>/g,
     (_, src, alt) => {
       if (videoExtensions.test(src)) {
         const caption = alt ? `<figcaption>${alt}</figcaption>` : "";
-        return `<figure><video src="${src}" controls playsinline></video>${caption}</figure>`;
+        return `<figure><video src="${src}" controls playsinline preload="metadata"></video>${caption}</figure>`;
       }
-      if (!alt) return `<img src="${src}" alt="">`;
-      return `<figure><img src="${src}" alt="${alt}"><figcaption>${alt}</figcaption></figure>`;
+      if (!alt) return buildBodyImg(src, "");
+      return `<figure>${buildBodyImg(src, alt)}<figcaption>${alt}</figcaption></figure>`;
     }
   );
 }
@@ -54,8 +159,46 @@ function toPlainText(markdown: string): string {
     .trim();
 }
 
-/** Shared markdown pipeline: frontmatter split + remark→HTML + captions + excerpt. */
-async function processMarkdown(raw: string, excerptLength = 150) {
+// A maximal sequence of "media paragraphs" — <p> blocks whose entire content is
+// one or more <img> (remark renders BOTH authoring styles this way: each `![](…)`
+// on its own line becomes a separate <p><img></p>, while several with no blank line
+// between become a single multi-<img> <p> that spans lines — hence `\s` must cross
+// newlines). Consecutive such paragraphs (separated only by whitespace) form one run.
+const MEDIA_PARAGRAPHS = /(?:<p>(?:\s*<img\b[^>]*>)+\s*<\/p>\s*)+/g;
+// src (+ optional alt) of one <img>; remark emits attributes as `src` then `alt`.
+const IMG_IN_RUN = /<img src="([^"]*)"(?: alt="([^"]*)")?[^>]*>/g;
+
+/**
+ * Replace each run of 2+ consecutive media (images/videos) with a
+ * `<!--MEDIAROW:k-->` marker and collect the run's items into `runs[k]`. Handles
+ * both authoring styles — images separated by blank lines and images with no blank
+ * line between — and any mix. Videos are included (markdown image syntax renders as
+ * <img> regardless of extension). A lone image is left untouched for the normal
+ * figure/video treatment in addImageCaptions. Pure — aspect probing is the caller's.
+ */
+function groupMediaRuns(htmlStr: string): { html: string; runs: MediaItem[][] } {
+  const runs: MediaItem[][] = [];
+  const out = htmlStr.replace(MEDIA_PARAGRAPHS, (block) => {
+    const run: MediaItem[] = [];
+    for (const m of block.matchAll(IMG_IN_RUN)) {
+      const src = m[1];
+      run.push({
+        type: videoExtensions.test(src) ? "video" : "image",
+        src,
+        alt: m[2] ?? "",
+      });
+    }
+    if (run.length < 2) return block; // lone image → unchanged
+    runs.push(run);
+    return `<!--MEDIAROW:${runs.length - 1}-->`;
+  });
+  return { html: out, runs };
+}
+
+/** Shared markdown pipeline: frontmatter split + remark→HTML + captions + excerpt.
+ *  When groupMedia is set, runs of 2+ consecutive media are pulled into mediaRows
+ *  and the body is returned as ordered parts (bodyParts) for <ArticleBody>. */
+async function processMarkdown(raw: string, excerptLength = 150, groupMedia = false) {
   const matterResult = matter(raw);
 
   const processed = await remark()
@@ -63,16 +206,63 @@ async function processMarkdown(raw: string, excerptLength = 150) {
     .use(html, { sanitize: false })
     .process(matterResult.content);
 
-  const content = addImageCaptions(processed.toString());
+  let htmlStr = processed.toString();
+  let mediaRows: MediaItem[][] = [];
+
+  if (groupMedia) {
+    const grouped = groupMediaRuns(htmlStr);
+    htmlStr = grouped.html;
+    mediaRows = grouped.runs.map((run) =>
+      run.map((it) => {
+        if (it.type !== "image") return it; // video: keep raw src, measured live
+        const aspect = probeAspect(it.src);
+        if (!isLocalPath(it.src)) return { ...it, aspect }; // remote: leave as-is
+        // Local: serve the optimized URL + srcset, same as lone body images.
+        return {
+          ...it,
+          aspect,
+          src: optimizerUrl(it.src, 1200),
+          srcSet: optimizerSrcSet(it.src),
+        };
+      })
+    );
+  }
+
+  const captioned = addImageCaptions(htmlStr);
+
+  // Split the rendered body on run markers into ordered parts ({html} | {run}) so
+  // the article renders without any marker string being stored or serialized;
+  // `content` is the marker-free HTML kept for word count / SEO / llms text.
+  const segments = captioned.split(/<!--MEDIAROW:(\d+)-->/g);
+  const bodyParts: BodyPart[] = [];
+  segments.forEach((seg, i) => {
+    if (i % 2 === 1) bodyParts.push({ run: Number(seg) });
+    else if (seg !== "") bodyParts.push({ html: seg });
+  });
+  const content = segments.filter((_, i) => i % 2 === 0).join("");
 
   const plain = toPlainText(matterResult.content);
   const excerpt =
     plain.slice(0, excerptLength) + (plain.length > excerptLength ? "..." : "");
 
-  return { data: matterResult.data, content, excerpt };
+  return { data: matterResult.data, content, excerpt, mediaRows, bodyParts };
 }
 
 export type ContentKind = "writing" | "image" | "project";
+
+export interface MediaItem {
+  type: "image" | "video";
+  src: string;
+  alt: string;
+  /** Orientation-corrected width/height for a LOCAL image, probed at build.
+   *  Undefined for videos/remote → measured in the browser by <MediaRow>. */
+  aspect?: number;
+  /** Optimizer srcset for a LOCAL image (paired with an optimized `src`). */
+  srcSet?: string;
+}
+
+/** A rendered article body is an ordered list of HTML chunks and media runs. */
+export type BodyPart = { html: string } | { run: number };
 
 export interface ContentItem {
   kind: ContentKind;
@@ -80,8 +270,12 @@ export interface ContentItem {
   title: string;
   date: string; // mm/dd/yyyy [HH:mm]
   image?: string;
-  content: string; // rendered HTML
+  width?: number; // intrinsic px of `image`, when probeable at build time
+  height?: number; // intrinsic px of `image`, when probeable at build time
+  content: string; // rendered HTML (marker-free; for word count / SEO / llms text)
   excerpt: string;
+  mediaRows?: MediaItem[][]; // runs of 2+ consecutive media; set on single-item fetches
+  bodyParts?: BodyPart[]; // ordered render parts (HTML chunks + media runs)
   // writing only:
   tags?: string; // comma-separated, e.g. "books,philosophy"
   lang?: string; // "en_US" | "he_IL"
@@ -98,16 +292,24 @@ function toItem(
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   data: any,
   content: string,
-  excerpt: string
+  excerpt: string,
+  mediaRows: MediaItem[][] = [],
+  bodyParts: BodyPart[] = []
 ): ContentItem {
+  const dims = probeImageDimensions(data.image);
+
   const base: ContentItem = {
     kind,
     slug,
     title: data.title,
     date: data.date,
     image: data.image,
+    width: dims?.width,
+    height: dims?.height,
     content,
     excerpt,
+    mediaRows,
+    bodyParts,
   };
 
   if (kind === "writing") {
@@ -176,8 +378,9 @@ export async function getItemBySlug(
       path.join(process.cwd(), dir, `${slug}.md`),
       "utf8"
     );
-    const { data, content, excerpt } = await processMarkdown(raw, 200);
-    return toItem(slug, kind, data, content, excerpt);
+    const { data, content, excerpt, mediaRows, bodyParts } =
+      await processMarkdown(raw, 200, true);
+    return toItem(slug, kind, data, content, excerpt, mediaRows, bodyParts);
   } catch {
     return null;
   }

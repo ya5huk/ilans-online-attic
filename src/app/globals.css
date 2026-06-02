@@ -190,3 +190,28 @@ ul {
 .prose-right blockquote {
   @apply border-r-4 border-l-0 pr-4 pl-0;
 }
+
+/* In-article justified media rows (2+ consecutive images/videos). Packing is done
+   in <MediaRow>; each row is a flexbox whose children grow in proportion to their
+   aspect ratio (set inline), so items in a row share one height and show the full
+   image (no crop). On narrow widths <MediaRow> emits one item per row → stacked. */
+.media-rows {
+  @apply my-6;
+}
+.media-row {
+  @apply flex items-start gap-2;
+}
+.media-row + .media-row {
+  @apply mt-2;
+}
+.media-row > figure {
+  @apply m-0 min-w-0; /* flex child: cancel .prose figure margins; allow shrink */
+}
+.media-row figure img,
+.media-row figure video {
+  @apply m-0 block h-auto w-full; /* override .prose img mx-auto/my-6; keep teal shadow */
+  max-height: none; /* override .prose img md:max-h-[480px] inside rows */
+}
+.media-row figcaption {
+  @apply mt-2 text-center text-sm italic text-gray-400;
+}

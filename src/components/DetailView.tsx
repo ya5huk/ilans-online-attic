@@ -1,4 +1,6 @@
 import type { ContentItem } from "@/lib/blog";
+import ArticleBody from "@/components/ArticleBody";
+import SmartImage from "@/components/SmartImage";
 
 const cleanLabel = (url: string) =>
   url.replace(/^https?:\/\//, "").replace(/\/$/, "");
@@ -28,9 +30,10 @@ const DetailView: React.FC<{ item: ContentItem }> = ({ item }) => {
   );
 
   const body = (
-    <article
+    <ArticleBody
+      parts={item.bodyParts ?? [{ html: item.content }]}
+      mediaRows={item.mediaRows}
       className="prose prose-lg max-w-none"
-      dangerouslySetInnerHTML={{ __html: item.content }}
     />
   );
 
@@ -40,9 +43,12 @@ const DetailView: React.FC<{ item: ContentItem }> = ({ item }) => {
         <div className="mx-auto flex flex-col md:flex-row md:items-start gap-6 md:gap-8">
           {item.image && (
             <div className="w-full md:w-2/5 md:shrink-0">
-              <img
+              <SmartImage
                 src={item.image}
                 alt={item.title}
+                width={item.width}
+                height={item.height}
+                sizes="(max-width: 768px) 100vw, 40vw"
                 className="w-full image-shadow"
               />
             </div>
@@ -66,9 +72,12 @@ const DetailView: React.FC<{ item: ContentItem }> = ({ item }) => {
 
         {item.image && (
           <div className="my-4">
-            <img
+            <SmartImage
               src={item.image}
               alt={item.title}
+              width={item.width}
+              height={item.height}
+              sizes="(max-width: 768px) 100vw, 768px"
               className="w-full object-cover image-shadow mb-6"
             />
           </div>
