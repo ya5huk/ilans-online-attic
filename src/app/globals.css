@@ -9,7 +9,8 @@
 /* Font experiment — headers: Outfit · content + UI: Poppins. Variables are
    injected by next/font in layout.tsx. --font-ui still points at its own var so
    the UI tier can diverge from body copy later without touching components; for
-   now both resolve to Poppins. */
+   now both resolve to Poppins. Card (wall-tile) text is also Poppins (bold titles),
+   set in one place — the ".tile" block under the heading rules below. */
 @theme inline {
   --font-sans: var(--font-poppins);
   --font-heading: var(--font-outfit);
@@ -30,6 +31,26 @@ h5,
 h6 {
   font-family: var(--font-outfit), "Helvetica Neue", Arial, sans-serif;
   font-weight: 700;
+}
+
+/* ── Card (wall-tile) text — the ONE place that sets the font for everything
+   inside a feed card: the <h3> title AND the date/type labels. To restyle all
+   card text, edit this block.
+
+   The `:is(h1–h6)` half is what makes the TITLE obey: the heading rule above is
+   unlayered, so a Tailwind utility class (which lives in the `utilities` cascade
+   layer) can't beat it — only an unlayered, more-specific rule like this can. We
+   set only the family here; the title keeps its bold weight (700) from the heading
+   rule and the labels stay regular. Poppins is Latin-only, so Hebrew cards fall
+   back to the system font (this `.tile :lang(he)` rule outranks the site-wide
+   :lang(he) rule below). */
+.tile,
+.tile :is(h1, h2, h3, h4, h5, h6) {
+  font-family: var(--font-poppins), "Helvetica Neue", Arial, sans-serif;
+}
+.tile:lang(he),
+.tile :lang(he) {
+  font-family: system-ui, "Segoe UI", Arial, sans-serif;
 }
 
 /* UI chrome — Poppins: form controls, buttons, and anything tagged .font-ui

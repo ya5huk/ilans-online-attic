@@ -61,7 +61,7 @@ const Tile: React.FC<{
       dir="auto"
       lang={isHebrew ? "he" : undefined}
       style={style}
-      className="group block overflow-hidden border-2 border-[var(--third)] bg-[var(--secondary)]"
+      className="tile group block overflow-hidden border-2 border-[var(--third)] bg-[var(--secondary)]"
     >
       {hasImage ? (
         // SmartImage: local /public files get next/image optimization (resize,
@@ -88,9 +88,7 @@ const Tile: React.FC<{
           border color so the row reads as a header bar (not floating text).
           For writing, the post's topic icons sit centered between them. */}
       <div className="absolute inset-x-0 top-0 z-10 flex items-center justify-between gap-2 bg-[var(--third)] px-2 py-1">
-        <span className="font-ui text-[11px] font-medium text-white">
-          {dateLabel}
-        </span>
+        <span className="text-[11px] text-white">{dateLabel}</span>
         {topicTags.length > 0 && (
           <span className="flex items-center gap-1.5">
             {topicTags.map((tag) => (
@@ -106,13 +104,13 @@ const Tile: React.FC<{
             ))}
           </span>
         )}
-        <span className="font-ui text-[11px] font-medium lowercase text-white">
-          {typeLabel}
-        </span>
+        <span className="text-[11px] lowercase text-white">{typeLabel}</span>
       </div>
+      {/* Font + weight come from the ".tile" rule in globals.css (one place for all
+          card text); here we only handle RTL alignment for Hebrew titles. */}
       <h3
         dir={isHebrew ? "rtl" : undefined}
-        className={`absolute inset-x-2 bottom-2 z-10 line-clamp-2 text-lg font-bold leading-tight text-white sm:text-2xl${
+        className={`absolute inset-x-2 bottom-2 z-10 line-clamp-2 text-lg leading-tight text-white sm:text-2xl${
           isHebrew ? " text-right" : ""
         }`}
       >
