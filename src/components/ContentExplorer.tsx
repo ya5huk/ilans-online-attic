@@ -3,8 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import BlogCard from "@/components/card/BlogCard";
-import MediaCard from "@/components/card/MediaCard";
+import JustifiedWall from "@/components/JustifiedWall";
 import { tagIcons } from "@/lib/tagIcons";
 import type { ContentItem } from "@/lib/blog";
 
@@ -130,8 +129,9 @@ const ContentExplorer: React.FC<ContentExplorerProps> = ({
     syncUrl(lang, []);
   };
 
-  // --- Writing feed (filtered + grouped by year; arrays arrive newest-first) ---
-  const renderWriting = () => {
+  // Writing feed: apply the language + subject filters. Arrays arrive
+  // newest-first and the wall preserves that order.
+  const writingItems = (() => {
     let filtered = posts;
     if (lang !== "all") filtered = filtered.filter((p) => p.lang === lang);
     if (tags.length > 0) {
@@ -146,74 +146,17 @@ const ContentExplorer: React.FC<ContentExplorerProps> = ({
           )
       );
     }
+    return filtered;
+  })();
 
-    if (filtered.length === 0) {
-      return (
-        <p className="text-center text-gray-400 mt-10">
-          Nothing here with these filters (yet).
-        </p>
-      );
-    }
-
-    const byYear: Record<string, ContentItem[]> = {};
-    filtered.forEach((p) => {
-      const year = p.date.split(" ")[0].split("/")[2];
-      (byYear[year] ??= []).push(p);
-    });
-    const years = Object.keys(byYear).sort().reverse();
-
-    return years.map((year) => (
-      <div key={year}>
-        <div className="flex items-center gap-4 w-full">
-          <span className="flex-grow h-1 bg-[var(--secondary)]" />
-          <h3 className="text-xl sm:text-3xl tracking-widest">{year}</h3>
-          <span className="flex-grow h-1 bg-[var(--secondary)]" />
-        </div>
-        {byYear[year].map((post, idx) => (
-          <div key={post.slug}>
-            <BlogCard post={post} />
-            {idx !== byYear[year].length - 1 && (
-              <span className="block h-0.5 bg-[var(--secondary)]" />
-            )}
-          </div>
-        ))}
-      </div>
-    ));
-  };
-
-  // Thin navy divider between cards (matches the articles feed). Spacing comes
-  // from the cards' own padding/margin, so the divider itself has no margin.
-  const divider = <span className="block h-0.5 bg-[var(--secondary)]" />;
-
-  const renderMedia = (items: ContentItem[]) =>
+  // Every feed renders the same justified image wall; only the item set and the
+  // empty-state copy differ (writing has filters that can rule everything out).
+  const renderWall = (items: ContentItem[], emptyMsg: string) =>
     items.length === 0 ? (
-      <p className="text-center text-gray-400 mt-10">Nothing here yet.</p>
+      <p className="text-center text-gray-400 mt-10">{emptyMsg}</p>
     ) : (
-      <div>
-        {items.map((it, idx) => (
-          <div key={it.slug}>
-            <MediaCard item={it} />
-            {idx !== items.length - 1 && divider}
-          </div>
-        ))}
-      </div>
+      <JustifiedWall items={items} />
     );
-
-  // --- Interleaved feed: everything by date, rendered per kind ---
-  const renderAll = () => (
-    <div>
-      {all.map((it, idx) => (
-        <div key={`${it.kind}/${it.slug}`}>
-          {it.kind === "writing" ? (
-            <BlogCard post={it} />
-          ) : (
-            <MediaCard item={it} />
-          )}
-          {idx !== all.length - 1 && divider}
-        </div>
-      ))}
-    </div>
-  );
 
   return (
     <div className="mt-2">
@@ -230,7 +173,7 @@ const ContentExplorer: React.FC<ContentExplorerProps> = ({
               all
             </LinkPicker>
             <LinkPicker href="/writing" active={isWriting}>
-              i wrote this
+              blogs
             </LinkPicker>
             <LinkPicker href="/images" active={content === "image"}>
               images
@@ -292,10 +235,11 @@ const ContentExplorer: React.FC<ContentExplorerProps> = ({
 
       {/* Feed */}
       <div className="mt-6">
-        {content === "writing" && renderWriting()}
-        {content === "image" && renderMedia(images)}
-        {content === "project" && renderMedia(projects)}
-        {content === "all" && renderAll()}
+        {content === "writing" &&
+          renderWall(writingItems, "Nothing here with these filters (yet).")}
+        {content === "image" && renderWall(images, "Nothing here yet.")}
+        {content === "project" && renderWall(projects, "Nothing here yet.")}
+        {content === "all" && renderWall(all, "Nothing here yet.")}
       </div>
     </div>
   );

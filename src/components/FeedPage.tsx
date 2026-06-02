@@ -50,7 +50,7 @@ const FeedPage = async ({ content, lang, tags, jsonLd }: FeedPageProps) => {
           type="application/ld+json"
         />
       )}
-      <div className="mx-auto max-w-3xl p-4 md:px-0 mb-12">
+      <div className="mx-auto max-w-4xl p-4 md:px-0 mb-12">
         <AboutCard about={about} />
         <ContentExplorer
           initialContent={content}
