@@ -124,7 +124,7 @@ ul {
 }
 
 .prose p {
-  @apply text-lg md:text-base leading-relaxed pb-2;
+  @apply text-base leading-relaxed pb-2;
 }
 
 /* 1.5× wider spacing between consecutive paragraphs (pb-2 → pb-3). A paragraph
@@ -153,7 +153,7 @@ ul {
 }
 
 .prose li {
-  @apply text-lg md:text-base;
+  @apply text-base;
 }
 
 .prose li > p {
