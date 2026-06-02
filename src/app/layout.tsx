@@ -26,7 +26,16 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Ilan's Online Attic",
+  // Resolves relative OpenGraph/Twitter image URLs (e.g. "/blog-images/…") to
+  // absolute canonical URLs; without it Next can't build correct social-preview
+  // image links and logs a build warning.
+  metadataBase: new URL("https://www.ilansonlineattic.com"),
+  // Per-page titles render as "<Page> · Ilan's Online Attic"; pages that ARE the
+  // brand (home) opt out with an absolute title.
+  title: {
+    default: "Ilan's Online Attic",
+    template: "%s · Ilan's Online Attic",
+  },
   description: "Everything's ilan.",
 };
 

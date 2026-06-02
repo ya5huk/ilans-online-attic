@@ -9,11 +9,12 @@ import FeedPage from "@/components/FeedPage";
 const pageMetadata = {
   title: "Ilan's Online Attic",
   desc: "Born in 2004, my name is Ilan Yashuk. A programmer-athlete sharing writing, pictures and projects. Welcome to my online attic.",
-  img: "https://ilansonlineattic.com/me/kineret-bg.png",
+  img: "https://www.ilansonlineattic.com/me/elegant-me.webp",
   imgalt: "A photo of Ilan Yashuk",
   path: "/",
   sitetype: "profile" as MetadataGenParams["sitetype"],
   inLanguage: "en-US",
+  titleAbsolute: true,
 };
 
 export const metadata: Metadata = genMetadata(pageMetadata);

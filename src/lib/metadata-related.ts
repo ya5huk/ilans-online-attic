@@ -8,6 +8,9 @@ export interface MetadataGenParams {
   imgalt: string;
   path: string;
   sitetype: siteTypes;
+  // When true, emit the title verbatim (bypasses the root title template). Used
+  // by the home page so it stays "Ilan's Online Attic", not "… · Ilan's …".
+  titleAbsolute?: boolean;
   datepublished?: Date;
   keywords?: string[];
   inLanguage?: string;
@@ -21,7 +24,9 @@ export const genMetadata = (
 ): Metadata => {
   const canonicalUrl = `https://www.ilansonlineattic.com${metadataParams.path}`;
   return {
-    title: metadataParams.title,
+    title: metadataParams.titleAbsolute
+      ? { absolute: metadataParams.title }
+      : metadataParams.title,
     description: metadataParams.desc,
     alternates: {
       canonical: canonicalUrl,

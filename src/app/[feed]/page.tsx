@@ -18,17 +18,18 @@ const FEEDS: Record<
 > = {
   writing: {
     content: "writing",
-    title: "Writing — Ilan's Online Attic",
+    // Bare nouns: the root layout's title template appends " · Ilan's Online Attic".
+    title: "Writing",
     desc: "Blog posts and thoughts by Ilan Yashuk.",
   },
   images: {
     content: "image",
-    title: "Images — Ilan's Online Attic",
+    title: "Images",
     desc: "Photos and pictures shared by Ilan Yashuk.",
   },
   projects: {
     content: "project",
-    title: "Projects — Ilan's Online Attic",
+    title: "Projects",
     desc: "Projects built by Ilan Yashuk.",
   },
 };
@@ -48,7 +49,7 @@ export async function generateMetadata({
   return genMetadata({
     title: cfg.title,
     desc: cfg.desc,
-    img: "https://ilansonlineattic.com/me/kineret-bg.png",
+    img: "https://www.ilansonlineattic.com/me/kineret-bg.jpg",
     imgalt: "A photo of Ilan Yashuk",
     path: `/${feed}`,
     sitetype: "website" as MetadataGenParams["sitetype"],

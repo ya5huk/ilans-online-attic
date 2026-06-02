@@ -1,12 +1,9 @@
-import type { Metadata } from "next";
 import "@/app/globals.css";
 import Footer from "@/components/Footer";
 
-export const metadata: Metadata = {
-  title: "Ilan's Online Attic",
-  description: "Everything's ilan.",
-};
-
+// No metadata export here: the root layout supplies the default title/template
+// and every page under this group sets its own via generateMetadata, so a title
+// here would only double-suffix.
 export default function PathsLayout({
   children,
 }: Readonly<{
