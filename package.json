@@ -4,8 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
+    "predev": "npm run convert:media && npm run gen:dimensions",
+    "convert:media": "node scripts/convert-media.mjs",
     "gen:dimensions": "node scripts/gen-image-dimensions.mjs",
-    "prebuild": "npm run gen:dimensions",
+    "prebuild": "npm run convert:media && npm run gen:dimensions",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"

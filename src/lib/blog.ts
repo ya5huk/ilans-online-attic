@@ -6,9 +6,14 @@ import html from "remark-html";
 import remarkGfm from "remark-gfm";
 import { tagIcons } from "./tagIcons";
 import imageDimensions from "./imageDimensions.json";
+import mediaConversions from "./mediaConversions.json";
 
-const videoExtensions = /\.(mp4|webm)$/i;
+const videoExtensions = /\.(mp4|webm|mov)$/i;
 const remoteRe = /^https?:\/\//i;
+
+// Local /public path (not a remote or protocol-relative URL).
+const isLocalPath = (src: string) =>
+  src.startsWith("/") && !src.startsWith("//");
 
 type RawImageDimensions = {
   width: number;
@@ -23,6 +28,36 @@ type RawImageDimensions = {
 // entire ~300MB /public folder into each serverless function. Keyed by
 // public-relative path ("me/foo.webp").
 const IMAGE_DIMENSIONS = imageDimensions as Record<string, RawImageDimensions>;
+const MEDIA_CONVERSIONS = mediaConversions as Record<string, string>;
+
+function splitUrlSuffix(src: string): { pathname: string; suffix: string } {
+  const match = src.match(/^([^?#]*)([?#].*)?$/);
+  return { pathname: match?.[1] ?? src, suffix: match?.[2] ?? "" };
+}
+
+function localPublicKey(src?: string): string | undefined {
+  if (!src || src.trim() === "" || remoteRe.test(src) || !isLocalPath(src)) {
+    return undefined;
+  }
+  const { pathname } = splitUrlSuffix(src);
+  try {
+    return decodeURIComponent(pathname).replace(/^\/+/, "");
+  } catch {
+    return undefined;
+  }
+}
+
+function servedMediaSrc(src: string): string {
+  const key = localPublicKey(src);
+  if (!key) return src;
+  const converted = MEDIA_CONVERSIONS[key];
+  if (!converted) return src;
+  return `/${converted}${splitUrlSuffix(src).suffix}`;
+}
+
+function isVideoMedia(src: string): boolean {
+  return videoExtensions.test(splitUrlSuffix(servedMediaSrc(src)).pathname);
+}
 
 /**
  * Resolve a frontmatter/markdown image path to its manifest entry. Frontmatter
@@ -31,13 +66,8 @@ const IMAGE_DIMENSIONS = imageDimensions as Record<string, RawImageDimensions>;
  * public-relative keys. Remote URLs and unprobed paths return undefined.
  */
 function lookupDimensions(src?: string): RawImageDimensions | undefined {
-  if (!src || src.trim() === "" || remoteRe.test(src)) return undefined;
-  let rel: string;
-  try {
-    rel = decodeURIComponent(src).replace(/^\/+/, "");
-  } catch {
-    return undefined; // malformed percent-encoding
-  }
+  const rel = localPublicKey(servedMediaSrc(src ?? ""));
+  if (!rel) return undefined;
   return IMAGE_DIMENSIONS[rel];
 }
 
@@ -96,10 +126,6 @@ export function parseDate(dateStr: string): Date {
 export const byDateDesc = (a: ContentItem, b: ContentItem) =>
   parseDate(b.date).getTime() - parseDate(a.date).getTime();
 
-// Local /public path (not a remote or protocol-relative URL).
-const isLocalPath = (src: string) =>
-  src.startsWith("/") && !src.startsWith("//");
-
 // Widths offered to the optimizer for responsive grouped-media (<MediaRow>) srcsets.
 const BODY_IMG_WIDTHS = [640, 828, 1080, 1200];
 
@@ -130,10 +156,11 @@ export function optimizerSrcSet(src: string): string {
  *  max-height cap and squashes portrait photos, so we keep the plain <img> shape
  *  the browser already sizes correctly and only swap in the optimized source. */
 function buildBodyImg(src: string, alt: string): string {
-  if (!isLocalPath(src)) {
-    return `<img src="${src}" alt="${alt}" loading="lazy" decoding="async">`;
+  const servedSrc = servedMediaSrc(src);
+  if (!isLocalPath(servedSrc)) {
+    return `<img src="${servedSrc}" alt="${alt}" loading="lazy" decoding="async">`;
   }
-  return `<img src="${optimizerUrl(src, 1200)}" alt="${alt}" loading="lazy" decoding="async">`;
+  return `<img src="${optimizerUrl(servedSrc, 1200)}" alt="${alt}" loading="lazy" decoding="async">`;
 }
 
 /**
@@ -146,9 +173,9 @@ function addImageCaptions(htmlStr: string): string {
   return htmlStr.replace(
     /<img\s+src="([^"]*)"(?:\s+alt="([^"]*)")?(?:\s*\/)?>/g,
     (_, src, alt) => {
-      if (videoExtensions.test(src)) {
+      if (isVideoMedia(src)) {
         const caption = alt ? `<figcaption>${alt}</figcaption>` : "";
-        return `<figure><video src="${src}" controls playsinline preload="metadata"></video>${caption}</figure>`;
+        return `<figure><video src="${servedMediaSrc(src)}" controls playsinline preload="metadata"></video>${caption}</figure>`;
       }
       if (!alt) return buildBodyImg(src, "");
       return `<figure>${buildBodyImg(src, alt)}<figcaption>${alt}</figcaption></figure>`;
@@ -230,7 +257,7 @@ function groupMediaRuns(htmlStr: string): { html: string; runs: MediaItem[][] } 
     for (const m of block.matchAll(IMG_IN_RUN)) {
       const src = m[1];
       run.push({
-        type: videoExtensions.test(src) ? "video" : "image",
+        type: isVideoMedia(src) ? "video" : "image",
         src,
         alt: decodeHtmlEntities(m[2] ?? ""),
       });
@@ -261,15 +288,16 @@ async function processMarkdown(raw: string, excerptLength = 150, groupMedia = fa
     htmlStr = grouped.html;
     mediaRows = grouped.runs.map((run) =>
       run.map((it) => {
-        if (it.type !== "image") return it; // video: keep raw src, measured live
-        const aspect = probeAspect(it.src);
-        if (!isLocalPath(it.src)) return { ...it, aspect }; // remote: leave as-is
+        const src = servedMediaSrc(it.src);
+        if (it.type !== "image") return { ...it, src }; // video: measured live
+        const aspect = probeAspect(src);
+        if (!isLocalPath(src)) return { ...it, src, aspect }; // remote: leave as-is
         // Local: serve the optimized URL + srcset, same as lone body images.
         return {
           ...it,
           aspect,
-          src: optimizerUrl(it.src, 1200),
-          srcSet: optimizerSrcSet(it.src),
+          src: optimizerUrl(src, 1200),
+          srcSet: optimizerSrcSet(src),
         };
       })
     );
@@ -343,14 +371,16 @@ function toItem(
   mediaRows: MediaItem[][] = [],
   bodyParts: BodyPart[] = []
 ): ContentItem {
-  const dims = probeImageDimensions(data.image);
+  const image =
+    typeof data.image === "string" ? servedMediaSrc(data.image) : data.image;
+  const dims = probeImageDimensions(image);
 
   const base: ContentItem = {
     kind,
     slug,
     title: data.title,
     date: data.date,
-    image: data.image,
+    image,
     width: dims?.width,
     height: dims?.height,
     content,
