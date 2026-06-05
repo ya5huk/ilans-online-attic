@@ -76,6 +76,7 @@ const MediaRow: React.FC<{ items: MediaItem[] }> = ({ items }) => {
                 {it.type === "video" ? (
                   <video
                     src={it.src}
+                    poster={it.poster}
                     controls
                     playsInline
                     preload="metadata"

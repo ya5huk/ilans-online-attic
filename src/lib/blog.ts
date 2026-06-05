@@ -7,6 +7,7 @@ import remarkGfm from "remark-gfm";
 import { tagIcons } from "./tagIcons";
 import imageDimensions from "./imageDimensions.json";
 import mediaConversions from "./mediaConversions.json";
+import mediaPosters from "./mediaPosters.json";
 
 const videoExtensions = /\.(mp4|webm|mov)$/i;
 const remoteRe = /^https?:\/\//i;
@@ -29,6 +30,7 @@ type RawImageDimensions = {
 // public-relative path ("me/foo.webp").
 const IMAGE_DIMENSIONS = imageDimensions as Record<string, RawImageDimensions>;
 const MEDIA_CONVERSIONS = mediaConversions as Record<string, string>;
+const MEDIA_POSTERS = mediaPosters as Record<string, string>;
 
 function splitUrlSuffix(src: string): { pathname: string; suffix: string } {
   const match = src.match(/^([^?#]*)([?#].*)?$/);
@@ -53,6 +55,14 @@ function servedMediaSrc(src: string): string {
   const converted = MEDIA_CONVERSIONS[key];
   if (!converted) return src;
   return `/${converted}${splitUrlSuffix(src).suffix}`;
+}
+
+function posterMediaSrc(src: string): string | undefined {
+  const key = localPublicKey(src);
+  const servedKey = localPublicKey(servedMediaSrc(src));
+  const poster =
+    (key && MEDIA_POSTERS[key]) || (servedKey && MEDIA_POSTERS[servedKey]);
+  return poster ? `/${poster}` : undefined;
 }
 
 function isVideoMedia(src: string): boolean {
@@ -175,7 +185,9 @@ function addImageCaptions(htmlStr: string): string {
     (_, src, alt) => {
       if (isVideoMedia(src)) {
         const caption = alt ? `<figcaption>${alt}</figcaption>` : "";
-        return `<figure><video src="${servedMediaSrc(src)}" controls playsinline preload="metadata"></video>${caption}</figure>`;
+        const poster = posterMediaSrc(src);
+        const posterAttr = poster ? ` poster="${poster}"` : "";
+        return `<figure><video src="${servedMediaSrc(src)}"${posterAttr} controls playsinline preload="metadata"></video>${caption}</figure>`;
       }
       if (!alt) return buildBodyImg(src, "");
       return `<figure>${buildBodyImg(src, alt)}<figcaption>${alt}</figcaption></figure>`;
@@ -289,7 +301,8 @@ async function processMarkdown(raw: string, excerptLength = 150, groupMedia = fa
     mediaRows = grouped.runs.map((run) =>
       run.map((it) => {
         const src = servedMediaSrc(it.src);
-        if (it.type !== "image") return { ...it, src }; // video: measured live
+        if (it.type !== "image")
+          return { ...it, src, poster: posterMediaSrc(it.src) }; // video: measured live
         const aspect = probeAspect(src);
         if (!isLocalPath(src)) return { ...it, src, aspect }; // remote: leave as-is
         // Local: serve the optimized URL + srcset, same as lone body images.
@@ -334,6 +347,8 @@ export interface MediaItem {
   aspect?: number;
   /** Optimizer srcset for a LOCAL image (paired with an optimized `src`). */
   srcSet?: string;
+  /** Poster thumbnail for videos, generated at build time when available. */
+  poster?: string;
 }
 
 /** A rendered article body is an ordered list of HTML chunks and media runs. */

@@ -1,9 +1,9 @@
 // Build-time media converter for iPhone originals.
 //
 // Local /public HEIC/HEIF and MOV files are converted into browser-friendly
-// siblings under /public/_generated/media, and a manifest maps the original
-// authoring path to the generated public path. Markdown can keep referring to
-// the original files; src/lib/blog.ts rewrites to these generated assets.
+// siblings under /public/_generated/media. Local videos also get poster images
+// under /public/_generated/posters, so iOS Safari has a visible preview before
+// playback. Manifests map the original authoring path to the generated paths.
 
 import {
   existsSync,
@@ -20,12 +20,16 @@ import { dirname, extname, join, relative, sep } from "path";
 
 const ROOT = process.cwd();
 const PUBLIC_DIR = join(ROOT, "public");
-const GENERATED_REL = "_generated/media";
-const MANIFEST_FILE = join(ROOT, "src", "lib", "mediaConversions.json");
+const GENERATED_MEDIA_REL = "_generated/media";
+const GENERATED_POSTER_REL = "_generated/posters";
+const CONVERSIONS_FILE = join(ROOT, "src", "lib", "mediaConversions.json");
+const POSTERS_FILE = join(ROOT, "src", "lib", "mediaPosters.json");
 
 const CONVERTIBLE_RE = /\.(heic|heif|mov)$/i;
 const HEIC_RE = /\.(heic|heif)$/i;
 const MOV_RE = /\.mov$/i;
+const VIDEO_RE = /\.(mp4|webm|mov)$/i;
+const MEDIA_RE = /\.(heic|heif|mp4|webm|mov)$/i;
 
 let sharpModule;
 
@@ -36,11 +40,10 @@ function walk(dir) {
     const full = join(dir, name);
     const stats = statSync(full);
     if (stats.isDirectory()) {
-      if (relative(PUBLIC_DIR, full).split(sep).join("/") === GENERATED_REL) {
+      if (relative(PUBLIC_DIR, full).split(sep).join("/") === "_generated")
         continue;
-      }
       found.push(...walk(full));
-    } else if (CONVERTIBLE_RE.test(name)) {
+    } else if (MEDIA_RE.test(name)) {
       found.push(full);
     }
   }
@@ -52,15 +55,24 @@ function publicRelative(file) {
 }
 
 function fileHash(file) {
-  return createHash("sha256").update(readFileSync(file)).digest("hex").slice(0, 12);
+  return createHash("sha256")
+    .update(readFileSync(file))
+    .digest("hex")
+    .slice(0, 12);
 }
 
-function outputRelative(inputRel, hash) {
+function convertedRelative(inputRel, hash) {
   const ext = extname(inputRel);
   const stem = inputRel.slice(0, -ext.length);
-  return `${GENERATED_REL}/${stem}.${hash}${
+  return `${GENERATED_MEDIA_REL}/${stem}.${hash}${
     HEIC_RE.test(ext) ? ".webp" : ".mp4"
   }`;
+}
+
+function posterRelative(inputRel, hash) {
+  const ext = extname(inputRel);
+  const stem = inputRel.slice(0, -ext.length);
+  return `${GENERATED_POSTER_REL}/${stem}.${hash}.jpg`;
 }
 
 function hasCommand(command) {
@@ -200,33 +212,87 @@ function convertMov(inputFile, outputFile) {
   ]);
 }
 
+function createPoster(inputFile, outputFile) {
+  if (!hasCommand("ffmpeg")) {
+    throw new Error(
+      `Could not create poster for ${publicRelative(inputFile)}. Install ffmpeg.`
+    );
+  }
+
+  run("ffmpeg", [
+    "-hide_banner",
+    "-loglevel",
+    "error",
+    "-y",
+    "-ss",
+    "0.1",
+    "-i",
+    inputFile,
+    "-frames:v",
+    "1",
+    "-vf",
+    "scale=w=1280:h=1280:force_original_aspect_ratio=decrease",
+    "-q:v",
+    "3",
+    outputFile,
+  ]);
+}
+
 const files = walk(PUBLIC_DIR).sort();
-const manifest = {};
+const conversionManifest = {};
+const posterManifest = {};
 let converted = 0;
 let cached = 0;
+let posters = 0;
+let cachedPosters = 0;
 
 for (const inputFile of files) {
   const inputRel = publicRelative(inputFile);
-  const outputRel = outputRelative(inputRel, fileHash(inputFile));
-  const outputFile = join(PUBLIC_DIR, outputRel);
+  const hash = fileHash(inputFile);
 
-  manifest[inputRel] = outputRel;
-  mkdirSync(dirname(outputFile), { recursive: true });
+  if (CONVERTIBLE_RE.test(inputFile)) {
+    const outputRel = convertedRelative(inputRel, hash);
+    const outputFile = join(PUBLIC_DIR, outputRel);
 
-  if (existsSync(outputFile)) {
-    cached++;
-    continue;
+    conversionManifest[inputRel] = outputRel;
+    mkdirSync(dirname(outputFile), { recursive: true });
+
+    if (existsSync(outputFile)) {
+      cached++;
+    } else {
+      if (HEIC_RE.test(inputFile)) await convertHeic(inputFile, outputFile);
+      else if (MOV_RE.test(inputFile)) convertMov(inputFile, outputFile);
+      converted++;
+    }
   }
 
-  if (HEIC_RE.test(inputFile)) await convertHeic(inputFile, outputFile);
-  else if (MOV_RE.test(inputFile)) convertMov(inputFile, outputFile);
-  converted++;
+  if (VIDEO_RE.test(inputFile)) {
+    const posterRel = posterRelative(inputRel, hash);
+    const posterFile = join(PUBLIC_DIR, posterRel);
+
+    posterManifest[inputRel] = posterRel;
+    mkdirSync(dirname(posterFile), { recursive: true });
+
+    if (existsSync(posterFile)) {
+      cachedPosters++;
+    } else {
+      createPoster(inputFile, posterFile);
+      posters++;
+    }
+  }
 }
 
-writeFileSync(MANIFEST_FILE, JSON.stringify(manifest, null, 2) + "\n");
+writeFileSync(
+  CONVERSIONS_FILE,
+  JSON.stringify(conversionManifest, null, 2) + "\n"
+);
+writeFileSync(POSTERS_FILE, JSON.stringify(posterManifest, null, 2) + "\n");
 console.log(
   `convert-media: ${converted} converted, ${cached} cached -> ${relative(
     ROOT,
-    MANIFEST_FILE
+    CONVERSIONS_FILE
+  )}; ${posters} posters, ${cachedPosters} cached -> ${relative(
+    ROOT,
+    POSTERS_FILE
   )}`
 );
