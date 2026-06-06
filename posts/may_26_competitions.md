@@ -61,6 +61,10 @@ It is a priceless life lesson for me. I understood how low a low point can be, a
 ![](/blog-images/may-26-images/almost-getting-to-the-diamonds.webp)
 
 
+### What switched for me
+
+was that I started slowing less and less on the board. I am now thinking to myself "why did I ever slow down?" but I guess its a combination of bad coaching and not having the experience. It's my 9th year in Track I think, or around that, so I'm way too many years late to that secret, but the lesson is learned. Now just make it a habit, and then I can focus on other things I need to master. 
+
 ### Results
 
 In terms of results - I jumped:
@@ -75,7 +79,6 @@ Let's start from the first competition:
 
 ![May 11th - 6.43m (not sure that this video)](/blog-images/may-26-images/may-11th-comp.mp4)
 
-![](/blog-images/may-26-images/the-may-11th-comp-img.JPG)
 
 
 I had no idea what I was going into. Last LJ comp was in December, and I jumped 6.19m. But you know, after running 12s 100s in April, I totally disconnected feeling from competitions or track in general. I became numb and I just kept working because really there wasn't any other thing to do. And that's how I came to this competition. And I was pretty happy. Starting the season with 6.43m, 32cm from my PB.. I thought that's quite nice. Also - I was not perfect on the board so I thought "I might even be better". 
@@ -87,6 +90,7 @@ I remember that I liked how I ran in that competition and in general. Because th
 Then came the 6.36m competition a week later. Disaster. Winds changing their direction every minute, just a lot of air swinging around, and the whole vibe was just not it. No one jumped well at that competition. It's not an excuse btw. Of course. But still, something was off for me. 
 
 ![May 19th - 6.36m (not sure that this video)](/blog-images/may-26-images/may-19th-comp.MOV)
+![](/blog-images/may-26-images/the-may-11th-comp-img.JPG)
 
 Looking at this now, I think the only thing that changed as the month progressed - is that I started to REALLY sprint towards the board. Like, realllyyyy. And maybe started moving more freely. But Idk, it's still not consistent enough to comfortably say that I'm a 6.8-7m jumper. 
 
