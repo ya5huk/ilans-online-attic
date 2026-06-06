@@ -31,8 +31,8 @@ interface ContentExplorerProps {
 const blockClass = (active: boolean) =>
   `border-2 border-[var(--third)] px-2.5 py-1 text-xs sm:text-sm lowercase hover:cursor-pointer ${
     active
-      ? "bg-[var(--third)] text-white"
-      : "text-[var(--secondary)] hover:bg-[#e4f3f3]"
+      ? "bg-[var(--third)] text-[var(--bg)]"
+      : "text-[var(--secondary)] hover:bg-[var(--third-soft)]"
   }`;
 
 /** A lowercase text picker rendered as a small block button (client filter). */

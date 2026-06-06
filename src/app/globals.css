@@ -1,9 +1,10 @@
 @import "tailwindcss";
 
 :root {
-  --bg: white;
-  --secondary: #132440;
-  --third: #4ab1b1;
+    --bg: #f3e6d2;
+    --secondary: #2b2118;
+    --third: #a87e53;
+    --third-soft: #ddc29d;
 }
 
 /* Font experiment — headers: Outfit · content + UI: Poppins. Variables are
@@ -12,14 +13,16 @@
    now both resolve to Poppins. Card (wall-tile) text is also Poppins (bold titles),
    set in one place — the ".tile" block under the heading rules below. */
 @theme inline {
-  --font-sans: var(--font-poppins);
-  --font-heading: var(--font-outfit);
-  --font-ui: var(--font-poppins);
+    --font-sans: var(--font-poppins);
+    --font-heading: var(--font-outfit);
+    --font-ui: var(--font-poppins);
 }
 
 /* Content / body — Poppins (geometric sans) */
 body {
-  font-family: var(--font-poppins), "Helvetica Neue", Arial, sans-serif;
+    font-family: var(--font-poppins), "Helvetica Neue", Arial, sans-serif;
+    background-color: var(--bg);
+    color: var(--secondary);
 }
 
 /* Headers — Outfit (geometric sans), bold */
@@ -29,8 +32,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-outfit), "Helvetica Neue", Arial, sans-serif;
-  font-weight: 700;
+    font-family: var(--font-outfit), "Helvetica Neue", Arial, sans-serif;
+    font-weight: 700;
 }
 
 /* ── Card (wall-tile) text — the ONE place that sets the font for everything
@@ -46,11 +49,11 @@ h6 {
    :lang(he) rule below). */
 .tile,
 .tile :is(h1, h2, h3, h4, h5, h6) {
-  font-family: var(--font-poppins), "Helvetica Neue", Arial, sans-serif;
+    font-family: var(--font-poppins), "Helvetica Neue", Arial, sans-serif;
 }
 .tile:lang(he),
 .tile :lang(he) {
-  font-family: system-ui, "Segoe UI", Arial, sans-serif;
+    font-family: system-ui, "Segoe UI", Arial, sans-serif;
 }
 
 /* UI chrome — Poppins: form controls, buttons, and anything tagged .font-ui
@@ -61,8 +64,8 @@ select,
 textarea,
 .link-button,
 .font-ui {
-  font-family: var(--font-poppins), "Helvetica Neue", Helvetica, Arial,
-    sans-serif;
+    font-family:
+        var(--font-poppins), "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 /* Hebrew text: render in the system default font. Poppins (body) and Outfit
@@ -71,145 +74,145 @@ textarea,
    those elements and their descendants, leaving the Latin/LTR UI on the custom
    fonts. */
 :lang(he) {
-  font-family: system-ui, "Segoe UI", Arial, sans-serif;
+    font-family: system-ui, "Segoe UI", Arial, sans-serif;
 }
 
 html {
-  background-color: var(--bg);
-  /* Reserve a symmetric scrollbar gutter so centered (mx-auto) content stays
+    background-color: var(--bg);
+    /* Reserve a symmetric scrollbar gutter so centered (mx-auto) content stays
      centered instead of being nudged left when the scrollbar appears. */
-  scrollbar-gutter: stable both-edges;
+    scrollbar-gutter: stable both-edges;
 }
 
-/* Highlighting text uses a strong on-theme color (full teal, white text),
+/* Highlighting text uses the accent color with the page background as contrast,
    solid with no opacity drop. Native selection can't be transitioned, so
    the swap is instant. */
 ::selection {
-  background: var(--third);
-  color: white;
+    background: var(--third);
+    color: var(--bg);
 }
 ::-moz-selection {
-  background: var(--third);
-  color: white;
+    background: var(--third);
+    color: var(--bg);
 }
 
 ul {
-  @apply list-disc list-inside pl-4;
+    @apply list-disc list-inside pl-4;
 }
 
 .link-button {
-  @apply font-medium border-2 border-[var(--third)] px-2 py-1 hover:bg-[var(--third)] hover:text-white transition-colors duration-200;
+    @apply font-medium border-2 border-[var(--third)] px-2 py-1 hover:bg-[var(--third)] hover:text-[var(--bg)] transition-colors duration-200;
 }
 
 .image-shadow {
-  @apply shadow-[4px_4px_0px_var(--third)];
+    @apply shadow-[4px_4px_0px_var(--third)];
 }
 
 /* Prose styling for blog content */
 .prose {
-  color: #000000ff;
-  line-height: 1.75;
+    color: #000000ff;
+    line-height: 1.75;
 }
 
 .prose h1 {
-  @apply text-4xl mb-6 mt-8;
+    @apply text-4xl mb-6 mt-8;
 }
 
 .prose h2 {
-  @apply text-3xl mb-4 mt-6;
+    @apply text-3xl mb-4 mt-6;
 }
 
 .prose h3 {
-  @apply text-2xl mb-3 mt-5;
+    @apply text-2xl mb-3 mt-5;
 }
 
 .prose p {
-  @apply text-base leading-relaxed pb-2;
+    @apply text-base leading-relaxed pb-2;
 }
 
 /* 1.5× wider spacing between consecutive paragraphs (pb-2 → pb-3). A paragraph
    that is the last before a heading/subtitle isn't matched, so the gap before a
    subtitle stays as-is. */
 .prose p:has(+ p) {
-  @apply pb-3;
+    @apply pb-3;
 }
 
 .prose table {
-  @apply w-full border-collapse my-6;
+    @apply w-full border-collapse my-6;
 }
 .prose th {
-  @apply bg-[var(--third)] text-left p-2 border border-[var(--secondary)];
+    @apply bg-[var(--third)] text-[var(--bg)] text-left p-2 border border-[var(--secondary)];
 }
 .prose td {
-  @apply p-2 border border-gray-500;
+    @apply p-2 border border-gray-500;
 }
 
 .prose ul {
-  @apply list-disc list-inside pl-4 py-2 space-y-1;
+    @apply list-disc list-inside pl-4 py-2 space-y-1;
 }
 
 .prose ol {
-  @apply list-decimal list-inside pl-4 py-2 space-y-1;
+    @apply list-decimal list-inside pl-4 py-2 space-y-1;
 }
 
 .prose li {
-  @apply text-base;
+    @apply text-base;
 }
 
 .prose li > p {
-  display: inline;
-  @apply pt-2;
+    display: inline;
+    @apply pt-2;
 }
 
 .prose a {
-  @apply text-[var(--third)] font-bold hover:underline;
+    @apply text-[var(--third)] font-bold hover:underline;
 }
 
 .prose img {
-  @apply md:max-h-[480px] shadow-[4px_4px_0px_var(--third)] my-6 mx-auto;
+    @apply md:max-h-[480px] shadow-[4px_4px_0px_var(--third)] my-6 mx-auto;
 }
 
 .prose figure {
-  @apply my-6 mx-auto text-center;
+    @apply my-6 mx-auto text-center;
 }
 
 .prose figure img,
 .prose figure video {
-  @apply my-0 mx-auto;
+    @apply my-0 mx-auto;
 }
 
 .prose video {
-  @apply md:max-h-[480px] shadow-[4px_4px_0px_var(--third)] my-6 mx-auto;
+    @apply md:max-h-[480px] shadow-[4px_4px_0px_var(--third)] my-6 mx-auto;
 }
 
 .prose figcaption {
-  @apply text-sm text-gray-400 mt-2 italic;
+    @apply text-sm text-gray-400 mt-2 italic;
 }
 
 .prose blockquote {
-  @apply border-l-4 border-gray-300 pl-4 italic my-6 text-gray-500;
+    @apply border-l-4 border-gray-300 pl-4 italic my-6 text-gray-500;
 }
 
 .prose code {
-  @apply bg-gray-100 px-2 py-1 rounded text-sm;
+    @apply bg-gray-100 px-2 py-1 rounded text-sm;
 }
 
 .prose pre {
-  @apply bg-gray-100 p-4 rounded-lg overflow-x-auto my-6;
+    @apply bg-gray-100 p-4 rounded-lg overflow-x-auto my-6;
 }
 
 .prose hr {
-  @apply my-2 text-[var(--third)] opacity-75;
+    @apply my-2 text-[var(--third)] opacity-75;
 }
 
 /* RTL support for Hebrew content */
 .prose-right {
-  direction: rtl;
-  text-align: right;
+    direction: rtl;
+    text-align: right;
 }
 
 .prose-right blockquote {
-  @apply border-r-4 border-l-0 pr-4 pl-0;
+    @apply border-r-4 border-l-0 pr-4 pl-0;
 }
 
 /* In-article justified media rows (2+ consecutive images/videos). Packing is done
@@ -217,22 +220,22 @@ ul {
    aspect ratio (set inline), so items in a row share one height and show the full
    image (no crop). On narrow widths <MediaRow> emits one item per row → stacked. */
 .media-rows {
-  @apply my-6;
+    @apply my-6;
 }
 .media-row {
-  @apply flex items-start gap-2;
+    @apply flex items-start gap-2;
 }
 .media-row + .media-row {
-  @apply mt-2;
+    @apply mt-2;
 }
 .media-row > figure {
-  @apply m-0 min-w-0; /* flex child: cancel .prose figure margins; allow shrink */
+    @apply m-0 min-w-0; /* flex child: cancel .prose figure margins; allow shrink */
 }
 .media-row figure img,
 .media-row figure video {
-  @apply m-0 block h-auto w-full; /* override .prose img mx-auto/my-6; keep teal shadow */
-  max-height: none; /* override .prose img md:max-h-[480px] inside rows */
+    @apply m-0 block h-auto w-full; /* override .prose img mx-auto/my-6; keep accent shadow */
+    max-height: none; /* override .prose img md:max-h-[480px] inside rows */
 }
 .media-row figcaption {
-  @apply mt-2 text-center text-sm italic text-gray-400;
+    @apply mt-2 text-center text-sm italic text-gray-400;
 }

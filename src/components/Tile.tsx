@@ -25,9 +25,9 @@ const TAG_KEYS = new Set(Object.keys(tagIcons));
 
 /**
  * A single wall tile: the whole image (or a gradient for image-less posts) inside
- * a teal border (matching the buttons and the about card). A strip across the top —
- * filled with that same teal border color — carries the date (left) and type
- * (right); a navy gradient scrim (the tile's own bg color) along the bottom seats
+ * an accent border (matching the buttons and the about card). A strip across the
+ * top filled with that same border color carries the date (left) and type
+ * (right); a dark gradient scrim (the tile's own bg color) along the bottom seats
  * the title and keeps its white text legible on any photo without a text-shadow.
  * The parent <JustifiedWall> sizes the tile to the image's exact aspect ratio via
  * the `style` prop, so `object-cover` shows the full image with no crop (and no gap
@@ -84,7 +84,7 @@ const Tile: React.FC<{
           so it never intercepts the link's hover/click. */}
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[var(--secondary)] to-transparent" />
 
-      {/* Date + type in a strip across the top, filled with the tile's teal
+      {/* Date + type in a strip across the top, filled with the tile's accent
           border color so the row reads as a header bar (not floating text).
           For writing, the post's topic icons sit centered between them. */}
       <div className="absolute inset-x-0 top-0 z-10 flex items-center justify-between gap-2 bg-[var(--third)] px-2 py-1">
@@ -98,7 +98,7 @@ const Tile: React.FC<{
                 alt=""
                 width={14}
                 height={14}
-                // White, to match the strip's text and read clearly on teal.
+                // White, to match the strip's text and read clearly on the accent.
                 style={{ filter: "brightness(0) invert(1)" }}
               />
             ))}

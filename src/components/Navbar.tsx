@@ -19,10 +19,10 @@ const fallbackFor = (pathname: string): string => {
 };
 
 /**
- * Sticky header: the signature logo, tinted to the brand teal via an alpha mask
+ * Sticky header: the signature logo, tinted to the accent via an alpha mask
  * of the (transparent) signature PNG. On detail pages a "← Go Back" sits on the
  * left (the logo stays centred). The bar auto-hides on scroll-down / reveals on
- * scroll-up, and carries a bottom border in the logo's teal.
+ * scroll-up, and carries a bottom border in the accent.
  *
  * Lives in the root layout, so it persists across client navigations — letting
  * us count in-app navigations to decide whether "back" is safe.
