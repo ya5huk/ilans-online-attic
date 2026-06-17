@@ -8,4 +8,4 @@ I’m building sites and applications since I’m 14 (back when people coded). L
 
 I like to think, conversations, sports, books, hiking and good stories. I like when people love what they do. 
 
-I compete in Long Jump (Track & Field). Personal best - 6.89m. I am more than in love with sports. One of the best things on the planet.
+I compete in Long Jump (Track & Field). Personal best - 7.00m. I am more than in love with sports. One of the best things on the planet.
