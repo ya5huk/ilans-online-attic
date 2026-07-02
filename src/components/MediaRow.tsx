@@ -68,11 +68,24 @@ const MediaRow: React.FC<{ items: MediaItem[] }> = ({ items }) => {
   return (
     <div ref={ref} className="media-rows">
       {rows.map((row, r) => (
-        <div className="media-row" key={r}>
+        <div
+          className={`media-row${row.length === 1 ? " media-row-single" : ""}`}
+          key={r}
+        >
           {row.map((i) => {
             const it = items[i];
             return (
-              <figure key={i} style={{ flexGrow: aspects[i], flexBasis: 0 }}>
+              // Single-item rows skip the aspect-grow styles: a lone portrait
+              // (aspect < 1) would only absorb that fraction of the free space
+              // and sit off-center. .media-row-single sizes these instead.
+              <figure
+                key={i}
+                style={
+                  row.length === 1
+                    ? undefined
+                    : { flexGrow: aspects[i], flexBasis: 0 }
+                }
+              >
                 {it.type === "video" ? (
                   <video
                     src={it.src}

@@ -5,6 +5,10 @@
     --secondary: #2b2118;
     --third: #a87e53;
     --third-soft: #ddc29d;
+    /* Derived reading tones (article body) */
+    --third-deep: #7d5a33; /* deep tan — link text; 5.04:1 on --bg (WCAG AA) */
+    --muted: color-mix(in srgb, var(--secondary) 55%, var(--bg)); /* dates, captions, quotes */
+    --paper: color-mix(in srgb, var(--third-soft) 45%, var(--bg)); /* inline-code chip */
 }
 
 /* Font experiment — headers: Outfit · content + UI: Poppins. Variables are
@@ -79,9 +83,11 @@ textarea,
 
 html {
     background-color: var(--bg);
-    /* Reserve a symmetric scrollbar gutter so centered (mx-auto) content stays
-     centered instead of being nudged left when the scrollbar appears. */
-    scrollbar-gutter: stable both-edges;
+    /* Always show the scrollbar track so centered (mx-auto) content doesn't
+     shift between short and long pages. (A symmetric `scrollbar-gutter:
+     stable both-edges` did the same but reserved a mirrored LEFT gutter,
+     which painted a page-colored band beside the dark footer.) */
+    overflow-y: scroll;
 }
 
 /* Highlighting text uses the accent color with the page background as contrast,
@@ -110,7 +116,7 @@ ul {
 
 /* Prose styling for blog content */
 .prose {
-    color: #000000ff;
+    color: var(--secondary);
     line-height: 1.75;
 }
 
@@ -119,15 +125,15 @@ ul {
 }
 
 .prose h2 {
-    @apply text-3xl mb-4 mt-6;
+    @apply text-3xl mb-4 mt-10;
 }
 
 .prose h3 {
-    @apply text-2xl mb-3 mt-5;
+    @apply text-2xl mb-3 mt-8;
 }
 
 .prose p {
-    @apply text-base leading-relaxed pb-2;
+    @apply text-[17px] leading-relaxed pb-2 md:text-lg;
 }
 
 /* 1.5× wider spacing between consecutive paragraphs (pb-2 → pb-3). A paragraph
@@ -140,23 +146,33 @@ ul {
 .prose table {
     @apply w-full border-collapse my-6;
 }
+
+/* On phones a wide table must not stretch the page — keep it inside the
+   column and let it scroll horizontally instead. */
+@media (max-width: 767px) {
+    .prose table {
+        display: block;
+        max-width: 100%;
+        overflow-x: auto;
+    }
+}
 .prose th {
     @apply bg-[var(--third)] text-[var(--bg)] text-left p-2 border border-[var(--secondary)];
 }
 .prose td {
-    @apply p-2 border border-gray-500;
+    @apply p-2 border border-[var(--third-soft)];
 }
 
 .prose ul {
-    @apply list-disc list-inside pl-4 py-2 space-y-1;
+    @apply list-disc list-outside ps-5 py-2 space-y-1;
 }
 
 .prose ol {
-    @apply list-decimal list-inside pl-4 py-2 space-y-1;
+    @apply list-decimal list-outside ps-5 py-2 space-y-1;
 }
 
 .prose li {
-    @apply text-base;
+    @apply text-[17px] md:text-lg;
 }
 
 .prose li > p {
@@ -165,7 +181,7 @@ ul {
 }
 
 .prose a {
-    @apply text-[var(--third)] font-bold hover:underline;
+    @apply font-semibold text-[var(--third-deep)] underline decoration-[var(--third-soft)] decoration-2 underline-offset-4 transition-colors duration-200 hover:decoration-[var(--third-deep)];
 }
 
 .prose img {
@@ -186,23 +202,66 @@ ul {
 }
 
 .prose figcaption {
-    @apply text-sm text-gray-400 mt-2 italic;
+    @apply text-sm text-[var(--muted)] mt-2 italic;
 }
 
 .prose blockquote {
-    @apply border-l-4 border-gray-300 pl-4 italic my-6 text-gray-500;
+    background-color: color-mix(in srgb, var(--third-soft) 35%, var(--bg));
+    @apply border-l-4 border-[var(--third)] py-3 pl-5 pr-4 italic my-8 text-[var(--muted)];
 }
 
+/* Inline code — warm paper chip, square corners (site language) */
 .prose code {
-    @apply bg-gray-100 px-2 py-1 rounded text-sm;
+    @apply bg-[var(--paper)] px-1.5 py-0.5 text-[0.875em];
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 
+/* Code blocks — a dark panel in the site brown with the signature hard tan
+   shadow (same object-on-the-page treatment as images). Shiki emits
+   <pre class="shiki" style="background-color:#2b2118;…"> (bg swapped to
+   --secondary at generation via colorReplacements in src/lib/highlight.ts);
+   the bg/color here cover plain (untagged/unknown-lang) fences so both look
+   identical. Code stays LTR even inside RTL (Hebrew) articles, and the
+   explicit mono stack beats the site-wide :lang(he) font override. */
 .prose pre {
-    @apply bg-gray-100 p-4 rounded-lg overflow-x-auto my-6;
+    background-color: var(--secondary);
+    color: var(--bg);
+    padding: 1rem 1.25rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+    box-shadow: 4px 4px 0px var(--third);
+    font-size: 0.875rem;
+    line-height: 1.6;
+    direction: ltr;
+    text-align: left;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 
+.prose pre code {
+    background: none;
+    padding: 0;
+    font-size: inherit;
+    color: inherit;
+    font-family: inherit;
+}
+
+/* Section break — a short centered accent bar */
 .prose hr {
-    @apply my-2 text-[var(--third)] opacity-75;
+    @apply border-0 h-[3px] w-16 mx-auto my-10 bg-[var(--third)];
+}
+
+/* Drop cap on the opening paragraph — LTR articles only (.prose-right =
+   Hebrew is excluded). Body parts render inside display:contents divs, so
+   the DOM path is .prose > div > p; matches only when an article actually
+   opens with a text paragraph (an opening image/heading gets no cap). */
+.prose:not(.prose-right) > div:first-child > p:first-child::first-letter {
+    float: left;
+    font-family: var(--font-outfit), "Helvetica Neue", Arial, sans-serif;
+    font-weight: 700;
+    font-size: 3.1em;
+    line-height: 0.85;
+    padding-right: 0.12em;
+    color: var(--third);
 }
 
 /* RTL support for Hebrew content */
@@ -212,7 +271,7 @@ ul {
 }
 
 .prose-right blockquote {
-    @apply border-r-4 border-l-0 pr-4 pl-0;
+    @apply border-r-4 border-l-0 pr-5 pl-4;
 }
 
 /* In-article justified media rows (2+ consecutive images/videos). Packing is done
@@ -237,5 +296,31 @@ ul {
     max-height: none; /* override .prose img md:max-h-[480px] inside rows */
 }
 .media-row figcaption {
-    @apply mt-2 text-center text-sm italic text-gray-400;
+    @apply mt-2 text-center text-sm italic text-[var(--muted)];
+}
+
+/* A row holding a single item (MediaRow skips the aspect-grow inline styles
+   for these): full column width on phones; on desktop keep its natural size,
+   centered and height-capped like a lone .prose image. */
+.media-row-single {
+    justify-content: center;
+}
+.media-row-single > figure {
+    flex: 0 1 auto;
+    width: 100%;
+}
+.media-row-single figure img,
+.media-row-single figure video {
+    width: 100%;
+}
+@media (min-width: 768px) {
+    .media-row-single > figure {
+        width: auto;
+    }
+    .media-row-single figure img,
+    .media-row-single figure video {
+        width: auto;
+        max-width: 100%;
+        max-height: 480px; /* match the .prose img md:max-h cap */
+    }
 }

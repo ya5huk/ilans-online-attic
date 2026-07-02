@@ -94,6 +94,12 @@ const ArticlePage: React.FC<ArticlePageProps> = async ({ params }) => {
 
   const isHebrew = post.lang === "he_IL";
 
+  // Neighbors in the date-sorted feed (getAllPosts is newest-first)
+  const posts = await getAllPosts();
+  const idx = posts.findIndex((p) => p.slug === articlename);
+  const newer = idx > 0 ? posts[idx - 1] : null;
+  const older = idx !== -1 ? (posts[idx + 1] ?? null) : null;
+
   return (
     <main>
       <script
@@ -111,11 +117,11 @@ const ArticlePage: React.FC<ArticlePageProps> = async ({ params }) => {
       >
         <div className="  space-y-2">
           {/* Header */}
-          <h1 className={`text-3xl md:text-4xl`}>{post.title}</h1>
+          <h1 className={`text-4xl md:text-5xl`}>{post.title}</h1>
           <div className="flex items-center justify-between">
             {/* Date */}
             <div>
-              <span className="text-gray-400">
+              <span className="text-[var(--muted)]">
                 {getDateStr(post.date, isHebrew)}
               </span>
             </div>
@@ -141,10 +147,43 @@ const ArticlePage: React.FC<ArticlePageProps> = async ({ params }) => {
         <ArticleBody
           parts={post.bodyParts ?? [{ html: post.content }]}
           mediaRows={post.mediaRows}
-          className={`prose prose-lg max-w-none pt-2 ${isHebrew ? "prose-right" : ""}`}
+          className={`prose max-w-none pt-2 ${isHebrew ? "prose-right" : ""}`}
           style={{ direction: isHebrew ? "rtl" : "ltr" }}
         />
       </div>
+
+      {/* Prev/next: neighbors in the date-sorted feed. Outside the lang="he"
+          wrapper so the lowercase UI labels keep the Latin UI font. */}
+      {(older || newer) && (
+        <nav className="mt-12 flex items-stretch justify-between gap-3 border-t-2 border-[var(--third-soft)] pt-6 font-ui">
+          {older ? (
+            <Link
+              href={`/yap/${older.slug}`}
+              className="link-button flex max-w-[48%] flex-col gap-0.5"
+            >
+              <span className="text-xs lowercase opacity-70">← older</span>
+              <span className="line-clamp-1 text-sm" dir="auto">
+                {older.title}
+              </span>
+            </Link>
+          ) : (
+            <span />
+          )}
+          {newer ? (
+            <Link
+              href={`/yap/${newer.slug}`}
+              className="link-button flex max-w-[48%] flex-col items-end gap-0.5 text-right"
+            >
+              <span className="text-xs lowercase opacity-70">newer →</span>
+              <span className="line-clamp-1 text-sm" dir="auto">
+                {newer.title}
+              </span>
+            </Link>
+          ) : (
+            <span />
+          )}
+        </nav>
+      )}
     </main>
   );
 };

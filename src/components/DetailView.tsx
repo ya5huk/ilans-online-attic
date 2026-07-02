@@ -24,7 +24,7 @@ const formatDate = (date: string) => {
  */
 const DetailView: React.FC<{ item: ContentItem }> = ({ item }) => {
   const meta = (
-    <span className="text-gray-400 font-ui">
+    <span className="text-[var(--muted)] font-ui">
       {item.period || formatDate(item.date)}
     </span>
   );
@@ -33,7 +33,7 @@ const DetailView: React.FC<{ item: ContentItem }> = ({ item }) => {
     <ArticleBody
       parts={item.bodyParts ?? [{ html: item.content }]}
       mediaRows={item.mediaRows}
-      className="prose prose-lg max-w-none"
+      className="prose max-w-none"
     />
   );
 
