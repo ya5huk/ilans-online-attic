@@ -14,7 +14,7 @@ First, get your private key (which appears in Project settings -> Service accoun
 
 Convert your json file to a string. This can be done via simple python code, just run & copy the output of this sample code:
 
-```
+```python
 import json
 with open('your-private-key.json') as f:
     c = f.read()
@@ -25,7 +25,7 @@ Encode your string, which is your private key, to base64. I used this [online fr
 
 Save the base64 in your environment file ( `.env` )
 
-```
+```bash
 FIRESTORE_SECRET=YOUR_BASE_64_PRIVATE_KEY
 ```
 
@@ -33,7 +33,7 @@ FIRESTORE_SECRET=YOUR_BASE_64_PRIVATE_KEY
 
 Load the env var to your nuxt project. Add `runtimeConfigin` in `nuxt.config.ts`:
 
-```
+```ts
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
@@ -46,7 +46,7 @@ export default defineNuxtConfig({
 
 In my case (and if you want to keep that file a secret, it’ll be your case too) I used firestore in server-side. I created a file located in `/server/utils/db.ts` and wrote this:
 
-```
+```ts
 import admin from 'firebase-admin';
 
 const config = useRuntimeConfig();
@@ -71,7 +71,7 @@ export default db;
 
 Now you can use that database variable wherever you want in /server . Here is an example of usage in `/server/api/get-tests`:
 
-```
+```ts
 export default defineEventHandler(async (event) => {
   // This route just fetches a form from db and returns it
 

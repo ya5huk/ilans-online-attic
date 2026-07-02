@@ -12,7 +12,7 @@ To export an sql-script of your database we'll use pg_dump. If you downloaded Po
 
 I recommend you open the shell/cmd/Terminal from outside the folder because it may have writing-restrictions and paste the following command line:
 
-```
+```bash
 ./path_to_bin/pg_dump.exe -h db_host -U your_username -Fc db_name > dump_file.pgsql
 ```
 
@@ -20,7 +20,7 @@ If you encountered Access is denied, then it is probably because the file you ar
 
 Next, we'll use [pg_restore](https://www.postgresql.org/docs/current/app-pgrestore.html) to actually export the data and not just a script. It is simpler, that's the command line:
 
-```
+```bash
 ./path_to_bin/pg_restore.exe -f destination_file.sql dump_file.pgsql
 ```
 

@@ -5,6 +5,7 @@ import { remark } from "remark";
 import html from "remark-html";
 import remarkGfm from "remark-gfm";
 import { tagIcons } from "./tagIcons";
+import { remarkShiki } from "./highlight";
 import imageDimensions from "./imageDimensions.json";
 import mediaConversions from "./mediaConversions.json";
 import mediaPosters from "./mediaPosters.json";
@@ -289,6 +290,7 @@ async function processMarkdown(raw: string, excerptLength = 150, groupMedia = fa
 
   const processed = await remark()
     .use(remarkGfm)
+    .use(remarkShiki)
     .use(html, { sanitize: false })
     .process(matterResult.content);
 

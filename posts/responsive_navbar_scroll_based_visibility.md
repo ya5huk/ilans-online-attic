@@ -14,7 +14,7 @@ Don’t settle on an absolute-positioned `<nav>` element just yet. Creating a re
 
 Here’s the code example for the responsive navbar:
 
-```
+```vue
 <template>
   <nav ref="navbarRef" class="w-full bg-slate-950
     z-20 top-0 left-0 fixed
@@ -83,7 +83,7 @@ onUnmounted(() => {
 
 Suppose you have the navbar already set, here is an example of mine (I am using vuejs and tailwindcss). The nav element’s class doesn’t matter here as long as it’s positioned `fixed` and on top of other elements (I use `z-20` here):
 
-```
+```vue
 <template>
   <nav ref="navbarRef" class="w-full bg-slate-950
     z-20 top-0 left-0 fixed
@@ -102,14 +102,14 @@ Let’s start from declaring two refs:
 
 `navbarRef` — Just to calculate navbar element height
 
-```
+```ts
 const navbarTransform = ref('0')
 const navbarRef = ref<HTMLElement>()
 ```
 
 We’ll declare variables that should be outside of our functions:
 
-```
+```ts
 let lastScroll = 0;
 
 // Start calculating scroll diff in order to know how much to translate y
@@ -120,7 +120,7 @@ let scrollStartDown = 0;
 
 Now let’s set up a function that’ll run each time our user scrolls the screen. The function will be added as an event-listener. Code:
 
-```
+```ts
 const handleScroll = () => {
     console.log('scrolling');
 };
@@ -136,7 +136,7 @@ onUnmounted(() => {
 
 For each scroll event, handleScroll will modify navbarTransform that’ll control [nav’s vertical transformation](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/translateY) accordingly to scroll behavior. Here is the full function. Explanation afterwards:
 
-```
+```ts
 const handleScroll = () => {
     const navbarH = navbarRef.value?.clientHeight as number
     const currentScroll = window.scrollY;
@@ -172,7 +172,7 @@ const handleScroll = () => {
 
 First, we save navbar height and user’s y scroll value. Then, we check whether user scrolled up or down by comparing `currentScroll` to `lastScroll` (which we set at the end of function:
 
-```
+```ts
 lastScroll = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling).
 ```
 
@@ -182,7 +182,7 @@ If `currentScroll` is bigger than `lastScroll`, it means user is scrolling down 
 
 If user scrolls down:
 
-```
+```ts
 if (currentScroll > lastScroll) {
         // scrolling down
         if (scrollStartDown === 0) { // Change only once on initial scroll up
@@ -204,7 +204,7 @@ if (currentScroll > lastScroll) {
 
 If user scrolls up:
 
-```
+```ts
 else if (currentScroll < lastScroll) {
         // scrolling up
         if (scrollStartUp === 0) {
@@ -226,7 +226,7 @@ else if (currentScroll < lastScroll) {
 
 Last thing left to do is connect navbarTransform ref to the nav element it self using `:style="{...}"`:
 
-```
+```vue-html
 <nav ref="navbarRef" class="w-full bg-slate-950
     z-20 top-0 left-0 fixed
     border-b border-slate-700
@@ -235,7 +235,7 @@ Last thing left to do is connect navbarTransform ref to the nav element it self 
 
 Final code:
 
-```
+```vue
 <template>
   <nav ref="navbarRef" class="w-full bg-slate-950
     z-20 top-0 left-0 fixed

@@ -18,7 +18,7 @@ From now on, I will write as little as possible and code as much as possible, so
 
 Write it only once in code. There is no good reason to reconnect to database with each request. [Google’s documentation](https://firebase.google.com/docs/firestore/quickstart#initialize).
 
-```
+```python
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
@@ -34,7 +34,7 @@ db = firestore.client() # Database reference
 
 Reading data from Firestore database. [Google’s Documentation](https://firebase.google.com/docs/firestore/query-data/get-data#get_a_document).
 
-```
+```python
 col = db.collection("users") # Make sure this collection is in your database
 
 # Get all the docs in a collection
@@ -115,7 +115,7 @@ _The where() method takes three parameters: a field to filter on, a comparison o
 
 Update document’s field values with new values, Delete document’s fields, Increment document’s field, Append (Add) to a document’s array field. [Google’s documentation](https://firebase.google.com/docs/firestore/manage-data/add-data#update-data).
 
-```
+```python
 col = db.collection("users") # Make sure this collection is in your database
 
 # First find the data we want to update
@@ -154,7 +154,7 @@ col.document(doc.id).update({
 
 Write new data to firebase. [Google’s documentation](https://firebase.google.com/docs/firestore/manage-data/add-data#add_a_document).
 
-```
+```python
 col = db.collection("users") # Make sure this collection is in your database
 
 # Add a new document with random-generated id

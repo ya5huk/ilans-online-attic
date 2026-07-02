@@ -16,7 +16,7 @@ Let’s start from the html.
 
 We’ll start from the hamburger button (the 3 horizontal lines). We’ll create a button which will include three `<span>` tags stretching to the width of the button. We’ll use flex and rounding, as well as hover effect to make it look modern and arranged. Don’t mind the toggleMenu function, we’ll talk about it later.
 
-```
+```vue-html
 <button @click="toggleMenu" value="hamburger" class="flex flex-col justify-around h-8 w-8 p-1 rounded hover:bg-gray-400">
   <!-- Hamburger Icon (3 lines) -->
   <span class="h-0.5 rounded bg-gray-600 w-full"></span>
@@ -27,7 +27,7 @@ We’ll start from the hamburger button (the 3 horizontal lines). We’ll create
 
 Now let’s focus on the menu items. We use icons to make the website more universal and user-friendly. These icons will be in the same `<div>` as the `<button>` we just created (to create that circling effect). We’ll wrap them in `<template>` in order to toggle their visibility with only one variable and group element attribute. The css class `item-animation` will be later used to create a pop-up animation Here is the code:
 
-```
+```vue-html
 <template v-if="isMenuOpen" class="text-2xl ">
 
   <!-- Menu Items -->
@@ -44,7 +44,7 @@ Next is our parent div that’ll hold the button and menu items together. We’l
 
 Here is the full HTML code:
 
-```
+```vue-html
 <div class="flex flex-wrap w-32 gap-4 fixed">
   <button @click="toggleMenu" value="hamburger" class="flex flex-col justify-around h-8 w-8 p-1 rounded hover:bg-gray-400">
     <!-- Hamburger Icon (3 lines) -->
@@ -63,7 +63,7 @@ Here is the full HTML code:
 
 To make the icons pop up only when we click on the button we’ll create the toggleMenu super-simple function. Here’s our script:
 
-```
+```vue
 <script setup lang="ts">
 
 import { ref } from 'vue';
@@ -79,7 +79,7 @@ const toggleMenu = () => {
 
 And for the _crème de la crème_ we’ll add an animation that makes them pop up in different speeds. Here’s our `<style>`:
 
-```
+```vue
 <style scoped>
 
 @keyframes itemanim {
@@ -113,7 +113,7 @@ And for the _crème de la crème_ we’ll add an animation that makes them pop u
 
 And here is the final code of the vuejs element, which can be found [here](https://gist.github.com/ya5huk/62ed5392b57c93d896705eaddbca956b) as well:
 
-```
+```vue
 <template>
     <div class="flex flex-wrap w-32 gap-4 fixed">
         <button @click="toggleMenu" value="hamburger" class="flex flex-col justify-around
