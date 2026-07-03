@@ -193,7 +193,7 @@ function convertMov(inputFile, outputFile) {
     "-map",
     "0:v:0",
     "-map",
-    "0:a?",
+    "0:a:0?",
     "-c:v",
     "libx264",
     "-preset",
