@@ -3,7 +3,7 @@ title: "My hamstring might have cramped"
 image: "/blog-images/june-26-images/grandslam-from-luvo-manyongas-story.PNG"
 tags: "training"
 lang: "en_US"
-date: "03/07/2026"
+date: "07/03/2026"
 ---
 
 The peak of the month was on June 25th, competing in the [Grand Slam](https://jgsm.org.il/) with [Luvo Manyonga](https://en.wikipedia.org/wiki/Luvo_Manyonga)! It's a shame I ended up having a cramp / pull in my hamstring after the 3rd jump, but I guess - sometimes you win and other times you learn.
