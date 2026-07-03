@@ -12,7 +12,7 @@ The peak of the month was on June 25th, competing in the [Grand Slam](https://jg
 
 |      | Sprints                                                         | Gym               | Competition result                  |
 |------|-----------------------------------------------------------------|-------------------|-------------------------------------|
-| wk 1 | *1100m* wicket sprints + 50-20-30 in & outs + 5 shakeout 120s   | 2                 | June 3rd - 7.00m                    |
+| wk 1 | *1100m* - wicket sprints + 50-20-30 in & outs + 5 shakeout 120s   | 2                 | June 3rd - 7.00m                    |
 | wk 2 | *900m* - wicket sprints and 200s (30,27.3,26.0) [same session]  | 2 - cleaned 100kg | June 10th - 6.72m                   |
 | wk 3 | *1250m* - 3x20,3x30,3x40m. 150s. Lots of technical drills also. | 1                 | June 18th - 6.68m                   |
 | wk 4 | *1150m* - 5x20,3x30,2x40m - then in&outs                        | 2                 | June 25th - 6.63m + hamstring cramp |
