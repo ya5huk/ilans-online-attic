@@ -6,16 +6,16 @@ lang: "en_US"
 date: "07/03/2026"
 ---
 
-The peak of the month was on June 25th, competing in the [Grand Slam](https://jgsm.org.il/) with [Luvo Manyonga](https://en.wikipedia.org/wiki/Luvo_Manyonga)! It's a shame I ended up having a cramp / pull in my hamstring after the 3rd jump, but I guess - sometimes you win and other times you learn.
+The peak of the month was on June 25th, competing in the [Grand Slam](https://jgsm.org.il/) with [Luvo Manyonga](https://en.wikipedia.org/wiki/Luvo_Manyonga)! It's a shame I ended up feeling a cramp in my hamstring after the 3rd jump. I guess - sometimes you win and sometimes you learn.
 
 ## Training
 
 |      | Sprints                                                         | Gym               | Competition result                  |
 |------|-----------------------------------------------------------------|-------------------|-------------------------------------|
-| wk 1 | *1100m* - wicket sprints + 50-20-30 in & outs + 5 shakeout 120s   | 2                 | June 3rd - 7.00m                    |
-| wk 2 | *900m* - wicket sprints and 200s (30,27.3,26.0) [same session]  | 2 - cleaned 100kg | June 10th - 6.72m                   |
-| wk 3 | *1250m* - 3x20,3x30,3x40m. 150s. Lots of technical drills also. | 1                 | June 18th - 6.68m                   |
-| wk 4 | *1150m* - 5x20,3x30,2x40m - then in&outs                        | 2                 | June 25th - 6.63m + hamstring cramp |
+| wk 1 | **1100m** - wicket sprints + 50-20-30 in & outs + 5 shakeout 120s   | 2                 | June 3rd - 7.00m                    |
+| wk 2 | **900m** - wicket sprints and 200s (30,27.3,26.0) [same session]  | 2 - cleaned 100kg | June 10th - 6.72m                   |
+| wk 3 | **1250m** - 3x20,3x30,3x40m. 150s. Lots of technical drills also. | 1                 | June 18th - 6.68m                   |
+| wk 4 | **1150m** - 5x20,3x30,2x40m - then in&outs                        | 2                 | June 25th - 6.63m + hamstring cramp |
 | wk 5 | Recovery                                                        | -                 | -                                   |
 
 ![June 8th](/blog-images/june-26-images/jun-8.MOV)
@@ -62,7 +62,7 @@ From the effort POV - I think my body jumped very well. From the results POV - I
 ![Jump 3 - foul](/blog-images/june-26-images/jump-3-grandslam-foul.mp4)
 
 
-Look, this year is pretty much what I hoped 2024 would be. It took me one year off the track and one insane year on it to achieve it. But I actually did - I competed at the Grand Slam Jerusalem. It is a *World Athletics Continental Tour Silver* competition, so there are usually a few very good athletes in each event. In the men's LJ it was Luvo Manyonga. He is an Olympic silver medalist and world champion. It's actually insane to see athletes of this level in real life. On one hand, they are exactly like us. Humans. On the other, they are insanely strong. They don't always look like it though. But Luvo is strong and powerful. No doubt about it. He jumped 8.35m (+2.6 m/s wind).
+Look, this year is pretty much what I hoped 2024 would be. It took me one year off the track and one insane year on it to achieve it. But I actually did - I competed at the Grand Slam Jerusalem. It is a **World Athletics Continental Tour Silver** competition, so there are usually a few very good athletes in each event. In the men's LJ it was Luvo Manyonga. He is an Olympic silver medalist and world champion. It's actually insane to see athletes of this level in real life. On one hand, they are exactly like us. Humans. On the other, they are insanely strong. They don't always look like it though. But Luvo is strong and powerful. No doubt about it. He jumped 8.35m (+2.6 m/s wind).
 
 OK so. 
 
@@ -96,22 +96,31 @@ I felt a cramp in my left upper hamstring somewhere along the last steps before 
 
 I decided to skip the 4th, used a warming cream, did a lot of stretches and tested whether I can jump or not. On the 5th jump I decided to try to give a semi-serious jump. Just to test the waters. It's a shame I did it in front of 1,000 people but I needed to gain some self-confidence. Then, on the final jump I said "Aight, let's give it all". And gladly, nothing serious happened. I tried too hard and ended up slowing on the board. 6.63m. And that was it for the day.
 
-I ended that competition knowing *for sure* that I'm capable of jumping further than 7m. It's just a matter of time. 
+I ended that competition knowing **for sure** that I'm capable of jumping further than 7m. It's just a matter of time. 
 
 > Also - I think I have a thing that's called runner's knee. I think I just competed way too much lately. We'll see what'll happen with it.
 
 **Current status update:**
 
-*Thu* - June 25th - Competed -> felt the cramp -> jumped with it.
-*Fri* - didn't sleep very well, cycled a bit on a machine (wasn't good at all)
-*Sat* - didn't do anything, still didn't sleep very well
-*Sun* - Slept decently, did a lot of strengthening exercises, and ran a bit.
-*Mon* - Had an acupuncture and massage. The needle electrified my whole body. Probably most painful massage of the year.
-*Tue* - Warmup + trying to run a bit (calves are dead)
-*Wed* - Warmup, then 60s (I would say I hit 70% speed) + a lot of strengthening exercises
-*Thu* - Rest
-*Fri* - I slept like 5hrs not even joking. Warmup, box squats up to 150kg (I weigh 65kg), 90kg power cleans, physio, light running
-*Sun* - Planned return (which makes that 10 days post June 25th)
+**Thu** - June 25th - Competed -> felt the cramp -> jumped with it.
+
+**Fri** - didn't sleep very well, cycled a bit on a machine (wasn't good at all)
+
+**Sat** - didn't do anything, still didn't sleep very well
+
+**Sun** - Slept decently, did a lot of strengthening exercises, and ran a bit.
+
+**Mon** - Had an acupuncture and massage. The needle electrified my whole body. Probably most painful massage of the year.
+
+**Tue** - Warmup + trying to run a bit (calves are dead)
+
+**Wed** - Warmup, then 60s (I would say I hit 70% speed) + a lot of strengthening exercises
+
+**Thu** - Rest
+
+**Fri** - I slept like 5hrs not even joking. Warmup, box squats up to 150kg (I weigh 65kg), 90kg power cleans, physio, light running
+
+**Sun** - Planned return (which makes that 10 days post June 25th)
 
 ### Long Jump Technique 
 

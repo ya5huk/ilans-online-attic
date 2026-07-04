@@ -132,6 +132,10 @@ ul {
     @apply text-2xl mb-3 mt-8;
 }
 
+.prose h4 {
+    @apply text-xl mb-2 mt-6;
+}
+
 .prose p {
     @apply text-[17px] leading-relaxed pb-2 md:text-lg;
 }
