@@ -7,6 +7,25 @@ const nextConfig: NextConfig = {
     // <img> (see SmartImage) so arbitrary hosts never need per-domain config.
     formats: ["image/avif", "image/webp"],
   },
+  async redirects() {
+    return [
+      {
+        source: "/yap",
+        destination: "/writing",
+        permanent: true,
+      },
+      {
+        source: "/pics",
+        destination: "/images",
+        permanent: true,
+      },
+      {
+        source: "/yap/about_me",
+        destination: "/",
+        permanent: true,
+      },
+    ];
+  },
   // The content loaders (src/lib/blog.ts + src/app/sitemap.ts) read markdown via
   // fs.readFileSync(path.join(process.cwd(), <dynamic dir>)). Next's Output File
   // Tracing can't resolve the dynamic segment, so it conservatively globs the

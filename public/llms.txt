@@ -6,7 +6,7 @@
 
 Posts about technology, programming, philosophy, books, travel, and competitive sports training. Written in English and Hebrew.
 
-- [Blog index](https://www.ilansonlineattic.com/yap)
+- [Blog index](https://www.ilansonlineattic.com/writing)
 
 Topics: training, philosophy, books, travel, code
 
@@ -20,7 +20,7 @@ Software projects built over the years — web apps, mobile apps, and tools. Inc
 
 Personal photo gallery — hiking, cycling, travel, track & field, and daily life.
 
-- [Photos](https://www.ilansonlineattic.com/pics)
+- [Photos](https://www.ilansonlineattic.com/images)
 
 ## About
 
