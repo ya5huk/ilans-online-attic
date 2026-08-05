@@ -257,7 +257,14 @@ ul {
 /* Drop cap on the opening paragraph — LTR articles only (.prose-right =
    Hebrew is excluded). Body parts render inside display:contents divs, so
    the DOM path is .prose > div > p; matches only when an article actually
-   opens with a text paragraph (an opening image/heading gets no cap). */
+   opens with a text paragraph (an opening image/heading gets no cap).
+
+   flow-root contains the floated letter when the opening paragraph is only
+   one line, preventing the following paragraph from wrapping around it. */
+.prose:not(.prose-right) > div:first-child > p:first-child {
+    display: flow-root;
+}
+
 .prose:not(.prose-right) > div:first-child > p:first-child::first-letter {
     float: left;
     font-family: var(--font-outfit), "Helvetica Neue", Arial, sans-serif;
