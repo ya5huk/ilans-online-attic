@@ -10,7 +10,7 @@ This year (2025/26 season), I will compete in Long Jump and short sprints (60m/1
 
 ## Track & Field Background
 
-> _"The road is more important than the destination"_. The next paragraph represents mainly the "destination" part, _the results_. Not the process. Not the fun I had in 2-3 short training camps or in international comps, neither what I did in training. Those bulleted dots may seem a little sad, but 6 years is a long time and there really were ups and downs. I am a big believer in results. The road might be important but as you'll see - being the best nationally in 2018/19 and pretty much getting stuck for years after, while all my opponents destroy me, wasn't enjoyable.
+> _"The road is more important than the destination"_. The next paragraph represents mainly the "destination" part, _the results_. Not the process. Not the fun I had in 2-3 short training camps or in international comps, neither what I did in training. Those bulleted dots may seem a little sad, but 6 years is a long time and there really were ups and downs. I am a big believer in results. The road might be important but as you'll see - being the best in the country in 2018/19 and pretty much getting stuck for years after, while all my opponents destroy me, wasn't enjoyable.
 
 - 2018: I joined in the winter. Looking back, training was relatively easy. It was a year of learning what the hell is athletics.
 - 2018/19: Turned out I am very good in hurdles (U16 = 84cm hurdles, 100mH). **I broke the national U16 100mH record 5 times**. None of those times counted. **The wind blew stronger than 2.0 m/s**. My P.B was 13.03s in the 100mH (84cm). I did LJ, sprints and most of the events except TJ, PV and throws. This was a HUGE year. One of the fastest kids in the country, passed 6m in the LJ which is far for that age, super-fast on the hurdles. **In general, I didn't come close in terms of success to 2018/19 until 2022/23**.
@@ -92,11 +92,11 @@ And so, I was stuck between two worlds. Two worlds that require ALL of you and n
 
 ## Why come back?
 
-If everything is so pink & butterflies - why leave this thriving path?
+If everything is so pink - why leave this thriving path?
 
 This year (and it would be hard for younger me to believe) - my schedule was even more dense than of 2023/24 (the last year in track). It had more variety, yes. It was less repetitive, maybe (even though.... not sure). It was less lonely. But - it was harder.
 
-This year, I start fresh. My old work is gone. I am free to shape my life. If I trained, worked, created a project like the one I created this last year. All of those at the same time - then why not train and keep creating & innovating this year? This must be possible. Why not? The last year taught me that an unbelievable amount of stuff can be done in 24 hours. Super dense schedules can be created. You can win life in couple of paths simultaneously. This must be right. Or I might be wrong? But is it not wrong to never see my full potential in sports? Is it not wrong to not try? I might actually be good.
+This year, I start fresh. My old work is gone. I am free to shape my life. If in the last year - I trained, worked, created a project like the one I created this last year. All of those at the same time - then why not train and keep creating & innovating this year? This must be possible. Why not? The last year taught me that an unbelievable amount of stuff can be done in 24 hours. Super dense schedules can be created and executed. You can win life in couple of paths simultaneously. This must be right. Or I might be wrong? But is it not wrong to never see my full potential in sports? Is it not wrong to not try? I might actually be good.
 
 I decided to give this year a try. A full, from the heart, intent-full try. Let's see how it goes.
 
@@ -135,7 +135,7 @@ That month wasn't super clean in terms of pain. Unfortunately, I still felt pain
 
 > Throughout a lot of training sessions, I feel directionless. Sometimes it eats me up a bit. What I mean by that is - I train a lot. I spend a lot of time on planning what I should do the next week/month and what training is best for me, etc. But honestly, who am I?
 >
-> Currently my routine and life are just too unstable to commit to one place (I am literally moving my place of staying every month or so). I can't commit to a trainer and the whole logistics of that are complex where I live. I am forced to train alone right now, maybe it won't be the case in couple of months.
+> Currently my routine and life are just too unstable to commit to one place (I am literally moving my place of stay every month or so). I can't commit to a trainer and the whole logistics of that are complex where I live. I am forced to train alone right now, maybe it won't be the case in couple of months.
 
 ![September tests](/blog-images/tests-sep10-2025.mp4)
 
@@ -152,7 +152,7 @@ First, why did the second half of 2023/24 was so bad in comparison with its firs
 Second, what the hell should I do with long jump. Until now I focused on main strength, getting back to jumping, explosiveness, moving fast with and without weights, just being athletic. Now the time for technical work is around the door. Two solutions I see right now:
 
 - Join long jump sessions with friends when possible
-- Analyze my jump and try to better it with drills and training. It is time to learn about long jump. Just as an example, I stumbled across [John Shepherd](https://www.youtube.com/channel/UCyVAgma7MDT1Wqzw40Mb13g) lately. He made me realize maybe I got the penultimate all wrong. (the penultimate step is a huge problem in my long jump). But that's just an example. Researching will be a big part of the next months and if I got rid of my hip pain in the start of 2022/23 via Internet & friends - I'll try my best here too.
+- Analyze my jump and try to better it with drills and training. It is time to learn about long jump. Just as an example, I stumbled across [John Shepherd](https://www.youtube.com/channel/UCyVAgma7MDT1Wqzw40Mb13g) lately. He made me realize maybe I got the penultimate all wrong. (the penultimate step is a huge problem in my long jump). But that's just an example. Researching will be a big part of the next months and if I got rid of my hip pain in the start of 2022/23 with Internet & friends - I'll try my best here too.
 
 > Just so we'll be on the same page, this my technic overall (March 24th, 2024):
 > [Long jump from 11 steps](https://youtu.be/AKXuu77jXbY?si=alilPFKG1hvzQGp8)

@@ -7,8 +7,16 @@
     --third-soft: #ddc29d;
     /* Derived reading tones (article body) */
     --third-deep: #7d5a33; /* deep tan — link text; 5.04:1 on --bg (WCAG AA) */
-    --muted: color-mix(in srgb, var(--secondary) 55%, var(--bg)); /* dates, captions, quotes */
-    --paper: color-mix(in srgb, var(--third-soft) 45%, var(--bg)); /* inline-code chip */
+    --muted: color-mix(
+        in srgb,
+        var(--secondary) 55%,
+        var(--bg)
+    ); /* dates, captions, quotes */
+    --paper: color-mix(
+        in srgb,
+        var(--third-soft) 45%,
+        var(--bg)
+    ); /* inline-code chip */
 }
 
 /* Font experiment — headers: Outfit · content + UI: Poppins. Variables are
