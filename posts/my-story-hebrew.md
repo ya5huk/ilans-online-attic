@@ -196,4 +196,6 @@ Were all alone in this together
 
 אסיר תודה על ה-8 חודשים הלאו.
 
-ממשיכים.⁩
+ממשיכים.
+
+[(פורסם לראשונה באינסטגרם)](https://www.instagram.com/p/Db_Vp4vCO4G/?utm_source=ig_web_copy_link&xtok=MzRlODBiNWFlZA==&srtk=MzRlODBiNWFlZA==)
